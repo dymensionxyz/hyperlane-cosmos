@@ -1,0 +1,1 @@
+- depend on github.com/ethereum/go-ethereum v1.10.26 
