@@ -30,3 +30,5 @@ debug_container.dot
 /release/
 **/node_modules
 **/build
+
+repomix**
