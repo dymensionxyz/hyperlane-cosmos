@@ -36,3 +36,5 @@ debug_container.dot
 
 repomix**
 .aider*
+.DS_Store
+**/*__debug**

@@ -69,4 +69,8 @@ enum HypTokenType {
 
   // HYP_TOKEN_TYPE_SYNTHETIC ...
   HYP_TOKEN_TYPE_SYNTHETIC = 2;
+
+  // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ DYMENSION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  HYP_TOKEN_TYPE_COLLATERAL_MEMO = 254;
+  HYP_TOKEN_TYPE_SYNTHETIC_MEMO = 255;
 }

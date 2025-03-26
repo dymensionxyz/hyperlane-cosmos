@@ -35,6 +35,17 @@ service Msg {
 
   // RemoteTransfer ...
   rpc RemoteTransfer(MsgRemoteTransfer) returns (MsgRemoteTransferResponse);
+
+
+  // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ DYMENSION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  rpc DymCreateCollateralToken(MsgDymCreateCollateralToken)
+    returns (MsgDymCreateCollateralTokenResponse);
+
+  rpc DymCreateSyntheticToken(MsgDymCreateSyntheticToken)
+    returns (MsgDymCreateSyntheticTokenResponse);
+
+  rpc DymRemoteTransfer(MsgDymRemoteTransfer) returns (MsgDymRemoteTransferResponse);
+
 }
 
 // MsgCreateCollateralToken ...
@@ -177,3 +188,32 @@ message MsgRemoteTransfer {
 
 // MsgRemoteTransferResponse ...
 message MsgRemoteTransferResponse { string message_id = 1; }
+
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ DYMENSION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+message MsgDymCreateCollateralToken {
+  option (cosmos.msg.v1.signer) = "signer"; 
+  string signer = 2 [ (cosmos_proto.scalar) = "cosmos.AddressString" ];
+  MsgCreateCollateralToken inner = 1;
+}
+
+message MsgDymCreateCollateralTokenResponse {MsgCreateCollateralTokenResponse inner = 1;}
+
+message MsgDymCreateSyntheticToken {
+  option (cosmos.msg.v1.signer) = "signer"; 
+  string signer = 2 [ (cosmos_proto.scalar) = "cosmos.AddressString" ];
+  MsgCreateSyntheticToken inner = 1;
+}
+
+message MsgDymCreateSyntheticTokenResponse {MsgCreateSyntheticTokenResponse inner = 1;}
+
+message MsgDymRemoteTransfer {
+  option (cosmos.msg.v1.signer) = "signer"; 
+  string signer = 2 [ (cosmos_proto.scalar) = "cosmos.AddressString" ];
+  MsgRemoteTransfer inner = 1;
+  bytes memo = 3;
+}
+
+message MsgDymRemoteTransferResponse {MsgRemoteTransferResponse inner = 1;}

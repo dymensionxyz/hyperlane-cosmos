@@ -1078,6 +1078,22 @@ func createToken(s *i.KeeperTestSuite, remoteRouter *types.RemoteRouter, owner, 
 
 	var tokenId util.HexAddress
 	switch tokenType {
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ DYMENSION CHANGE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	case types.HYP_TOKEN_TYPE_COLLATERAL_MEMO:
+		res, err := s.RunTx(
+			types.NewMsgDymCreateCollateralToken(
+				&types.MsgCreateCollateralToken{
+					Owner:         owner,
+					OriginDenom:   denom,
+					OriginMailbox: mailboxId,
+				}))
+		Expect(err).To(BeNil())
+
+		var response types.MsgDymCreateCollateralTokenResponse
+		err = proto.Unmarshal(res.MsgResponses[0].Value, &response)
+		Expect(err).To(BeNil())
+		tokenId, err = util.DecodeHexAddress(response.Inner.Id)
+		Expect(err).To(BeNil())
 	case 1:
 		res, err := s.RunTx(&types.MsgCreateCollateralToken{
 			Owner:         owner,
@@ -1092,6 +1108,21 @@ func createToken(s *i.KeeperTestSuite, remoteRouter *types.RemoteRouter, owner, 
 		tokenId, err = util.DecodeHexAddress(response.Id)
 		Expect(err).To(BeNil())
 
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ DYMENSION CHANGE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	case types.HYP_TOKEN_TYPE_SYNTHETIC_MEMO:
+		res, err := s.RunTx(
+			types.NewMsgDymCreateSyntheticToken(
+				&types.MsgCreateSyntheticToken{
+					Owner:         owner,
+					OriginMailbox: mailboxId,
+				}))
+		Expect(err).To(BeNil())
+
+		var response types.MsgDymCreateSyntheticTokenResponse
+		err = proto.Unmarshal(res.MsgResponses[0].Value, &response)
+		Expect(err).To(BeNil())
+		tokenId, err = util.DecodeHexAddress(response.Inner.Id)
+		Expect(err).To(BeNil())
 	case 2:
 		res, err := s.RunTx(&types.MsgCreateSyntheticToken{
 			Owner:         owner,
