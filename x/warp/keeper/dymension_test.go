@@ -104,6 +104,8 @@ var _ = Describe("dymension.go", Ordered, func() {
 		// Assert
 		Expect(err).To(BeNil())
 		Expect(s.App().BankKeeper.GetBalance(s.Ctx(), sender.AccAddress, denom).Amount).To(Equal(senderBalance.Amount.Add(amount)))
+		Expect(h.called).To(BeTrue())
+		Expect(h.gotMemo).To(Equal(memo))
 	})
 })
 

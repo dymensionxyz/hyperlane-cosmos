@@ -22,19 +22,19 @@ type DymensionHandler struct {
 }
 
 type DymHookArgs struct {
-	mailboxId util.HexAddress
+	MailboxId util.HexAddress
 
-	// original unmdified message
-	message util.HyperlaneMessage
+	// original unmdified Message
+	Message util.HyperlaneMessage
 
-	// original unmodified memo
-	memo []byte
+	// original unmodified Memo
+	Memo []byte
 
 	// who was credited
-	account sdk.AccAddress
+	Account sdk.AccAddress
 
 	// how much was credited
-	coins sdk.Coins
+	Coins sdk.Coins
 }
 
 type DymHook interface {
@@ -109,11 +109,11 @@ func (k *DymensionHandler) Handle(ctx context.Context, mailboxId util.HexAddress
 	}
 
 	k.hook.Handle(ctx, DymHookArgs{
-		mailboxId: mailboxId,
-		message:   message,
-		memo:      payloadMemo.Memo,
-		account:   account,
-		coins:     coins,
+		MailboxId: mailboxId,
+		Message:   message,
+		Memo:      payloadMemo.Memo,
+		Account:   account,
+		Coins:     coins,
 	})
 
 	return err
