@@ -65,7 +65,13 @@ message MsgCreateCollateralToken {
 }
 
 // MsgCreateCollateralTokenResponse ...
-message MsgCreateCollateralTokenResponse { string id = 1; }
+message MsgCreateCollateralTokenResponse {
+  string id = 1 [
+    (gogoproto.customtype) =
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+    (gogoproto.nullable) = false
+  ];
+}
 
 // MsgCreateSyntheticToken ...
 message MsgCreateSyntheticToken {
@@ -83,7 +89,13 @@ message MsgCreateSyntheticToken {
 }
 
 // MsgCreateSyntheticTokenResponse ...
-message MsgCreateSyntheticTokenResponse { string id = 1; }
+message MsgCreateSyntheticTokenResponse {
+  string id = 1 [
+    (gogoproto.customtype) =
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+    (gogoproto.nullable) = false
+  ];
+}
 
 // MsgSetToken ...
 message MsgSetToken {
@@ -187,7 +199,13 @@ message MsgRemoteTransfer {
 }
 
 // MsgRemoteTransferResponse ...
-message MsgRemoteTransferResponse { string message_id = 1; }
+message MsgRemoteTransferResponse {
+  string message_id = 1 [
+    (gogoproto.customtype) =
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+    (gogoproto.nullable) = false
+  ];
+}
 
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ DYMENSION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -168,7 +168,7 @@ func (ms msgServer) DymCreateSyntheticToken(ctx context.Context, wrapped *types.
 		return nil, err
 	}
 
-	return &types.MsgDymCreateSyntheticTokenResponse{Inner: &types.MsgCreateSyntheticTokenResponse{Id: tokenId.String()}}, nil
+	return &types.MsgDymCreateSyntheticTokenResponse{Inner: &types.MsgCreateSyntheticTokenResponse{Id: tokenId}}, nil
 }
 
 // just a slight mod to the upstream method
@@ -210,7 +210,7 @@ func (ms msgServer) DymCreateCollateralToken(ctx context.Context, wrapped *types
 	if err = ms.k.HypTokens.Set(ctx, tokenId.GetInternalId(), newToken); err != nil {
 		return nil, err
 	}
-	return &types.MsgDymCreateCollateralTokenResponse{Inner: &types.MsgCreateCollateralTokenResponse{Id: tokenId.String()}}, nil
+	return &types.MsgDymCreateCollateralTokenResponse{Inner: &types.MsgCreateCollateralTokenResponse{Id: tokenId}}, nil
 }
 
 func (ms msgServer) DymRemoteTransfer(ctx context.Context, wrapped *types.MsgDymRemoteTransfer) (*types.MsgDymRemoteTransferResponse, error) {
@@ -227,21 +227,21 @@ func (ms msgServer) DymRemoteTransfer(ctx context.Context, wrapped *types.MsgDym
 		return nil, fmt.Errorf("invalid custom hook metadata")
 	}
 
-	var messageResultId string
+	var messageResultId util.HexAddress
 	if token.TokenType == types.HYP_TOKEN_TYPE_COLLATERAL_MEMO {
 		// NOTE: sending Memo from Cosmos not yet supported (not needed for our MVP, since we don't multihop on other chains)
 		result, err := ms.k.RemoteTransferCollateral(goCtx, token, msg.Sender, msg.DestinationDomain, msg.Recipient, msg.Amount, msg.CustomHookId, msg.GasLimit, msg.MaxFee, customHookMetadata)
 		if err != nil {
 			return nil, err
 		}
-		messageResultId = result.String()
+		messageResultId = result
 	} else if token.TokenType == types.HYP_TOKEN_TYPE_SYNTHETIC_MEMO {
 		// NOTE: sending Memo from Cosmos not yet supported (not needed for our MVP, since we don't multihop on other chains)
 		result, err := ms.k.RemoteTransferSynthetic(goCtx, token, msg.Sender, msg.DestinationDomain, msg.Recipient, msg.Amount, msg.CustomHookId, msg.GasLimit, msg.MaxFee, customHookMetadata)
 		if err != nil {
 			return nil, err
 		}
-		messageResultId = result.String()
+		messageResultId = result
 	} else {
 		return nil, errors.New("invalid token type")
 	}
