@@ -108,11 +108,13 @@ var _ = Describe("dymension.go", Ordered, func() {
 })
 
 type DummyHook struct {
-	called bool
+	called  bool
+	gotMemo []byte
 }
 
 func (h *DummyHook) Handle(ctx context.Context, args keeper.DymHookArgs) error {
 	h.called = true
+	h.gotMemo = args.Memo
 	return nil
 }
 
