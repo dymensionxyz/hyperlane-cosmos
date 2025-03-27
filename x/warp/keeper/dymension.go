@@ -41,6 +41,7 @@ type DymHook interface {
 	Handle(ctx context.Context, args DymHookArgs) error
 }
 
+// TODO: fix side effects (make more clear)
 func NewDymensionHandler(k *Keeper, hook DymHook) *DymensionHandler {
 	ret := &DymensionHandler{k, hook}
 	ret.RegisterModulesDymension()
