@@ -45,15 +45,3 @@ modules:
   - name: tx
     config:
       "@type": cosmos.tx.config.v1.Config
-  - name: hyperlane
-    config:
-      "@type": hyperlane.core.module.v1.Module
-  - name: warp
-    config:
-      "@type": hyperlane.warp.module.v1.Module
-      enabled_tokens:
-        - 1
-        - 2
-        # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ DYMENSION CHANGE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        - 254
-        - 255
