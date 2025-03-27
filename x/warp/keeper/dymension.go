@@ -42,10 +42,14 @@ type DymHook interface {
 }
 
 // TODO: fix side effects (make more clear)
-func NewDymensionHandler(k *Keeper, hook DymHook) *DymensionHandler {
-	ret := &DymensionHandler{k, hook}
+func NewDymensionHandler(k *Keeper) *DymensionHandler {
+	ret := &DymensionHandler{k, nil}
 	ret.RegisterModulesDymension()
 	return ret
+}
+
+func (k *DymensionHandler) SetHook(hook DymHook) {
+	k.hook = hook
 }
 
 // must be called after new keeper
@@ -118,6 +122,74 @@ func (k *DymensionHandler) Handle(ctx context.Context, mailboxId util.HexAddress
 	})
 
 	return err
+}
+
+// NOTE: does not actually transfer the tokens!!! This is different from the upstream method. It's to allow the hook to do something else with the tokens.
+func (k *DymensionHandler) RemoteReceiveCollateral(ctx context.Context, token types.HypToken, payload types.WarpPayload) error {
+
+	amount := math.NewIntFromBigInt(payload.Amount())
+
+	token.CollateralBalance = token.CollateralBalance.Sub(amount)
+	if token.CollateralBalance.IsNegative() {
+		return types.ErrNotEnoughCollateral
+	}
+
+	if err := k.HypTokens.Set(ctx, token.Id.GetInternalId(), token); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// NOTE: does not actually transfer the tokens!!! This is different from the upstream method. It's to allow the hook to do something else with the tokens.
+func (k *DymensionHandler) RemoteReceiveSynthetic(ctx context.Context, token types.HypToken, payload types.WarpPayload) error {
+
+	shadowToken := sdk.NewCoin(
+		token.OriginDenom,
+		math.NewIntFromBigInt(payload.Amount()),
+	)
+
+	if err := k.bankKeeper.MintCoins(ctx, types.ModuleName, sdk.NewCoins(shadowToken)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// if this hook is used, then the tokens are actually transferred, which gives exactly the same as the upstream functionality that doesn't use hooks
+// intended for testing
+type DymDefaultHook struct {
+	*DymensionHandler
+}
+
+func (k *DymDefaultHook) Handle(ctx context.Context, args DymHookArgs) error {
+	token, err := k.DymensionHandler.HypTokens.Get(ctx, args.Message.Recipient.GetInternalId())
+	if err != nil {
+		return err
+	}
+
+	account := args.Account
+
+	amount := args.Coins.AmountOf(args.Coins.Denoms()[0])
+
+	if token.TokenType == types.HYP_TOKEN_TYPE_COLLATERAL_MEMO {
+
+		if err := k.bankKeeper.SendCoinsFromModuleToAccount(
+			ctx,
+			types.ModuleName,
+			account,
+			sdk.NewCoins(sdk.NewCoin(token.OriginDenom, amount)),
+		); err != nil {
+			return err
+		}
+	} else if token.TokenType == types.HYP_TOKEN_TYPE_SYNTHETIC_MEMO {
+
+		if err := k.bankKeeper.SendCoinsFromModuleToAccount(ctx, types.ModuleName, account, args.Coins); err != nil {
+			return err
+		}
+	}
+
+	return nil
 }
 
 func (k *DymensionHandler) AccountAndCoinsCollat(payload types.WarpPayload, token types.HypToken) (sdk.AccAddress, sdk.Coins) {
