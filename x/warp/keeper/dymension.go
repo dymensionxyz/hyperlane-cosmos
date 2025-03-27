@@ -162,7 +162,7 @@ type DymDefaultHook struct {
 	*DymensionHandler
 }
 
-func (k *DymDefaultHook) Handle(ctx context.Context, args DymHookArgs) error {
+func (k *DymDefaultHook) OnHyperlane(ctx context.Context, args DymHookArgs) error {
 	token, err := k.DymensionHandler.HypTokens.Get(ctx, args.Message.Recipient.GetInternalId())
 	if err != nil {
 		return err
