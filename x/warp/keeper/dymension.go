@@ -38,7 +38,7 @@ type DymHookArgs struct {
 }
 
 type DymHook interface {
-	Handle(ctx context.Context, args DymHookArgs) error
+	OnHyperlane(ctx context.Context, args DymHookArgs) error
 }
 
 // TODO: fix side effects (make more clear)
@@ -113,7 +113,7 @@ func (k *DymensionHandler) Handle(ctx context.Context, mailboxId util.HexAddress
 		account, coins = k.AccountAndCoinsSynth(payload, token)
 	}
 
-	k.hook.Handle(ctx, DymHookArgs{
+	k.hook.OnHyperlane(ctx, DymHookArgs{
 		MailboxId: mailboxId,
 		Message:   message,
 		Memo:      payloadMemo.Memo,
