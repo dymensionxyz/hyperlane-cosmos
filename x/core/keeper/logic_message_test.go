@@ -24,6 +24,7 @@ TEST CASES - logic_message.go
 * ProcessMessage (invalid) with invalid hex message
 * ProcessMessage (invalid) already processed message (replay protection)
 * ProcessMessage (invalid) with invalid message: non-registered recipient
+* ProcessMessage (invalid) with invalid message: invalid version
 
 */
 
@@ -173,17 +174,21 @@ var _ = Describe("logic_message.go", Ordered, func() {
 		Expect(err.Error()).To(Equal("invalid hyperlane message"))
 	})
 
-	PIt("ProcessMessage (invalid) already processed message (replay protection)", func() {
+	It("ProcessMessage (invalid) already processed message (replay protection)", func() {
 		// Arrange
-		mailboxId, _, _, _ := createValidMailbox(s, creator.Address, "noop", 1)
+		mailboxId, _, _, ismId := createValidMailbox(s, creator.Address, "noop", 1)
 
 		err := s.MintBaseCoins(sender.Address, 1_000_000)
 		Expect(err).To(BeNil())
 
 		senderHex := util.CreateMockHexAddress("test", 0)
-		recipientHex := util.CreateMockHexAddress("test", 0)
 
 		localDomain, err := s.App().HyperlaneKeeper.LocalDomain(s.Ctx(), mailboxId)
+		Expect(err).To(BeNil())
+
+		// Register a mock recipient
+		mockApp := i.CreateMockApp(s.App().HyperlaneKeeper.AppRouter())
+		recipient, err := mockApp.RegisterApp(s.Ctx(), ismId)
 		Expect(err).To(BeNil())
 
 		hypMsg := util.HyperlaneMessage{
@@ -192,7 +197,7 @@ var _ = Describe("logic_message.go", Ordered, func() {
 			Origin:      localDomain,
 			Sender:      senderHex,
 			Destination: 1,
-			Recipient:   recipientHex,
+			Recipient:   recipient,
 			Body:        []byte(""),
 		}
 
@@ -204,6 +209,11 @@ var _ = Describe("logic_message.go", Ordered, func() {
 		})
 		Expect(err).To(BeNil())
 
+		// Expect our mock app to have been called
+		callcount, message, mailboxId := mockApp.CallInfo()
+		Expect(callcount).To(Equal(1))
+		Expect(message.String()).To(Equal(message.String()))
+		Expect(mailboxId.String()).To(Equal(mailboxId.String()))
 		// Act
 		_, err = s.RunTx(&types.MsgProcessMessage{
 			MailboxId: mailboxId,
@@ -214,10 +224,13 @@ var _ = Describe("logic_message.go", Ordered, func() {
 
 		// Assert
 		Expect(err.Error()).To(Equal(fmt.Sprintf("already received messsage with id %s", hypMsg.Id())))
+
+		// Expect our mock app to not have been called again
+		callcount, _, _ = mockApp.CallInfo()
+		Expect(callcount).To(Equal(1))
 	})
 
-	// TODO rework test, once warp is refactored to use router
-	PIt("ProcessMessage (invalid) with invalid message: non-registered recipient", func() {
+	It("ProcessMessage (invalid) with invalid message: non-registered recipient", func() {
 		// Arrange
 		mailboxId, _, _, _ := createValidMailbox(s, creator.Address, "noop", 1)
 
@@ -249,6 +262,43 @@ var _ = Describe("logic_message.go", Ordered, func() {
 		})
 
 		// Assert
-		Expect(err.Error()).To(Equal(fmt.Sprintf("failed to get receiver ism address for recipient: %s", recipientHex)))
+		Expect(err.Error()).To(Equal(fmt.Sprintf("id %v not found", recipientHex)))
+	})
+
+	It("ProcessMessage (invalid) with invalid message: invalid version", func() {
+		// Arrange
+		mailboxId, _, _, _ := createValidMailbox(s, creator.Address, "noop", 1)
+
+		err := s.MintBaseCoins(sender.Address, 1_000_000)
+		Expect(err).To(BeNil())
+
+		senderHex := util.CreateMockHexAddress("test", 0)
+		recipientHex := util.CreateMockHexAddress("test", 0)
+
+		localDomain, err := s.App().HyperlaneKeeper.LocalDomain(s.Ctx(), mailboxId)
+		Expect(err).To(BeNil())
+
+		var version uint8 = 2
+
+		hypMsg := util.HyperlaneMessage{
+			Version:     version,
+			Nonce:       0,
+			Origin:      localDomain,
+			Sender:      senderHex,
+			Destination: 1,
+			Recipient:   recipientHex,
+			Body:        []byte("test123"),
+		}
+
+		// Act
+		_, err = s.RunTx(&types.MsgProcessMessage{
+			MailboxId: mailboxId,
+			Relayer:   sender.Address,
+			Metadata:  "",
+			Message:   hypMsg.String(),
+		})
+
+		// Assert
+		Expect(err.Error()).To(Equal(fmt.Sprintf("unsupported message version %v", version)))
 	})
 })
