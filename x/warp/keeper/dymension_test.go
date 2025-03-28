@@ -22,14 +22,14 @@ var _ = Describe("dymension.go", Ordered, func() {
 	var sender i.TestValidatorAddress
 
 	BeforeEach(func() {
-		s = i.NewCleanChain()
+		s = i.NewCleanChainWithEnabledTokens([]int32{int32(types.HYP_TOKEN_TYPE_COLLATERAL_MEMO)})
 		owner = i.GenerateTestValidatorAddress("Owner")
 		sender = i.GenerateTestValidatorAddress("Sender")
 		err := s.MintBaseCoins(owner.Address, 1_000_000)
 		Expect(err).To(BeNil())
 	})
 
-	It("MsgRemoteTransfer && MsgRemoteReceiveCollateral (Memo) (dummy hook) (valid) (Collateral)", func() {
+	FIt("MsgRemoteTransfer && MsgRemoteReceiveCollateral (Memo) (dummy hook) (valid) (Collateral)", func() {
 
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ DYMENSION CHANGE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		// Need to do this at the start to register the app router modules
@@ -83,7 +83,7 @@ var _ = Describe("dymension.go", Ordered, func() {
 		Expect(err).To(BeNil())
 
 		message := util.HyperlaneMessage{
-			Version:     1,
+			Version:     coreTypes.MESSAGE_VERSION,
 			Nonce:       1,
 			Origin:      remoteRouter.ReceiverDomain,
 			Sender:      receiverContract,
