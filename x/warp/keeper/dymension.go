@@ -329,27 +329,38 @@ func (ms msgServer) DymRemoteTransfer(ctx context.Context, wrapped *types.MsgDym
 
 // A message which can be sent to the mailbox in TX to trigger a transfer
 func CreateTestMessage(
-	Version uint8,
-	Nonce uint32,
-	Origin uint32,
-	Sender util.HexAddress,
-	Destination uint32,
-	Recipient util.HexAddress,
-	Amt big.Int,
+	version uint8, // e.g. 1
+	nonce uint32, // e.g. 1
+	srcDomain uint32, // e.g. 1 (Ethereum)
+	srcContract util.HexAddress, // e.g Ethereum token contract
+	dstDomain uint32, // e.g. 0 (Dymension)
+	tokenID util.HexAddress,
+	recipient sdk.AccAddress,
+	amt math.Int,
 	memo []byte,
 ) (util.HyperlaneMessage, error) {
-	wmpl, err := types.NewWarpPayload(recipient, amount)
+	bech32, err := sdk.Bech32ifyAddressBytes("dym", recipient)
 	if err != nil {
 		return util.HyperlaneMessage{}, err
 	}
+	recip, err := sdk.GetFromBech32(bech32, "dym")
+	if err != nil {
+		return util.HyperlaneMessage{}, err
+	}
+
+	wmpl, err := types.NewWarpPayload(recip, *big.NewInt(amt.Int64()))
+	if err != nil {
+		return util.HyperlaneMessage{}, err
+	}
+
 	body := wmpl.Bytes()
 	return util.HyperlaneMessage{
-		Version:     Version,
-		Nonce:       Nonce,
-		Origin:      Origin,
-		Sender:      Sender,
-		Destination: Destination,
-		Recipient:   Recipient,
+		Version:     version,
+		Nonce:       nonce,
+		Origin:      srcDomain,
+		Sender:      srcContract,
+		Destination: dstDomain,
+		Recipient:   tokenID,
 		Body:        body,
 	}, nil
 }
