@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"math/big"
 	"slices"
 	"strings"
 
@@ -323,5 +324,32 @@ func (ms msgServer) DymRemoteTransfer(ctx context.Context, wrapped *types.MsgDym
 		Inner: &types.MsgRemoteTransferResponse{
 			MessageId: messageResultId,
 		},
+	}, nil
+}
+
+// A message which can be sent to the mailbox in TX to trigger a transfer
+func CreateTestMessage(
+	Version uint8,
+	Nonce uint32,
+	Origin uint32,
+	Sender util.HexAddress,
+	Destination uint32,
+	Recipient util.HexAddress,
+	Amt big.Int,
+	memo []byte,
+) (util.HyperlaneMessage, error) {
+	wmpl, err := types.NewWarpPayload(recipient, amount)
+	if err != nil {
+		return util.HyperlaneMessage{}, err
+	}
+	body := wmpl.Bytes()
+	return util.HyperlaneMessage{
+		Version:     Version,
+		Nonce:       Nonce,
+		Origin:      Origin,
+		Sender:      Sender,
+		Destination: Destination,
+		Recipient:   Recipient,
+		Body:        body,
 	}, nil
 }
