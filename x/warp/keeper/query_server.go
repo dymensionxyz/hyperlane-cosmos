@@ -62,9 +62,11 @@ func (qs queryServer) BridgedSupply(ctx context.Context, request *types.QueryBri
 
 	var amount math.Int
 	switch token.TokenType {
-	case types.HYP_TOKEN_TYPE_COLLATERAL:
+	// ~~~~~~~ DYMENSION ~~~~~~~~
+	case types.HYP_TOKEN_TYPE_COLLATERAL, types.HYP_TOKEN_TYPE_COLLATERAL_MEMO:
 		amount = token.CollateralBalance
-	case types.HYP_TOKEN_TYPE_SYNTHETIC:
+	// ~~~~~~~ DYMENSION ~~~~~~~~
+	case types.HYP_TOKEN_TYPE_SYNTHETIC, types.HYP_TOKEN_TYPE_SYNTHETIC_MEMO:
 		amount = qs.k.bankKeeper.GetSupply(ctx, token.OriginDenom).Amount
 	default:
 		return nil, fmt.Errorf("query doesn't support token type: %s", token.TokenType)
