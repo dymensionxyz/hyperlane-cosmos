@@ -339,16 +339,16 @@ func CreateTestMessage(
 	amt math.Int,
 	memo []byte,
 ) (util.HyperlaneMessage, error) {
-	bech32, err := sdk.Bech32ifyAddressBytes("dym", recipient)
+	bech32, err := sdk.Bech32ifyAddressBytes("dym", recipient) // TODO: fix
 	if err != nil {
 		return util.HyperlaneMessage{}, err
 	}
-	recip, err := sdk.GetFromBech32(bech32, "dym")
+	recip, err := sdk.GetFromBech32(bech32, "dym") // TODO: fix
 	if err != nil {
 		return util.HyperlaneMessage{}, err
 	}
 
-	wmpl, err := types.NewWarpPayload(recip, *big.NewInt(amt.Int64()))
+	wmpl, err := types.NewWarpMemoPayload(recip, *big.NewInt(amt.Int64()), memo)
 	if err != nil {
 		return util.HyperlaneMessage{}, err
 	}
