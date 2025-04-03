@@ -4,6 +4,9 @@ import (
 	"bytes"
 	"math/big"
 	"testing"
+
+	"github.com/bcp-innovations/hyperlane-cosmos/util"
+	"github.com/stretchr/testify/require"
 )
 
 func TestNewWarpMemoPayload(t *testing.T) {
@@ -31,4 +34,29 @@ func TestNewWarpMemoPayload(t *testing.T) {
 			t.Fatalf("amount is not correct")
 		}
 	}
+}
+
+func TestMemoEth(t *testing.T) {
+	message := "0x030000000100007a690000000000000000000000004a679253410272dd5232b3ff7cf5dbb88f29531900007a6a0000000000000000000000004a679253410272dd5232b3ff7cf5dbb88f295319000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000000000001"
+	body := "0x000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb92266000000000000000000000000000000000000000000000000000000000000000168656c6c6f"
+	checkMessage(t, message)
+	checkBody(t, body)
+}
+
+func checkMessage(t *testing.T, s string) {
+	bz, err := util.DecodeEthHex(s)
+	require.NoError(t, err)
+	message, err := util.ParseHyperlaneMessage(bz)
+	require.NoError(t, err)
+	payload, err := ParseWarpMemoPayload(message.Body)
+	require.NoError(t, err)
+	t.Logf("%+v", payload)
+}
+
+func checkBody(t *testing.T, s string) {
+	bz, err := util.DecodeEthHex(s)
+	require.NoError(t, err)
+	payload, err := ParseWarpMemoPayload(bz)
+	require.NoError(t, err)
+	t.Logf("%+v", payload)
 }
