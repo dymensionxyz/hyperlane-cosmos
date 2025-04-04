@@ -328,7 +328,7 @@ func (ms msgServer) DymRemoteTransfer(ctx context.Context, wrapped *types.MsgDym
 }
 
 // A message which can be sent to the mailbox in TX to trigger a transfer
-func CreateTestMessage(
+func CreateTestHyperlaneMessage(
 	version uint8, // e.g. 1
 	nonce uint32, // e.g. 1
 	srcDomain uint32, // e.g. 1 (Ethereum)
