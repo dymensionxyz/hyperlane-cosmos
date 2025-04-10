@@ -42,7 +42,6 @@ type DymHook interface {
 	OnHyperlaneMessage(ctx context.Context, args OnHyperlaneMessageArgs) error
 }
 
-// TODO: fix side effects (make more clear)
 func NewDymensionHandler(k *Keeper) *DymensionHandler {
 	ret := &DymensionHandler{k, nil}
 	return ret
