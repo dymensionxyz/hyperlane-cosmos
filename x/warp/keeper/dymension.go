@@ -22,7 +22,7 @@ type DymensionHandler struct {
 	hook DymHook
 }
 
-type DymHookArgs struct {
+type OnHyperlaneMessageArgs struct {
 	MailboxId util.HexAddress
 
 	// original unmdified Message
@@ -39,13 +39,12 @@ type DymHookArgs struct {
 }
 
 type DymHook interface {
-	OnHyperlane(ctx context.Context, args DymHookArgs) error
+	OnHyperlaneMessage(ctx context.Context, args OnHyperlaneMessageArgs) error
 }
 
 // TODO: fix side effects (make more clear)
 func NewDymensionHandler(k *Keeper) *DymensionHandler {
 	ret := &DymensionHandler{k, nil}
-	ret.RegisterModulesDymension()
 	return ret
 }
 
@@ -54,7 +53,7 @@ func (k *DymensionHandler) SetHook(hook DymHook) {
 }
 
 // must be called after new keeper
-func (k *DymensionHandler) RegisterModulesDymension() {
+func (k *DymensionHandler) RegisterDymensionTokens() {
 	k.GetCoreKeeper().AppRouter().RegisterModule(uint8(types.HYP_TOKEN_TYPE_COLLATERAL_MEMO), k)
 	k.GetCoreKeeper().AppRouter().RegisterModule(uint8(types.HYP_TOKEN_TYPE_SYNTHETIC_MEMO), k)
 }
@@ -114,7 +113,7 @@ func (k *DymensionHandler) Handle(ctx context.Context, mailboxId util.HexAddress
 		account, coins = k.AccountAndCoinsSynth(payload, token)
 	}
 
-	k.hook.OnHyperlane(ctx, DymHookArgs{
+	k.hook.OnHyperlaneMessage(ctx, OnHyperlaneMessageArgs{
 		MailboxId: mailboxId,
 		Message:   message,
 		Memo:      payloadMemo.Memo,
@@ -163,7 +162,7 @@ type DymDefaultHook struct {
 	*DymensionHandler
 }
 
-func (k *DymDefaultHook) OnHyperlane(ctx context.Context, args DymHookArgs) error {
+func (k *DymDefaultHook) OnHyperlane(ctx context.Context, args OnHyperlaneMessageArgs) error {
 	token, err := k.DymensionHandler.HypTokens.Get(ctx, args.Message.Recipient.GetInternalId())
 	if err != nil {
 		return err

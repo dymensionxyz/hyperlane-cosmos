@@ -195,7 +195,7 @@ type DummyHook struct {
 	gotMemo []byte
 }
 
-func (h *DummyHook) OnHyperlane(ctx context.Context, args keeper.DymHookArgs) error {
+func (h *DummyHook) OnHyperlaneMessage(ctx context.Context, args keeper.OnHyperlaneMessageArgs) error {
 	h.called = true
 	h.gotMemo = args.Memo
 	return nil
