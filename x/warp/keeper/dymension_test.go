@@ -29,13 +29,14 @@ var _ = Describe("dymension.go", Ordered, func() {
 		Expect(err).To(BeNil())
 	})
 
-	FIt("MsgRemoteTransfer && MsgRemoteReceiveCollateral (Memo) (dummy hook) (valid) (Collateral)", func() {
+	It("MsgRemoteTransfer && MsgRemoteReceiveCollateral (Memo) (dummy hook) (valid) (Collateral)", func() {
 
 		// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ DYMENSION CHANGE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 		// Need to do this at the start to register the app router modules
 		h := &DummyHook{}
 		dymHandler := keeper.NewDymensionHandler(&s.App().WarpKeeper)
 		dymHandler.SetHook(h)
+		dymHandler.RegisterDymensionTokens()
 
 		// Arrange
 		receiverAddress, _ := util.DecodeHexAddress("0xd7194459d45619d04a5a0f9e78dc9594a0f37fd6da8382fe12ddda6f2f46d647")
@@ -119,6 +120,7 @@ var _ = Describe("dymension.go", Ordered, func() {
 			DymensionHandler: dymHandler,
 		}
 		dymHandler.SetHook(h)
+		dymHandler.RegisterDymensionTokens()
 
 		// Arrange
 		receiverAddress, _ := util.DecodeHexAddress("0xd7194459d45619d04a5a0f9e78dc9594a0f37fd6da8382fe12ddda6f2f46d647")
@@ -166,7 +168,7 @@ var _ = Describe("dymension.go", Ordered, func() {
 		Expect(err).To(BeNil())
 
 		message := util.HyperlaneMessage{
-			Version:     1,
+			Version:     3,
 			Nonce:       1,
 			Origin:      remoteRouter.ReceiverDomain,
 			Sender:      receiverContract,
