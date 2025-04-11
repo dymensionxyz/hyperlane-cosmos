@@ -127,38 +127,6 @@ func (k *DymensionHandler) Handle(ctx context.Context, mailboxId util.HexAddress
 	return err
 }
 
-// NOTE: does not actually transfer the tokens!!! This is different from the upstream method. It's to allow the hook to do something else with the tokens.
-func (k *DymensionHandler) RemoteReceiveCollateral(ctx context.Context, token types.HypToken, payload types.WarpPayload) error {
-
-	amount := math.NewIntFromBigInt(payload.Amount())
-
-	token.CollateralBalance = token.CollateralBalance.Sub(amount)
-	if token.CollateralBalance.IsNegative() {
-		return types.ErrNotEnoughCollateral
-	}
-
-	if err := k.HypTokens.Set(ctx, token.Id.GetInternalId(), token); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// NOTE: does not actually transfer the tokens!!! This is different from the upstream method. It's to allow the hook to do something else with the tokens.
-func (k *DymensionHandler) RemoteReceiveSynthetic(ctx context.Context, token types.HypToken, payload types.WarpPayload) error {
-
-	shadowToken := sdk.NewCoin(
-		token.OriginDenom,
-		math.NewIntFromBigInt(payload.Amount()),
-	)
-
-	if err := k.bankKeeper.MintCoins(ctx, types.ModuleName, sdk.NewCoins(shadowToken)); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 // If this hook is used, then the tokens are actually transferred, which gives exactly the same as the upstream functionality that doesn't use hooks
 // intended for testing!
 type DymDefaultHook struct {
