@@ -31,11 +31,15 @@ type OnHyperlaneMessageArgs struct {
 	// original unmodified Memo
 	Memo []byte
 
-	// who was credited
+	// intended recipient of vanilla hyperlane transfer
 	Account sdk.AccAddress
 
 	// how much was credited
 	Coins sdk.Coins
+}
+
+func (a OnHyperlaneMessageArgs) Coin() sdk.Coin {
+	return a.Coins[0]
 }
 
 type DymHook interface {
@@ -155,13 +159,17 @@ func (k *DymensionHandler) RemoteReceiveSynthetic(ctx context.Context, token typ
 	return nil
 }
 
-// if this hook is used, then the tokens are actually transferred, which gives exactly the same as the upstream functionality that doesn't use hooks
-// intended for testing
+// If this hook is used, then the tokens are actually transferred, which gives exactly the same as the upstream functionality that doesn't use hooks
+// intended for testing!
 type DymDefaultHook struct {
 	*DymensionHandler
 }
 
-func (k *DymDefaultHook) OnHyperlane(ctx context.Context, args OnHyperlaneMessageArgs) error {
+func (k *DymDefaultHook) OnHyperlaneMessage(ctx context.Context, args OnHyperlaneMessageArgs) error {
+	/*
+	   same logic as upstream would do
+	*/
+
 	token, err := k.DymensionHandler.HypTokens.Get(ctx, args.Message.Recipient.GetInternalId())
 	if err != nil {
 		return err
