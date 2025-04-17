@@ -610,6 +610,302 @@ func (m *MsgRemoteTransferResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_MsgRemoteTransferResponse proto.InternalMessageInfo
 
+type MsgDymCreateCollateralToken struct {
+	Signer string                    `protobuf:"bytes,2,opt,name=signer,proto3" json:"signer,omitempty"`
+	Inner  *MsgCreateCollateralToken `protobuf:"bytes,1,opt,name=inner,proto3" json:"inner,omitempty"`
+}
+
+func (m *MsgDymCreateCollateralToken) Reset()         { *m = MsgDymCreateCollateralToken{} }
+func (m *MsgDymCreateCollateralToken) String() string { return proto.CompactTextString(m) }
+func (*MsgDymCreateCollateralToken) ProtoMessage()    {}
+func (*MsgDymCreateCollateralToken) Descriptor() ([]byte, []int) {
+	return fileDescriptor_9d1a3f4c9d53a091, []int{12}
+}
+func (m *MsgDymCreateCollateralToken) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgDymCreateCollateralToken) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgDymCreateCollateralToken.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgDymCreateCollateralToken) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgDymCreateCollateralToken.Merge(m, src)
+}
+func (m *MsgDymCreateCollateralToken) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgDymCreateCollateralToken) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgDymCreateCollateralToken.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgDymCreateCollateralToken proto.InternalMessageInfo
+
+func (m *MsgDymCreateCollateralToken) GetSigner() string {
+	if m != nil {
+		return m.Signer
+	}
+	return ""
+}
+
+func (m *MsgDymCreateCollateralToken) GetInner() *MsgCreateCollateralToken {
+	if m != nil {
+		return m.Inner
+	}
+	return nil
+}
+
+type MsgDymCreateCollateralTokenResponse struct {
+	Inner *MsgCreateCollateralTokenResponse `protobuf:"bytes,1,opt,name=inner,proto3" json:"inner,omitempty"`
+}
+
+func (m *MsgDymCreateCollateralTokenResponse) Reset()         { *m = MsgDymCreateCollateralTokenResponse{} }
+func (m *MsgDymCreateCollateralTokenResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgDymCreateCollateralTokenResponse) ProtoMessage()    {}
+func (*MsgDymCreateCollateralTokenResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_9d1a3f4c9d53a091, []int{13}
+}
+func (m *MsgDymCreateCollateralTokenResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgDymCreateCollateralTokenResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgDymCreateCollateralTokenResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgDymCreateCollateralTokenResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgDymCreateCollateralTokenResponse.Merge(m, src)
+}
+func (m *MsgDymCreateCollateralTokenResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgDymCreateCollateralTokenResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgDymCreateCollateralTokenResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgDymCreateCollateralTokenResponse proto.InternalMessageInfo
+
+func (m *MsgDymCreateCollateralTokenResponse) GetInner() *MsgCreateCollateralTokenResponse {
+	if m != nil {
+		return m.Inner
+	}
+	return nil
+}
+
+type MsgDymCreateSyntheticToken struct {
+	Signer string                   `protobuf:"bytes,2,opt,name=signer,proto3" json:"signer,omitempty"`
+	Inner  *MsgCreateSyntheticToken `protobuf:"bytes,1,opt,name=inner,proto3" json:"inner,omitempty"`
+}
+
+func (m *MsgDymCreateSyntheticToken) Reset()         { *m = MsgDymCreateSyntheticToken{} }
+func (m *MsgDymCreateSyntheticToken) String() string { return proto.CompactTextString(m) }
+func (*MsgDymCreateSyntheticToken) ProtoMessage()    {}
+func (*MsgDymCreateSyntheticToken) Descriptor() ([]byte, []int) {
+	return fileDescriptor_9d1a3f4c9d53a091, []int{14}
+}
+func (m *MsgDymCreateSyntheticToken) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgDymCreateSyntheticToken) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgDymCreateSyntheticToken.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgDymCreateSyntheticToken) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgDymCreateSyntheticToken.Merge(m, src)
+}
+func (m *MsgDymCreateSyntheticToken) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgDymCreateSyntheticToken) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgDymCreateSyntheticToken.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgDymCreateSyntheticToken proto.InternalMessageInfo
+
+func (m *MsgDymCreateSyntheticToken) GetSigner() string {
+	if m != nil {
+		return m.Signer
+	}
+	return ""
+}
+
+func (m *MsgDymCreateSyntheticToken) GetInner() *MsgCreateSyntheticToken {
+	if m != nil {
+		return m.Inner
+	}
+	return nil
+}
+
+type MsgDymCreateSyntheticTokenResponse struct {
+	Inner *MsgCreateSyntheticTokenResponse `protobuf:"bytes,1,opt,name=inner,proto3" json:"inner,omitempty"`
+}
+
+func (m *MsgDymCreateSyntheticTokenResponse) Reset()         { *m = MsgDymCreateSyntheticTokenResponse{} }
+func (m *MsgDymCreateSyntheticTokenResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgDymCreateSyntheticTokenResponse) ProtoMessage()    {}
+func (*MsgDymCreateSyntheticTokenResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_9d1a3f4c9d53a091, []int{15}
+}
+func (m *MsgDymCreateSyntheticTokenResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgDymCreateSyntheticTokenResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgDymCreateSyntheticTokenResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgDymCreateSyntheticTokenResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgDymCreateSyntheticTokenResponse.Merge(m, src)
+}
+func (m *MsgDymCreateSyntheticTokenResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgDymCreateSyntheticTokenResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgDymCreateSyntheticTokenResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgDymCreateSyntheticTokenResponse proto.InternalMessageInfo
+
+func (m *MsgDymCreateSyntheticTokenResponse) GetInner() *MsgCreateSyntheticTokenResponse {
+	if m != nil {
+		return m.Inner
+	}
+	return nil
+}
+
+type MsgDymRemoteTransfer struct {
+	Signer string             `protobuf:"bytes,2,opt,name=signer,proto3" json:"signer,omitempty"`
+	Inner  *MsgRemoteTransfer `protobuf:"bytes,1,opt,name=inner,proto3" json:"inner,omitempty"`
+	Memo   []byte             `protobuf:"bytes,3,opt,name=memo,proto3" json:"memo,omitempty"`
+}
+
+func (m *MsgDymRemoteTransfer) Reset()         { *m = MsgDymRemoteTransfer{} }
+func (m *MsgDymRemoteTransfer) String() string { return proto.CompactTextString(m) }
+func (*MsgDymRemoteTransfer) ProtoMessage()    {}
+func (*MsgDymRemoteTransfer) Descriptor() ([]byte, []int) {
+	return fileDescriptor_9d1a3f4c9d53a091, []int{16}
+}
+func (m *MsgDymRemoteTransfer) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgDymRemoteTransfer) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgDymRemoteTransfer.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgDymRemoteTransfer) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgDymRemoteTransfer.Merge(m, src)
+}
+func (m *MsgDymRemoteTransfer) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgDymRemoteTransfer) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgDymRemoteTransfer.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgDymRemoteTransfer proto.InternalMessageInfo
+
+func (m *MsgDymRemoteTransfer) GetSigner() string {
+	if m != nil {
+		return m.Signer
+	}
+	return ""
+}
+
+func (m *MsgDymRemoteTransfer) GetInner() *MsgRemoteTransfer {
+	if m != nil {
+		return m.Inner
+	}
+	return nil
+}
+
+func (m *MsgDymRemoteTransfer) GetMemo() []byte {
+	if m != nil {
+		return m.Memo
+	}
+	return nil
+}
+
+type MsgDymRemoteTransferResponse struct {
+	Inner *MsgRemoteTransferResponse `protobuf:"bytes,1,opt,name=inner,proto3" json:"inner,omitempty"`
+}
+
+func (m *MsgDymRemoteTransferResponse) Reset()         { *m = MsgDymRemoteTransferResponse{} }
+func (m *MsgDymRemoteTransferResponse) String() string { return proto.CompactTextString(m) }
+func (*MsgDymRemoteTransferResponse) ProtoMessage()    {}
+func (*MsgDymRemoteTransferResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_9d1a3f4c9d53a091, []int{17}
+}
+func (m *MsgDymRemoteTransferResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *MsgDymRemoteTransferResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_MsgDymRemoteTransferResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *MsgDymRemoteTransferResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_MsgDymRemoteTransferResponse.Merge(m, src)
+}
+func (m *MsgDymRemoteTransferResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *MsgDymRemoteTransferResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_MsgDymRemoteTransferResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_MsgDymRemoteTransferResponse proto.InternalMessageInfo
+
+func (m *MsgDymRemoteTransferResponse) GetInner() *MsgRemoteTransferResponse {
+	if m != nil {
+		return m.Inner
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*MsgCreateCollateralToken)(nil), "hyperlane.warp.v1.MsgCreateCollateralToken")
 	proto.RegisterType((*MsgCreateCollateralTokenResponse)(nil), "hyperlane.warp.v1.MsgCreateCollateralTokenResponse")
@@ -623,77 +919,95 @@ func init() {
 	proto.RegisterType((*MsgUnrollRemoteRouterResponse)(nil), "hyperlane.warp.v1.MsgUnrollRemoteRouterResponse")
 	proto.RegisterType((*MsgRemoteTransfer)(nil), "hyperlane.warp.v1.MsgRemoteTransfer")
 	proto.RegisterType((*MsgRemoteTransferResponse)(nil), "hyperlane.warp.v1.MsgRemoteTransferResponse")
+	proto.RegisterType((*MsgDymCreateCollateralToken)(nil), "hyperlane.warp.v1.MsgDymCreateCollateralToken")
+	proto.RegisterType((*MsgDymCreateCollateralTokenResponse)(nil), "hyperlane.warp.v1.MsgDymCreateCollateralTokenResponse")
+	proto.RegisterType((*MsgDymCreateSyntheticToken)(nil), "hyperlane.warp.v1.MsgDymCreateSyntheticToken")
+	proto.RegisterType((*MsgDymCreateSyntheticTokenResponse)(nil), "hyperlane.warp.v1.MsgDymCreateSyntheticTokenResponse")
+	proto.RegisterType((*MsgDymRemoteTransfer)(nil), "hyperlane.warp.v1.MsgDymRemoteTransfer")
+	proto.RegisterType((*MsgDymRemoteTransferResponse)(nil), "hyperlane.warp.v1.MsgDymRemoteTransferResponse")
 }
 
 func init() { proto.RegisterFile("hyperlane/warp/v1/tx.proto", fileDescriptor_9d1a3f4c9d53a091) }
 
 var fileDescriptor_9d1a3f4c9d53a091 = []byte{
-	// 1025 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x57, 0xcd, 0x6f, 0x1b, 0x45,
-	0x14, 0x8f, 0x5d, 0x9c, 0xd8, 0x93, 0x0f, 0x94, 0x21, 0x51, 0x1d, 0xa3, 0x38, 0xc1, 0x20, 0x1a,
-	0x4c, 0xbd, 0x9b, 0x0f, 0x09, 0x15, 0x23, 0x0e, 0x24, 0x01, 0xc5, 0x12, 0x56, 0xa5, 0x4d, 0x7d,
-	0xe9, 0x81, 0xd5, 0xd8, 0xfb, 0xba, 0x1e, 0xe2, 0x9d, 0xb1, 0x66, 0xc6, 0x1f, 0x39, 0x81, 0x38,
-	0x21, 0x4e, 0x1c, 0xb8, 0x72, 0x44, 0xe2, 0x98, 0x43, 0xff, 0x88, 0x9e, 0x50, 0xd5, 0x13, 0xe2,
-	0x50, 0xa1, 0xe4, 0x90, 0x23, 0x07, 0xfe, 0x01, 0xb4, 0xbb, 0xe3, 0xad, 0x8d, 0xd7, 0x91, 0xdb,
-	0xa6, 0x52, 0x2e, 0x96, 0xf7, 0x7d, 0xfc, 0x7e, 0xef, 0xfd, 0x66, 0xe6, 0xed, 0x2c, 0xca, 0x35,
-	0x4f, 0xdb, 0x20, 0x5a, 0x84, 0x81, 0xd9, 0x23, 0xa2, 0x6d, 0x76, 0x77, 0x4c, 0xd5, 0x37, 0xda,
-	0x82, 0x2b, 0x8e, 0x97, 0x23, 0x9f, 0xe1, 0xfb, 0x8c, 0xee, 0x4e, 0xee, 0x76, 0x83, 0x4b, 0x8f,
-	0x4b, 0xd3, 0x93, 0xae, 0x1f, 0xea, 0x49, 0x37, 0x8c, 0xcd, 0xad, 0xb8, 0xdc, 0xe5, 0xc1, 0x5f,
-	0xd3, 0xff, 0xa7, 0xad, 0xcb, 0xc4, 0xa3, 0x8c, 0x9b, 0xc1, 0xaf, 0x36, 0xad, 0x85, 0x08, 0x76,
-	0x18, 0x1b, 0x3e, 0x68, 0x57, 0x5e, 0x83, 0xd7, 0x89, 0x04, 0xb3, 0xbb, 0x53, 0x07, 0x45, 0x76,
-	0xcc, 0x06, 0xa7, 0x4c, 0xfb, 0xd7, 0x63, 0x6a, 0x3d, 0x6d, 0x83, 0x4e, 0x2f, 0xfc, 0x92, 0x44,
-	0xd9, 0xaa, 0x74, 0x0f, 0x04, 0x10, 0x05, 0x07, 0xbc, 0xd5, 0x22, 0x0a, 0x04, 0x69, 0x3d, 0xe0,
-	0x27, 0xc0, 0xb0, 0x81, 0x52, 0xbc, 0xc7, 0x40, 0x64, 0x13, 0x9b, 0x89, 0xad, 0xcc, 0x7e, 0xf6,
-	0xd9, 0xe3, 0xd2, 0x8a, 0x26, 0xff, 0xc2, 0x71, 0x04, 0x48, 0x79, 0xac, 0x04, 0x65, 0xae, 0x15,
-	0x86, 0xe1, 0x6f, 0xd1, 0x12, 0x17, 0xd4, 0xa5, 0xcc, 0xf6, 0x08, 0x6d, 0xd5, 0x79, 0x3f, 0x9b,
-	0x0c, 0x12, 0x0f, 0x9e, 0x3c, 0xdf, 0x98, 0xf9, 0xeb, 0xf9, 0xc6, 0x67, 0x2e, 0x55, 0xcd, 0x4e,
-	0xdd, 0x68, 0x70, 0xcf, 0xac, 0x37, 0xda, 0x25, 0xca, 0x18, 0xef, 0x12, 0x45, 0x39, 0x93, 0x66,
-	0x54, 0x66, 0x49, 0x37, 0xd4, 0x51, 0xb4, 0x65, 0x1c, 0x41, 0x5f, 0x33, 0x59, 0x8b, 0x21, 0x74,
-	0x35, 0x44, 0xc6, 0xef, 0xa1, 0x05, 0xcd, 0xe5, 0x00, 0xe3, 0x5e, 0xf6, 0x96, 0xcf, 0x64, 0xcd,
-	0x87, 0xb6, 0x43, 0xdf, 0x54, 0xfe, 0xf4, 0x87, 0xcb, 0xb3, 0x62, 0x58, 0xda, 0x4f, 0x97, 0x67,
-	0xc5, 0xe2, 0xb8, 0x12, 0x93, 0x3a, 0x2f, 0xf4, 0xd0, 0xe6, 0x24, 0x9f, 0x05, 0xb2, 0xcd, 0x99,
-	0x04, 0x7c, 0x8c, 0x92, 0xd4, 0xd1, 0xd2, 0x5c, 0x4b, 0x87, 0x49, 0xea, 0x14, 0xfe, 0x49, 0xa0,
-	0xdb, 0x11, 0xf3, 0xf1, 0x29, 0x53, 0x4d, 0x50, 0xb4, 0x71, 0xe3, 0x97, 0xa3, 0x7c, 0x6f, 0x54,
-	0xeb, 0x8f, 0xae, 0xd0, 0x7a, 0xb4, 0xab, 0x42, 0x17, 0x6d, 0x4c, 0x70, 0xbd, 0x59, 0xa5, 0xff,
-	0x4d, 0xa2, 0xf9, 0xaa, 0x74, 0x8f, 0x41, 0xbd, 0x9a, 0xba, 0xdf, 0xa0, 0xb4, 0xf2, 0x13, 0x6d,
-	0xea, 0x5c, 0xa7, 0xae, 0x73, 0x01, 0x68, 0xc5, 0xc1, 0xef, 0xa2, 0x0c, 0x83, 0x9e, 0x1d, 0xd6,
-	0x14, 0xee, 0xee, 0x34, 0x83, 0xde, 0xfd, 0x80, 0xfc, 0x21, 0x9a, 0xa5, 0xd2, 0xf3, 0xa9, 0xdf,
-	0x8a, 0xa8, 0x13, 0xaf, 0x4b, 0x9d, 0xa2, 0xd2, 0xab, 0x38, 0xb8, 0x84, 0xb0, 0x00, 0xc6, 0x3b,
-	0xac, 0x01, 0x21, 0xbb, 0x6c, 0xd2, 0x76, 0x76, 0x6e, 0x33, 0xb1, 0x95, 0xb6, 0x96, 0x07, 0x9e,
-	0xfb, 0x03, 0x47, 0xf9, 0xee, 0xe8, 0xca, 0xaf, 0xc7, 0xae, 0xfc, 0x40, 0xe5, 0xc2, 0x2a, 0x7a,
-	0x67, 0xe8, 0x71, 0xb0, 0xc2, 0x85, 0xdf, 0x92, 0x68, 0xb5, 0x2a, 0xdd, 0x2f, 0x99, 0xe0, 0xad,
-	0x96, 0x05, 0x1e, 0x57, 0x60, 0xf1, 0x8e, 0x02, 0x71, 0xe3, 0x96, 0xe5, 0x10, 0x2d, 0x8a, 0xa0,
-	0x3e, 0x5b, 0x04, 0x05, 0x06, 0x4b, 0x33, 0xbf, 0xbb, 0x61, 0x8c, 0xcd, 0x7d, 0x63, 0xb8, 0x0f,
-	0x6b, 0x41, 0x0c, 0x3d, 0x95, 0x3f, 0x19, 0x15, 0xed, 0x4e, 0xac, 0x68, 0xe3, 0x6a, 0x14, 0x36,
-	0xd0, 0x7a, 0xac, 0x23, 0x12, 0xf2, 0xc7, 0x50, 0xc8, 0xda, 0xcd, 0x17, 0xf2, 0x0e, 0x7a, 0x5b,
-	0x40, 0x03, 0x68, 0x17, 0x84, 0xed, 0x70, 0x8f, 0x50, 0x16, 0x48, 0xb9, 0x68, 0x2d, 0x0d, 0xcc,
-	0x87, 0x81, 0x75, 0x3a, 0xad, 0x6a, 0x93, 0xb4, 0xaa, 0x4d, 0xd6, 0xea, 0x8f, 0x14, 0x5a, 0xae,
-	0x4a, 0x37, 0xf4, 0x3d, 0x10, 0x84, 0xc9, 0x47, 0x20, 0xf0, 0x36, 0x9a, 0x95, 0xc0, 0x9c, 0x29,
-	0x84, 0xd2, 0x71, 0x6f, 0x5c, 0xa9, 0x12, 0xc2, 0x0e, 0x48, 0x45, 0x59, 0x90, 0x39, 0x2a, 0xd6,
-	0xf2, 0x90, 0x27, 0xd4, 0x0b, 0x13, 0x94, 0x11, 0xd0, 0xa0, 0x6d, 0x0a, 0x4c, 0x0d, 0x8d, 0x87,
-	0xd7, 0xae, 0xe7, 0x05, 0x2a, 0x3e, 0x42, 0xb3, 0xc4, 0xe3, 0x1d, 0xa6, 0xb2, 0xa9, 0x00, 0x7f,
-	0x5b, 0xe3, 0xaf, 0x86, 0xa9, 0xd2, 0x39, 0x31, 0x28, 0x37, 0x3d, 0xa2, 0x9a, 0x46, 0x85, 0xa9,
-	0x67, 0x8f, 0x4b, 0x48, 0x0b, 0x58, 0x61, 0xea, 0xf7, 0xcb, 0xb3, 0x62, 0xc2, 0xd2, 0xf9, 0x98,
-	0xa2, 0xa5, 0x46, 0x47, 0x2a, 0xee, 0xd9, 0x4d, 0xce, 0x4f, 0x7c, 0x05, 0x67, 0xaf, 0x6f, 0xa0,
-	0x2d, 0x84, 0xd0, 0x47, 0x9c, 0x9f, 0x54, 0x1c, 0x5c, 0x46, 0x19, 0x97, 0x48, 0xbb, 0x45, 0x3d,
-	0xaa, 0x82, 0x71, 0x96, 0xd9, 0x5f, 0xbf, 0xb2, 0x6e, 0x2b, 0xed, 0x12, 0xf9, 0xb5, 0x1f, 0x8e,
-	0x3f, 0x47, 0x73, 0x1e, 0xe9, 0xdb, 0x8f, 0x00, 0xb2, 0xe9, 0xe0, 0xbc, 0xaf, 0x19, 0xba, 0x23,
-	0xff, 0xde, 0x65, 0xe8, 0x7b, 0x97, 0x71, 0xc0, 0x29, 0xdb, 0xcf, 0xf8, 0xa0, 0xba, 0x4b, 0x8f,
-	0xf4, 0xbf, 0x02, 0xc0, 0xdb, 0x68, 0x65, 0xb8, 0x4b, 0x0f, 0x14, 0x71, 0x88, 0x22, 0xd9, 0x4c,
-	0x30, 0xd6, 0xf1, 0x8b, 0x32, 0xab, 0xda, 0x53, 0xde, 0xf3, 0x37, 0xbd, 0xde, 0x60, 0xfe, 0xae,
-	0x7f, 0x3f, 0x76, 0xd7, 0x8f, 0x6e, 0xdd, 0xc2, 0x77, 0x68, 0x6d, 0xcc, 0x18, 0xbd, 0x44, 0xeb,
-	0x08, 0x79, 0x20, 0x25, 0x71, 0xc1, 0xbe, 0xde, 0x97, 0x69, 0x46, 0xc3, 0x56, 0x9c, 0xdd, 0x5f,
-	0x53, 0xe8, 0x56, 0x55, 0xba, 0xf8, 0x14, 0xad, 0xc6, 0xdf, 0x28, 0x3f, 0x8e, 0x19, 0x93, 0x93,
-	0x2e, 0x5a, 0xb9, 0xbd, 0x97, 0x08, 0x8e, 0xda, 0xec, 0xa2, 0x95, 0xd8, 0xcb, 0x53, 0xf1, 0x2a,
-	0xb0, 0xd1, 0xd8, 0xdc, 0xee, 0xf4, 0xb1, 0x11, 0xaf, 0x85, 0xd2, 0xd1, 0x55, 0x22, 0x1f, 0x9f,
-	0x3f, 0xf0, 0xe7, 0x3e, 0xbc, 0xda, 0x1f, 0x61, 0xb6, 0x11, 0x8e, 0x79, 0x23, 0x6e, 0xc5, 0x67,
-	0x8f, 0x47, 0xe6, 0xb6, 0xa7, 0x8d, 0x1c, 0x66, 0xac, 0x4d, 0xcd, 0x58, 0x9b, 0x9a, 0x71, 0xf2,
-	0x10, 0xc6, 0x0e, 0x5a, 0xfa, 0xdf, 0x00, 0xfe, 0x20, 0x1e, 0x63, 0x34, 0x2a, 0x77, 0x77, 0x9a,
-	0xa8, 0x01, 0x4b, 0x2e, 0xf5, 0xbd, 0x7f, 0x1e, 0xf7, 0xad, 0x27, 0xe7, 0xf9, 0xc4, 0xd3, 0xf3,
-	0x7c, 0xe2, 0xef, 0xf3, 0x7c, 0xe2, 0xe7, 0x8b, 0xfc, 0xcc, 0xd3, 0x8b, 0xfc, 0xcc, 0x9f, 0x17,
-	0xf9, 0x99, 0x87, 0xf7, 0x5e, 0xe6, 0x04, 0xf4, 0xc3, 0x33, 0x18, 0x7c, 0x47, 0xd5, 0x67, 0x83,
-	0x0f, 0xa9, 0xbd, 0xff, 0x02, 0x00, 0x00, 0xff, 0xff, 0xc3, 0x8d, 0xe1, 0x4c, 0x15, 0x0e, 0x00,
-	0x00,
+	// 1218 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xcc, 0x58, 0xcd, 0x6f, 0x1b, 0x45,
+	0x14, 0xcf, 0xba, 0x75, 0x6a, 0xbf, 0x7c, 0x20, 0x0f, 0x89, 0xe2, 0xb8, 0xc4, 0x09, 0x5b, 0x44,
+	0x42, 0xa8, 0x77, 0xf3, 0x21, 0xaa, 0x62, 0x84, 0x44, 0x93, 0x80, 0x62, 0x09, 0xab, 0xd2, 0xa6,
+	0xb9, 0xf4, 0x80, 0xb5, 0xf6, 0x4e, 0xd7, 0x43, 0xbc, 0x33, 0xd6, 0xce, 0xd8, 0x71, 0x4e, 0x45,
+	0x3d, 0x21, 0x4e, 0x08, 0x71, 0x45, 0x9c, 0x2a, 0x71, 0xcc, 0xa1, 0x7f, 0x44, 0x4f, 0xa8, 0xea,
+	0x09, 0x71, 0xa8, 0x50, 0x72, 0xc8, 0x91, 0x03, 0xff, 0x00, 0xda, 0x0f, 0x6f, 0xbd, 0xf6, 0x6e,
+	0x6a, 0xa7, 0xa9, 0x94, 0x8b, 0xb5, 0x3b, 0xef, 0xe3, 0xf7, 0x9b, 0xdf, 0xbc, 0x79, 0xfb, 0x64,
+	0xc8, 0xd5, 0x8f, 0x9a, 0xd8, 0x6e, 0xe8, 0x14, 0xab, 0x87, 0xba, 0xdd, 0x54, 0xdb, 0xeb, 0xaa,
+	0xe8, 0x28, 0x4d, 0x9b, 0x09, 0x86, 0x32, 0x81, 0x4d, 0x71, 0x6c, 0x4a, 0x7b, 0x3d, 0x37, 0x57,
+	0x63, 0xdc, 0x62, 0x5c, 0xb5, 0xb8, 0xe9, 0xb8, 0x5a, 0xdc, 0xf4, 0x7c, 0x73, 0x33, 0x26, 0x33,
+	0x99, 0xfb, 0xa8, 0x3a, 0x4f, 0xfe, 0x6a, 0x46, 0xb7, 0x08, 0x65, 0xaa, 0xfb, 0xeb, 0x2f, 0xcd,
+	0x7b, 0x19, 0x2a, 0x9e, 0xaf, 0xf7, 0xe2, 0x9b, 0xf2, 0x7e, 0xf2, 0xaa, 0xce, 0xb1, 0xda, 0x5e,
+	0xaf, 0x62, 0xa1, 0xaf, 0xab, 0x35, 0x46, 0xa8, 0x6f, 0x5f, 0x88, 0xe0, 0x7a, 0xd4, 0xc4, 0x7e,
+	0xb8, 0xfc, 0x6b, 0x02, 0xb2, 0x65, 0x6e, 0x6e, 0xdb, 0x58, 0x17, 0x78, 0x9b, 0x35, 0x1a, 0xba,
+	0xc0, 0xb6, 0xde, 0x78, 0xc0, 0x0e, 0x30, 0x45, 0x0a, 0x24, 0xd9, 0x21, 0xc5, 0x76, 0x56, 0x5a,
+	0x92, 0x56, 0xd2, 0x5b, 0xd9, 0x97, 0xcf, 0x0a, 0x33, 0x3e, 0xf8, 0x3d, 0xc3, 0xb0, 0x31, 0xe7,
+	0x7b, 0xc2, 0x26, 0xd4, 0xd4, 0x3c, 0x37, 0xf4, 0x3d, 0x4c, 0x33, 0x9b, 0x98, 0x84, 0x56, 0x2c,
+	0x9d, 0x34, 0xaa, 0xac, 0x93, 0x4d, 0xb8, 0x81, 0xdb, 0xcf, 0x5f, 0x2d, 0x8e, 0xfd, 0xfd, 0x6a,
+	0xf1, 0x0b, 0x93, 0x88, 0x7a, 0xab, 0xaa, 0xd4, 0x98, 0xa5, 0x56, 0x6b, 0xcd, 0x02, 0xa1, 0x94,
+	0xb5, 0x75, 0x41, 0x18, 0xe5, 0x6a, 0x40, 0xb3, 0xe0, 0x6f, 0xa8, 0x25, 0x48, 0x43, 0xd9, 0xc5,
+	0x1d, 0x1f, 0x49, 0x9b, 0xf2, 0x52, 0x97, 0xbd, 0xcc, 0xe8, 0x43, 0x98, 0xf4, 0xb1, 0x0c, 0x4c,
+	0x99, 0x95, 0xbd, 0xe6, 0x20, 0x69, 0x13, 0xde, 0xda, 0x8e, 0xb3, 0x54, 0xfc, 0xfc, 0xc9, 0xd9,
+	0xf1, 0xaa, 0x47, 0xed, 0xa7, 0xb3, 0xe3, 0xd5, 0xd5, 0x41, 0x25, 0xe2, 0x76, 0x2e, 0x1f, 0xc2,
+	0x52, 0x9c, 0x4d, 0xc3, 0xbc, 0xc9, 0x28, 0xc7, 0x68, 0x0f, 0x12, 0xc4, 0xf0, 0xa5, 0xb9, 0x94,
+	0x1d, 0x26, 0x88, 0x21, 0xff, 0x2b, 0xc1, 0x5c, 0x80, 0xbc, 0x77, 0x44, 0x45, 0x1d, 0x0b, 0x52,
+	0xbb, 0xf2, 0xc7, 0x51, 0xbc, 0x1b, 0xd6, 0xfa, 0x93, 0x73, 0xb4, 0x0e, 0xef, 0x4a, 0x6e, 0xc3,
+	0x62, 0x8c, 0xe9, 0xdd, 0x2a, 0xfd, 0x5f, 0x02, 0x26, 0xca, 0xdc, 0xdc, 0xc3, 0xe2, 0x62, 0xea,
+	0x7e, 0x07, 0x29, 0xe1, 0x04, 0x56, 0x88, 0x71, 0x99, 0xba, 0xde, 0x70, 0x93, 0x96, 0x0c, 0x74,
+	0x13, 0xd2, 0x14, 0x1f, 0x56, 0x3c, 0x4e, 0x5e, 0x75, 0xa7, 0x28, 0x3e, 0xbc, 0xef, 0x82, 0x3f,
+	0x84, 0x71, 0xc2, 0x2d, 0x07, 0xfa, 0x7a, 0x00, 0x2d, 0xbd, 0x2d, 0x74, 0x92, 0x70, 0xab, 0x64,
+	0xa0, 0x02, 0x20, 0x1b, 0x53, 0xd6, 0xa2, 0x35, 0xec, 0xa1, 0xf3, 0x3a, 0x69, 0x66, 0x6f, 0x2c,
+	0x49, 0x2b, 0x29, 0x2d, 0xd3, 0xb5, 0xdc, 0xef, 0x1a, 0x8a, 0xb7, 0xc3, 0x27, 0xbf, 0x10, 0x79,
+	0xf2, 0x5d, 0x95, 0xe5, 0x59, 0x78, 0xbf, 0xe7, 0xb5, 0x7b, 0xc2, 0xf2, 0xd3, 0x04, 0xcc, 0x96,
+	0xb9, 0xf9, 0x35, 0xb5, 0x59, 0xa3, 0xa1, 0x61, 0x8b, 0x09, 0xac, 0xb1, 0x96, 0xc0, 0xf6, 0x95,
+	0x3b, 0x96, 0x1d, 0x98, 0xb2, 0x5d, 0x7e, 0x15, 0xdb, 0x25, 0xe8, 0x1e, 0xcd, 0xc4, 0xc6, 0xa2,
+	0x32, 0xd0, 0xf7, 0x95, 0xde, 0x7d, 0x68, 0x93, 0x76, 0xcf, 0x5b, 0xf1, 0x4e, 0x58, 0xb4, 0xe5,
+	0x48, 0xd1, 0x06, 0xd5, 0x90, 0x17, 0x61, 0x21, 0xd2, 0x10, 0x08, 0xf9, 0xa3, 0x27, 0xe4, 0xfe,
+	0xd5, 0x17, 0x72, 0x19, 0xde, 0xb3, 0x71, 0x0d, 0x93, 0x36, 0xb6, 0x2b, 0x06, 0xb3, 0x74, 0x42,
+	0x5d, 0x29, 0xa7, 0xb4, 0xe9, 0xee, 0xf2, 0x8e, 0xbb, 0x3a, 0x9c, 0x56, 0xfb, 0x71, 0x5a, 0xed,
+	0xc7, 0x6b, 0xf5, 0x67, 0x12, 0x32, 0x65, 0x6e, 0x7a, 0xb6, 0x07, 0xb6, 0x4e, 0xf9, 0x23, 0x6c,
+	0xa3, 0x35, 0x18, 0xe7, 0x98, 0x1a, 0x43, 0x08, 0xe5, 0xfb, 0xbd, 0x73, 0xa5, 0x0a, 0x80, 0x0c,
+	0xcc, 0x05, 0xa1, 0x6e, 0x64, 0x58, 0xac, 0x4c, 0x8f, 0xc5, 0xd3, 0x0b, 0xe9, 0x90, 0xb6, 0x71,
+	0x8d, 0x34, 0x09, 0xa6, 0xa2, 0xa7, 0x3d, 0xbc, 0x35, 0x9f, 0xd7, 0x59, 0xd1, 0x2e, 0x8c, 0xeb,
+	0x16, 0x6b, 0x51, 0x91, 0x4d, 0xba, 0xf9, 0xd7, 0xfc, 0xfc, 0xb3, 0x5e, 0x28, 0x37, 0x0e, 0x14,
+	0xc2, 0x54, 0x4b, 0x17, 0x75, 0xa5, 0x44, 0xc5, 0xcb, 0x67, 0x05, 0xf0, 0x05, 0x2c, 0x51, 0xf1,
+	0xc7, 0xd9, 0xf1, 0xaa, 0xa4, 0xf9, 0xf1, 0x88, 0xc0, 0x74, 0xad, 0xc5, 0x05, 0xb3, 0x2a, 0x75,
+	0xc6, 0x0e, 0x1c, 0x05, 0xc7, 0x2f, 0xaf, 0xa1, 0x4d, 0x7a, 0xa9, 0x77, 0x19, 0x3b, 0x28, 0x19,
+	0xa8, 0x08, 0x69, 0x53, 0xe7, 0x95, 0x06, 0xb1, 0x88, 0x70, 0xdb, 0x59, 0x7a, 0x6b, 0xe1, 0x5c,
+	0xde, 0x5a, 0xca, 0xd4, 0xf9, 0xb7, 0x8e, 0x3b, 0xfa, 0x12, 0x6e, 0x58, 0x7a, 0xa7, 0xf2, 0x08,
+	0xe3, 0x6c, 0xca, 0xbd, 0xef, 0xf3, 0x8a, 0xbf, 0x23, 0x67, 0xee, 0x52, 0xfc, 0xb9, 0x4b, 0xd9,
+	0x66, 0x84, 0x6e, 0xa5, 0x9d, 0xa4, 0xfe, 0x2e, 0x2d, 0xbd, 0xf3, 0x0d, 0xc6, 0x68, 0x0d, 0x66,
+	0x7a, 0x77, 0x69, 0x61, 0xa1, 0x1b, 0xba, 0xd0, 0xb3, 0x69, 0xb7, 0xad, 0xa3, 0xd7, 0x34, 0xcb,
+	0xbe, 0xa5, 0xb8, 0xe9, 0x14, 0xbd, 0x5f, 0x60, 0x4e, 0xd5, 0xdf, 0x8a, 0xac, 0xfa, 0x70, 0xe9,
+	0xca, 0x8f, 0x61, 0x7e, 0x60, 0x31, 0xf8, 0x88, 0x56, 0x01, 0x2c, 0xcc, 0xb9, 0x6e, 0xe2, 0xca,
+	0xe5, 0x7e, 0x4c, 0xd3, 0x7e, 0xda, 0x92, 0x21, 0xff, 0x2e, 0xc1, 0xcd, 0x32, 0x37, 0x77, 0x8e,
+	0xac, 0xe8, 0x81, 0xd2, 0xb9, 0x5b, 0xc4, 0x74, 0x9a, 0x50, 0xe2, 0x8d, 0x77, 0xcb, 0xf5, 0x43,
+	0xf7, 0x20, 0x49, 0x68, 0xb7, 0x6b, 0x4d, 0x6c, 0x7c, 0x1a, 0xd1, 0x66, 0x63, 0x07, 0x35, 0x2f,
+	0xb2, 0x38, 0xe1, 0x49, 0xe9, 0xe6, 0x93, 0x9b, 0x70, 0xeb, 0x1c, 0x82, 0x81, 0x58, 0xa5, 0x30,
+	0xec, 0xe6, 0x28, 0xb0, 0x7e, 0x0e, 0x1f, 0x5e, 0xfe, 0x4d, 0x82, 0x5c, 0x2f, 0x64, 0xdf, 0x50,
+	0x37, 0xba, 0x24, 0x5f, 0x85, 0xb9, 0xad, 0x9e, 0xc7, 0xad, 0x6f, 0xa0, 0x8a, 0x52, 0x84, 0x82,
+	0x1c, 0x4f, 0x2f, 0x10, 0x64, 0x37, 0x0c, 0xba, 0x31, 0x02, 0x68, 0x9f, 0x1e, 0x4f, 0x25, 0x98,
+	0xf1, 0x00, 0x23, 0x1a, 0xef, 0x68, 0x4a, 0x14, 0xc3, 0xa4, 0x3e, 0x8a, 0x26, 0xd5, 0x77, 0x1f,
+	0xbc, 0x10, 0x84, 0xe0, 0xba, 0x85, 0x2d, 0xe6, 0xb6, 0xd1, 0x49, 0xcd, 0x7d, 0x0e, 0xeb, 0x52,
+	0x85, 0x0f, 0xa2, 0x68, 0x06, 0x8a, 0x6c, 0x85, 0xc1, 0x6f, 0x0f, 0x05, 0x1e, 0xd6, 0x62, 0xe3,
+	0x97, 0x14, 0x5c, 0x2b, 0x73, 0x13, 0x1d, 0xc1, 0x6c, 0xf4, 0x85, 0x19, 0xa5, 0xde, 0x73, 0x17,
+	0xa9, 0x52, 0xd4, 0x86, 0x99, 0xc8, 0xba, 0x1c, 0xa1, 0xac, 0x72, 0x17, 0xa8, 0x06, 0xa4, 0x41,
+	0x2a, 0x18, 0xbd, 0xf3, 0xd1, 0xf1, 0x5d, 0x7b, 0xee, 0xe3, 0xf3, 0xed, 0x41, 0xce, 0x26, 0xa0,
+	0x88, 0x09, 0x72, 0x25, 0x3a, 0x7a, 0xd0, 0x33, 0xb7, 0x36, 0xac, 0x67, 0x2f, 0xe2, 0xfe, 0xd0,
+	0x88, 0xfb, 0x43, 0x23, 0xc6, 0x0f, 0x2d, 0xc8, 0x80, 0xe9, 0xbe, 0x7b, 0x33, 0x54, 0xd9, 0xe7,
+	0x46, 0xaa, 0x4f, 0xf4, 0x44, 0x82, 0x6c, 0x6c, 0x17, 0x57, 0xa2, 0x53, 0xc5, 0xf9, 0xe7, 0xee,
+	0x8c, 0xe6, 0x1f, 0x90, 0x78, 0x0c, 0x73, 0x71, 0x5d, 0xb3, 0xf0, 0x86, 0x94, 0x7d, 0x05, 0xfa,
+	0xd9, 0x48, 0xee, 0x01, 0x01, 0x0b, 0x32, 0x83, 0x6d, 0x6a, 0x39, 0x36, 0x57, 0x9f, 0xe2, 0xea,
+	0x90, 0x8e, 0x5d, 0xb8, 0x5c, 0xf2, 0x07, 0x67, 0x68, 0xd8, 0xd2, 0x9e, 0x9f, 0xe4, 0xa5, 0x17,
+	0x27, 0x79, 0xe9, 0x9f, 0x93, 0xbc, 0xf4, 0xf3, 0x69, 0x7e, 0xec, 0xc5, 0x69, 0x7e, 0xec, 0xaf,
+	0xd3, 0xfc, 0xd8, 0xc3, 0xbb, 0xa3, 0x7c, 0xa6, 0x3b, 0xde, 0xa0, 0xe0, 0xfe, 0xd9, 0x53, 0x1d,
+	0x77, 0xff, 0xed, 0xd9, 0xfc, 0x3f, 0x00, 0x00, 0xff, 0xff, 0x4a, 0x51, 0xd6, 0x00, 0xba, 0x12,
+	0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -720,6 +1034,10 @@ type MsgClient interface {
 	UnrollRemoteRouter(ctx context.Context, in *MsgUnrollRemoteRouter, opts ...grpc.CallOption) (*MsgUnrollRemoteRouterResponse, error)
 	// RemoteTransfer ...
 	RemoteTransfer(ctx context.Context, in *MsgRemoteTransfer, opts ...grpc.CallOption) (*MsgRemoteTransferResponse, error)
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ DYMENSION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	DymCreateCollateralToken(ctx context.Context, in *MsgDymCreateCollateralToken, opts ...grpc.CallOption) (*MsgDymCreateCollateralTokenResponse, error)
+	DymCreateSyntheticToken(ctx context.Context, in *MsgDymCreateSyntheticToken, opts ...grpc.CallOption) (*MsgDymCreateSyntheticTokenResponse, error)
+	DymRemoteTransfer(ctx context.Context, in *MsgDymRemoteTransfer, opts ...grpc.CallOption) (*MsgDymRemoteTransferResponse, error)
 }
 
 type msgClient struct {
@@ -784,6 +1102,33 @@ func (c *msgClient) RemoteTransfer(ctx context.Context, in *MsgRemoteTransfer, o
 	return out, nil
 }
 
+func (c *msgClient) DymCreateCollateralToken(ctx context.Context, in *MsgDymCreateCollateralToken, opts ...grpc.CallOption) (*MsgDymCreateCollateralTokenResponse, error) {
+	out := new(MsgDymCreateCollateralTokenResponse)
+	err := c.cc.Invoke(ctx, "/hyperlane.warp.v1.Msg/DymCreateCollateralToken", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) DymCreateSyntheticToken(ctx context.Context, in *MsgDymCreateSyntheticToken, opts ...grpc.CallOption) (*MsgDymCreateSyntheticTokenResponse, error) {
+	out := new(MsgDymCreateSyntheticTokenResponse)
+	err := c.cc.Invoke(ctx, "/hyperlane.warp.v1.Msg/DymCreateSyntheticToken", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) DymRemoteTransfer(ctx context.Context, in *MsgDymRemoteTransfer, opts ...grpc.CallOption) (*MsgDymRemoteTransferResponse, error) {
+	out := new(MsgDymRemoteTransferResponse)
+	err := c.cc.Invoke(ctx, "/hyperlane.warp.v1.Msg/DymRemoteTransfer", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // MsgServer is the server API for Msg service.
 type MsgServer interface {
 	// CreateCollateralToken ...
@@ -798,6 +1143,10 @@ type MsgServer interface {
 	UnrollRemoteRouter(context.Context, *MsgUnrollRemoteRouter) (*MsgUnrollRemoteRouterResponse, error)
 	// RemoteTransfer ...
 	RemoteTransfer(context.Context, *MsgRemoteTransfer) (*MsgRemoteTransferResponse, error)
+	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ DYMENSION ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	DymCreateCollateralToken(context.Context, *MsgDymCreateCollateralToken) (*MsgDymCreateCollateralTokenResponse, error)
+	DymCreateSyntheticToken(context.Context, *MsgDymCreateSyntheticToken) (*MsgDymCreateSyntheticTokenResponse, error)
+	DymRemoteTransfer(context.Context, *MsgDymRemoteTransfer) (*MsgDymRemoteTransferResponse, error)
 }
 
 // UnimplementedMsgServer can be embedded to have forward compatible implementations.
@@ -821,6 +1170,15 @@ func (*UnimplementedMsgServer) UnrollRemoteRouter(ctx context.Context, req *MsgU
 }
 func (*UnimplementedMsgServer) RemoteTransfer(ctx context.Context, req *MsgRemoteTransfer) (*MsgRemoteTransferResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RemoteTransfer not implemented")
+}
+func (*UnimplementedMsgServer) DymCreateCollateralToken(ctx context.Context, req *MsgDymCreateCollateralToken) (*MsgDymCreateCollateralTokenResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DymCreateCollateralToken not implemented")
+}
+func (*UnimplementedMsgServer) DymCreateSyntheticToken(ctx context.Context, req *MsgDymCreateSyntheticToken) (*MsgDymCreateSyntheticTokenResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DymCreateSyntheticToken not implemented")
+}
+func (*UnimplementedMsgServer) DymRemoteTransfer(ctx context.Context, req *MsgDymRemoteTransfer) (*MsgDymRemoteTransferResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DymRemoteTransfer not implemented")
 }
 
 func RegisterMsgServer(s grpc1.Server, srv MsgServer) {
@@ -935,6 +1293,60 @@ func _Msg_RemoteTransfer_Handler(srv interface{}, ctx context.Context, dec func(
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Msg_DymCreateCollateralToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgDymCreateCollateralToken)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).DymCreateCollateralToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hyperlane.warp.v1.Msg/DymCreateCollateralToken",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).DymCreateCollateralToken(ctx, req.(*MsgDymCreateCollateralToken))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_DymCreateSyntheticToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgDymCreateSyntheticToken)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).DymCreateSyntheticToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hyperlane.warp.v1.Msg/DymCreateSyntheticToken",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).DymCreateSyntheticToken(ctx, req.(*MsgDymCreateSyntheticToken))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_DymRemoteTransfer_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgDymRemoteTransfer)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).DymRemoteTransfer(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/hyperlane.warp.v1.Msg/DymRemoteTransfer",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).DymRemoteTransfer(ctx, req.(*MsgDymRemoteTransfer))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var Msg_serviceDesc = _Msg_serviceDesc
 var _Msg_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "hyperlane.warp.v1.Msg",
@@ -963,6 +1375,18 @@ var _Msg_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RemoteTransfer",
 			Handler:    _Msg_RemoteTransfer_Handler,
+		},
+		{
+			MethodName: "DymCreateCollateralToken",
+			Handler:    _Msg_DymCreateCollateralToken_Handler,
+		},
+		{
+			MethodName: "DymCreateSyntheticToken",
+			Handler:    _Msg_DymCreateSyntheticToken_Handler,
+		},
+		{
+			MethodName: "DymRemoteTransfer",
+			Handler:    _Msg_DymRemoteTransfer_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -1494,6 +1918,244 @@ func (m *MsgRemoteTransferResponse) MarshalToSizedBuffer(dAtA []byte) (int, erro
 	return len(dAtA) - i, nil
 }
 
+func (m *MsgDymCreateCollateralToken) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgDymCreateCollateralToken) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgDymCreateCollateralToken) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Signer) > 0 {
+		i -= len(m.Signer)
+		copy(dAtA[i:], m.Signer)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Signer)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if m.Inner != nil {
+		{
+			size, err := m.Inner.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintTx(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgDymCreateCollateralTokenResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgDymCreateCollateralTokenResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgDymCreateCollateralTokenResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Inner != nil {
+		{
+			size, err := m.Inner.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintTx(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgDymCreateSyntheticToken) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgDymCreateSyntheticToken) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgDymCreateSyntheticToken) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Signer) > 0 {
+		i -= len(m.Signer)
+		copy(dAtA[i:], m.Signer)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Signer)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if m.Inner != nil {
+		{
+			size, err := m.Inner.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintTx(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgDymCreateSyntheticTokenResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgDymCreateSyntheticTokenResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgDymCreateSyntheticTokenResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Inner != nil {
+		{
+			size, err := m.Inner.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintTx(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgDymRemoteTransfer) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgDymRemoteTransfer) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgDymRemoteTransfer) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if len(m.Memo) > 0 {
+		i -= len(m.Memo)
+		copy(dAtA[i:], m.Memo)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Memo)))
+		i--
+		dAtA[i] = 0x1a
+	}
+	if len(m.Signer) > 0 {
+		i -= len(m.Signer)
+		copy(dAtA[i:], m.Signer)
+		i = encodeVarintTx(dAtA, i, uint64(len(m.Signer)))
+		i--
+		dAtA[i] = 0x12
+	}
+	if m.Inner != nil {
+		{
+			size, err := m.Inner.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintTx(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *MsgDymRemoteTransferResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *MsgDymRemoteTransferResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *MsgDymRemoteTransferResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Inner != nil {
+		{
+			size, err := m.Inner.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintTx(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintTx(dAtA []byte, offset int, v uint64) int {
 	offset -= sovTx(v)
 	base := offset
@@ -1693,6 +2355,100 @@ func (m *MsgRemoteTransferResponse) Size() (n int) {
 	_ = l
 	l = m.MessageId.Size()
 	n += 1 + l + sovTx(uint64(l))
+	return n
+}
+
+func (m *MsgDymCreateCollateralToken) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Inner != nil {
+		l = m.Inner.Size()
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.Signer)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgDymCreateCollateralTokenResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Inner != nil {
+		l = m.Inner.Size()
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgDymCreateSyntheticToken) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Inner != nil {
+		l = m.Inner.Size()
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.Signer)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgDymCreateSyntheticTokenResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Inner != nil {
+		l = m.Inner.Size()
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgDymRemoteTransfer) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Inner != nil {
+		l = m.Inner.Size()
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.Signer)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	l = len(m.Memo)
+	if l > 0 {
+		n += 1 + l + sovTx(uint64(l))
+	}
+	return n
+}
+
+func (m *MsgDymRemoteTransferResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Inner != nil {
+		l = m.Inner.Size()
+		n += 1 + l + sovTx(uint64(l))
+	}
 	return n
 }
 
@@ -3173,6 +3929,652 @@ func (m *MsgRemoteTransferResponse) Unmarshal(dAtA []byte) error {
 				return io.ErrUnexpectedEOF
 			}
 			if err := m.MessageId.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgDymCreateCollateralToken) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgDymCreateCollateralToken: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgDymCreateCollateralToken: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Inner", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Inner == nil {
+				m.Inner = &MsgCreateCollateralToken{}
+			}
+			if err := m.Inner.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Signer", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Signer = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgDymCreateCollateralTokenResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgDymCreateCollateralTokenResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgDymCreateCollateralTokenResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Inner", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Inner == nil {
+				m.Inner = &MsgCreateCollateralTokenResponse{}
+			}
+			if err := m.Inner.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgDymCreateSyntheticToken) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgDymCreateSyntheticToken: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgDymCreateSyntheticToken: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Inner", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Inner == nil {
+				m.Inner = &MsgCreateSyntheticToken{}
+			}
+			if err := m.Inner.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Signer", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Signer = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgDymCreateSyntheticTokenResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgDymCreateSyntheticTokenResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgDymCreateSyntheticTokenResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Inner", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Inner == nil {
+				m.Inner = &MsgCreateSyntheticTokenResponse{}
+			}
+			if err := m.Inner.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgDymRemoteTransfer) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgDymRemoteTransfer: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgDymRemoteTransfer: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Inner", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Inner == nil {
+				m.Inner = &MsgRemoteTransfer{}
+			}
+			if err := m.Inner.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Signer", wireType)
+			}
+			var stringLen uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				stringLen |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			intStringLen := int(stringLen)
+			if intStringLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + intStringLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Signer = string(dAtA[iNdEx:postIndex])
+			iNdEx = postIndex
+		case 3:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Memo", wireType)
+			}
+			var byteLen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				byteLen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if byteLen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + byteLen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Memo = append(m.Memo[:0], dAtA[iNdEx:postIndex]...)
+			if m.Memo == nil {
+				m.Memo = []byte{}
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipTx(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthTx
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *MsgDymRemoteTransferResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowTx
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: MsgDymRemoteTransferResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: MsgDymRemoteTransferResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Inner", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowTx
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthTx
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthTx
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Inner == nil {
+				m.Inner = &MsgRemoteTransferResponse{}
+			}
+			if err := m.Inner.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex
