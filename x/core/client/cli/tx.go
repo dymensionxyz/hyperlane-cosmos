@@ -3,21 +3,21 @@ package cli
 import (
 	"fmt"
 
-	pdmodule "github.com/bcp-innovations/hyperlane-cosmos/x/core/02_post_dispatch"
-
+	"github.com/bcp-innovations/hyperlane-cosmos/x/core/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/spf13/cobra"
 
 	ism "github.com/bcp-innovations/hyperlane-cosmos/x/core/01_interchain_security"
-	"github.com/bcp-innovations/hyperlane-cosmos/x/core/types"
+	pdmodule "github.com/bcp-innovations/hyperlane-cosmos/x/core/02_post_dispatch"
 )
 
 var (
 	// SetMailbox
-	defaultIsm   string
-	defaultHook  string
-	requiredHook string
-	newOwner     string
+	defaultIsm        string
+	defaultHook       string
+	newOwner          string
+	renounceOwnership bool
+	requiredHook      string
 )
 
 func GetTxCmd() *cobra.Command {
