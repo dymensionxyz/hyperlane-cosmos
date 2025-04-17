@@ -48,31 +48,37 @@ func (ms msgServer) CreateSyntheticToken(ctx context.Context, msg *types.MsgCrea
 		return nil, err
 	}
 
+	_ = sdk.UnwrapSDKContext(ctx).EventManager().EmitTypedEvent(&types.EventCreateSyntheticToken{
+		TokenId:       newToken.Id,
+		Owner:         newToken.Owner,
+		OriginMailbox: newToken.OriginMailbox,
+		OriginDenom:   newToken.OriginDenom,
+	})
+
 	return &types.MsgCreateSyntheticTokenResponse{Id: tokenId}, nil
 }
 
-// CreateCollateralToken ...
-func (ms msgServer) CreateCollateralToken(ctx context.Context, msg *types.MsgCreateCollateralToken) (*types.MsgCreateCollateralTokenResponse, error) {
-	if !slices.Contains(ms.k.enabledTokens, int32(types.HYP_TOKEN_TYPE_COLLATERAL)) {
-		return nil, fmt.Errorf("module disabled collateral tokens")
+func (k *Keeper) CreateCollateralToken(ctx context.Context, msg *types.MsgCreateCollateralToken) (util.HexAddress, error) {
+	if !slices.Contains(k.enabledTokens, int32(types.HYP_TOKEN_TYPE_COLLATERAL)) {
+		return util.HexAddress{}, fmt.Errorf("module disabled collateral tokens")
 	}
 
 	err := sdk.ValidateDenom(msg.OriginDenom)
 	if err != nil {
-		return nil, fmt.Errorf("origin denom %s is invalid", msg.OriginDenom)
+		return util.HexAddress{}, fmt.Errorf("origin denom %s is invalid", msg.OriginDenom)
 	}
 
-	has, err := ms.k.coreKeeper.MailboxIdExists(ctx, msg.OriginMailbox)
+	has, err := k.coreKeeper.MailboxIdExists(ctx, msg.OriginMailbox)
 	if err != nil {
-		return nil, err
+		return util.HexAddress{}, err
 	}
 	if !has {
-		return nil, fmt.Errorf("failed to find mailbox with id: %s", msg.OriginMailbox.String())
+		return util.HexAddress{}, fmt.Errorf("failed to find mailbox with id: %s", msg.OriginMailbox.String())
 	}
 
-	tokenId, err := ms.k.coreKeeper.AppRouter().GetNextSequence(ctx, uint8(types.HYP_TOKEN_TYPE_COLLATERAL))
+	tokenId, err := k.coreKeeper.AppRouter().GetNextSequence(ctx, uint8(types.HYP_TOKEN_TYPE_COLLATERAL))
 	if err != nil {
-		return nil, err
+		return util.HexAddress{}, err
 	}
 
 	newToken := types.HypToken{
@@ -83,16 +89,34 @@ func (ms msgServer) CreateCollateralToken(ctx context.Context, msg *types.MsgCre
 		OriginDenom:   msg.OriginDenom,
 	}
 
-	if err = ms.k.HypTokens.Set(ctx, tokenId.GetInternalId(), newToken); err != nil {
+	if err = k.HypTokens.Set(ctx, tokenId.GetInternalId(), newToken); err != nil {
+		return util.HexAddress{}, err
+	}
+
+	_ = sdk.UnwrapSDKContext(ctx).EventManager().EmitTypedEvent(&types.EventCreateCollateralToken{
+		TokenId:       newToken.Id,
+		Owner:         newToken.Owner,
+		OriginMailbox: newToken.OriginMailbox,
+		OriginDenom:   newToken.OriginDenom,
+	})
+
+	return tokenId, nil
+}
+
+// CreateCollateralToken ...
+func (ms msgServer) CreateCollateralToken(ctx context.Context, msg *types.MsgCreateCollateralToken) (*types.MsgCreateCollateralTokenResponse, error) {
+	tokenId, err := ms.k.CreateCollateralToken(ctx, msg)
+	if err != nil {
 		return nil, err
 	}
+
 	return &types.MsgCreateCollateralTokenResponse{Id: tokenId}, nil
 }
 
 // SetToken allows the owner of a token to change its ownership or update its ISM ID.
 func (ms msgServer) SetToken(ctx context.Context, msg *types.MsgSetToken) (*types.MsgSetTokenResponse, error) {
-	if msg.NewOwner == "" && msg.IsmId == nil {
-		return nil, fmt.Errorf("new owner or ism id required")
+	if msg.NewOwner == "" && msg.IsmId == nil && !msg.RenounceOwnership {
+		return nil, fmt.Errorf("new owner, renounce ownership or ism id required")
 	}
 
 	tokenId := msg.TokenId
@@ -105,8 +129,20 @@ func (ms msgServer) SetToken(ctx context.Context, msg *types.MsgSetToken) (*type
 		return nil, fmt.Errorf("%s does not own token with id %s", msg.Owner, tokenId.String())
 	}
 
+	// Only renounce if new owner is empty
+	if msg.RenounceOwnership && msg.NewOwner != "" {
+		return nil, fmt.Errorf("cannot set new owner and renounce ownership at the same time")
+	}
+
 	if msg.NewOwner != "" {
+		if _, err := sdk.AccAddressFromBech32(msg.NewOwner); err != nil {
+			return nil, fmt.Errorf("invalid new owner")
+		}
 		token.Owner = msg.NewOwner
+	}
+
+	if msg.RenounceOwnership {
+		token.Owner = ""
 	}
 
 	if msg.IsmId != nil {
@@ -120,6 +156,14 @@ func (ms msgServer) SetToken(ctx context.Context, msg *types.MsgSetToken) (*type
 	if err != nil {
 		return nil, err
 	}
+
+	_ = sdk.UnwrapSDKContext(ctx).EventManager().EmitTypedEvent(&types.EventSetToken{
+		TokenId:           tokenId.String(),
+		Owner:             msg.Owner,
+		IsmId:             msg.IsmId,
+		NewOwner:          msg.NewOwner,
+		RenounceOwnership: msg.RenounceOwnership,
+	})
 
 	return &types.MsgSetTokenResponse{}, nil
 }
@@ -148,6 +192,14 @@ func (ms msgServer) EnrollRemoteRouter(ctx context.Context, msg *types.MsgEnroll
 		return nil, err
 	}
 
+	_ = sdk.UnwrapSDKContext(ctx).EventManager().EmitTypedEvent(&types.EventEnrollRemoteRouter{
+		TokenId:          tokenId.String(),
+		Owner:            msg.Owner,
+		ReceiverDomain:   msg.RemoteRouter.ReceiverDomain,
+		ReceiverContract: msg.RemoteRouter.ReceiverContract,
+		Gas:              msg.RemoteRouter.Gas,
+	})
+
 	return &types.MsgEnrollRemoteRouterResponse{}, nil
 }
 
@@ -171,6 +223,12 @@ func (ms msgServer) UnrollRemoteRouter(ctx context.Context, msg *types.MsgUnroll
 	if err = ms.k.EnrolledRouters.Remove(ctx, collections.Join(tokenId.GetInternalId(), msg.ReceiverDomain)); err != nil {
 		return nil, err
 	}
+
+	_ = sdk.UnwrapSDKContext(ctx).EventManager().EmitTypedEvent(&types.EventUnrollRemoteRouter{
+		TokenId:        tokenId.String(),
+		Owner:          msg.Owner,
+		ReceiverDomain: msg.ReceiverDomain,
+	})
 
 	return &types.MsgUnrollRemoteRouterResponse{}, nil
 }

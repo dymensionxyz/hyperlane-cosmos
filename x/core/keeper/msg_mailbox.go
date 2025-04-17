@@ -9,30 +9,30 @@ import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 
-func (ms msgServer) CreateMailbox(ctx context.Context, req *types.MsgCreateMailbox) (*types.MsgCreateMailboxResponse, error) {
+func (k Keeper) CreateMailbox(ctx context.Context, req *types.MsgCreateMailbox) (util.HexAddress, error) {
 	// Check ism existence
-	if err := ms.k.AssertIsmExists(ctx, req.DefaultIsm); err != nil {
-		return nil, err
+	if err := k.AssertIsmExists(ctx, req.DefaultIsm); err != nil {
+		return util.HexAddress{}, err
 	}
 
 	// Check default hook is valid if set
 	if req.DefaultHook != nil {
-		if err := ms.k.AssertPostDispatchHookExists(ctx, *req.DefaultHook); err != nil {
-			return nil, err
+		if err := k.AssertPostDispatchHookExists(ctx, *req.DefaultHook); err != nil {
+			return util.HexAddress{}, err
 		}
 	}
 
 	// Check required hook is valid if set.
 	// The "required" means that this hook can not be overridden by the message dispatcher
 	if req.RequiredHook != nil {
-		if err := ms.k.AssertPostDispatchHookExists(ctx, *req.RequiredHook); err != nil {
-			return nil, err
+		if err := k.AssertPostDispatchHookExists(ctx, *req.RequiredHook); err != nil {
+			return util.HexAddress{}, err
 		}
 	}
 
-	mailboxCount, err := ms.k.MailboxesSequence.Next(ctx)
+	mailboxCount, err := k.MailboxesSequence.Next(ctx)
 	if err != nil {
-		return nil, err
+		return util.HexAddress{}, err
 	}
 
 	identifier := [20]byte{}
@@ -52,7 +52,25 @@ func (ms msgServer) CreateMailbox(ctx context.Context, req *types.MsgCreateMailb
 		LocalDomain:     req.LocalDomain,
 	}
 
-	if err = ms.k.Mailboxes.Set(ctx, prefixedId.GetInternalId(), newMailbox); err != nil {
+	if err = k.Mailboxes.Set(ctx, prefixedId.GetInternalId(), newMailbox); err != nil {
+		return util.HexAddress{}, err
+	}
+
+	_ = sdk.UnwrapSDKContext(ctx).EventManager().EmitTypedEvent(&types.EventCreateMailbox{
+		MailboxId:    newMailbox.Id,
+		Owner:        newMailbox.Owner,
+		DefaultIsm:   newMailbox.DefaultIsm,
+		DefaultHook:  newMailbox.DefaultHook,
+		RequiredHook: newMailbox.RequiredHook,
+		LocalDomain:  newMailbox.LocalDomain,
+	})
+
+	return prefixedId, nil
+}
+
+func (ms msgServer) CreateMailbox(ctx context.Context, req *types.MsgCreateMailbox) (*types.MsgCreateMailboxResponse, error) {
+	prefixedId, err := ms.k.CreateMailbox(ctx, req)
+	if err != nil {
 		return nil, err
 	}
 
@@ -118,13 +136,34 @@ func (ms msgServer) SetMailbox(ctx context.Context, req *types.MsgSetMailbox) (*
 		mailbox.RequiredHook = req.RequiredHook
 	}
 
+	// Only renounce if new owner is empty
+	if req.RenounceOwnership && req.NewOwner != "" {
+		return nil, fmt.Errorf("cannot set new owner and renounce ownership at the same time")
+	}
+
 	if req.NewOwner != "" {
+		if _, err := ms.k.addressCodec.StringToBytes(req.NewOwner); err != nil {
+			return nil, fmt.Errorf("invalid new owner")
+		}
 		mailbox.Owner = req.NewOwner
+	}
+
+	if req.RenounceOwnership {
+		mailbox.Owner = ""
 	}
 
 	if err = ms.k.Mailboxes.Set(ctx, mailboxId.GetInternalId(), mailbox); err != nil {
 		return nil, err
 	}
+
+	_ = sdk.UnwrapSDKContext(ctx).EventManager().EmitTypedEvent(&types.EventSetMailbox{
+		MailboxId:         mailboxId,
+		Owner:             req.Owner,
+		DefaultIsm:        req.DefaultIsm,
+		DefaultHook:       req.DefaultHook,
+		NewOwner:          req.NewOwner,
+		RenounceOwnership: req.RenounceOwnership,
+	})
 
 	return &types.MsgSetMailboxResponse{}, nil
 }
