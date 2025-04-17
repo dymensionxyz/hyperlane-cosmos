@@ -2,4 +2,3 @@
 - made buf publish to danwt repo
 - added a half baked query cli
 - add a few things to gitignore
-- TODO
