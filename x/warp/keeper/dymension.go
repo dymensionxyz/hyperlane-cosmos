@@ -73,11 +73,11 @@ func (k *DymensionHandler) Handle(ctx context.Context, mailboxId util.HexAddress
 		return err
 	}
 
-	payloadMemo, err := types.ParseWarpMemoPayload(message.Body)
+	payloadWithMemo, err := types.ParseWarpMemoPayload(message.Body)
 	if err != nil {
 		return err
 	}
-	payload := payloadMemo.WarpPayload
+	payload := payloadWithMemo.WarpPayload
 
 	if token.OriginMailbox != mailboxId {
 		return fmt.Errorf("invalid origin mailbox address")
@@ -119,7 +119,7 @@ func (k *DymensionHandler) Handle(ctx context.Context, mailboxId util.HexAddress
 	k.hook.OnHyperlaneMessage(ctx, OnHyperlaneMessageArgs{
 		MailboxId: mailboxId,
 		Message:   message,
-		Memo:      payloadMemo.Memo,
+		Memo:      payloadWithMemo.Memo,
 		Account:   account,
 		Coins:     coins,
 	})
