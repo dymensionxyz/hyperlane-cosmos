@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/dymensionxyz/hyperlane-cosmos/util"
+
 	"github.com/ethereum/go-ethereum/crypto"
 
 	"github.com/dymensionxyz/hyperlane-cosmos/x/core/01_interchain_security/types"
