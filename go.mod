@@ -1,4 +1,4 @@
-module github.com/dymensionxyz/hyperlane-cosmos
+module github.com/bcp-innovations/hyperlane-cosmos
 
 go 1.22.11
 
