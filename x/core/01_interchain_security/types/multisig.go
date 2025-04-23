@@ -5,7 +5,7 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/dymensionxyz/go-ethereum/crypto"
+	"github.com/ethereum/go-ethereum/crypto"
 
 	"github.com/dymensionxyz/hyperlane-cosmos/util"
 )

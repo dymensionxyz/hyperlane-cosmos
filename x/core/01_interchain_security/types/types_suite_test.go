@@ -7,7 +7,7 @@ import (
 
 	"github.com/dymensionxyz/hyperlane-cosmos/util"
 
-	"github.com/dymensionxyz/go-ethereum/crypto"
+	"github.com/ethereum/go-ethereum/crypto"
 
 	"github.com/dymensionxyz/hyperlane-cosmos/x/core/01_interchain_security/types"
 

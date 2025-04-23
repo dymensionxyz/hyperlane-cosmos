@@ -6,8 +6,8 @@ import (
 
 	"cosmossdk.io/errors"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/dymensionxyz/go-ethereum/crypto"
 	types2 "github.com/dymensionxyz/hyperlane-cosmos/x/core/types"
+	"github.com/ethereum/go-ethereum/crypto"
 
 	"github.com/cosmos/gogoproto/proto"
 	i "github.com/dymensionxyz/hyperlane-cosmos/tests/integration"

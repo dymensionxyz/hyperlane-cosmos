@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"slices"
 
-	"github.com/dymensionxyz/go-ethereum/crypto"
 	"github.com/dymensionxyz/hyperlane-cosmos/util"
+	"github.com/ethereum/go-ethereum/crypto"
 )
 
 var _ HyperlaneInterchainSecurityModule = &MerkleRootMultisigISM{}

@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"slices"
 
-	"github.com/dymensionxyz/go-ethereum/crypto"
+	"github.com/ethereum/go-ethereum/crypto"
 )
 
 const (
