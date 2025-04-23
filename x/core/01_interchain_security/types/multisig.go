@@ -5,9 +5,8 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/ethereum/go-ethereum/crypto"
-
 	"github.com/dymensionxyz/hyperlane-cosmos/util"
+	"github.com/ethereum/go-ethereum/crypto"
 )
 
 type MultisigISM interface {

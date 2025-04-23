@@ -5,13 +5,13 @@ import (
 	"context"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/ethereum/go-ethereum/crypto"
 
 	"cosmossdk.io/errors"
 
 	"cosmossdk.io/collections"
 
 	"github.com/dymensionxyz/hyperlane-cosmos/util"
-	"github.com/ethereum/go-ethereum/crypto"
 
 	"github.com/dymensionxyz/hyperlane-cosmos/x/core/01_interchain_security/types"
 )
