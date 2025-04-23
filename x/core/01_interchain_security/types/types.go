@@ -7,7 +7,7 @@ import (
 
 	"github.com/bcp-innovations/hyperlane-cosmos/util"
 	"github.com/cosmos/gogoproto/proto"
-	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/dymensionxyz/go-ethereum/crypto"
 )
 
 type HyperlaneInterchainSecurityModule interface {

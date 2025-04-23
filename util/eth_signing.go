@@ -8,7 +8,7 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/dymensionxyz/go-ethereum/crypto"
 )
 
 // GetEthSigningHash hashes a message according to EIP-191.

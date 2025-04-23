@@ -4,7 +4,7 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/dymensionxyz/go-ethereum/crypto"
 )
 
 const (

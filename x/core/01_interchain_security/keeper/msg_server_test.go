@@ -7,7 +7,7 @@ import (
 	"cosmossdk.io/errors"
 	types2 "github.com/bcp-innovations/hyperlane-cosmos/x/core/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/ethereum/go-ethereum/crypto"
+	"github.com/dymensionxyz/go-ethereum/crypto"
 
 	i "github.com/bcp-innovations/hyperlane-cosmos/tests/integration"
 	"github.com/bcp-innovations/hyperlane-cosmos/util"

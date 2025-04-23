@@ -1,4 +1,4 @@
-- depend on github.com/ethereum/go-ethereum v1.10.26 
+- depend on github.com/dymensionxyz/go-ethereum v1.10.26 
 - made buf publish to danwt repo
 - added a half baked query cli
 - add a few things to gitignore
