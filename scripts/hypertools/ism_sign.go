@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/bcp-innovations/hyperlane-cosmos/util"
 	"github.com/dymensionxyz/go-ethereum/common/hexutil"
 	"github.com/dymensionxyz/go-ethereum/crypto"
+	"github.com/dymensionxyz/hyperlane-cosmos/util"
 	"github.com/spf13/cobra"
 )
 

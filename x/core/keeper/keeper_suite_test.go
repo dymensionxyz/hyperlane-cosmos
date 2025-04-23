@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/bcp-innovations/hyperlane-cosmos/x/core/types"
+	"github.com/dymensionxyz/hyperlane-cosmos/x/core/types"
 
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"

@@ -5,7 +5,7 @@ import (
 
 	"cosmossdk.io/collections"
 
-	"github.com/bcp-innovations/hyperlane-cosmos/x/warp/types"
+	"github.com/dymensionxyz/hyperlane-cosmos/x/warp/types"
 )
 
 // InitGenesis initializes the module state from a genesis state.

@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"testing"
 
-	i "github.com/bcp-innovations/hyperlane-cosmos/tests/integration"
-	"github.com/bcp-innovations/hyperlane-cosmos/util"
-	ismTypes "github.com/bcp-innovations/hyperlane-cosmos/x/core/01_interchain_security/types"
-	coreTypes "github.com/bcp-innovations/hyperlane-cosmos/x/core/types"
 	"github.com/cosmos/gogoproto/proto"
+	i "github.com/dymensionxyz/hyperlane-cosmos/tests/integration"
+	"github.com/dymensionxyz/hyperlane-cosmos/util"
+	ismTypes "github.com/dymensionxyz/hyperlane-cosmos/x/core/01_interchain_security/types"
+	coreTypes "github.com/dymensionxyz/hyperlane-cosmos/x/core/types"
 
-	"github.com/bcp-innovations/hyperlane-cosmos/x/core/02_post_dispatch/types"
+	"github.com/dymensionxyz/hyperlane-cosmos/x/core/02_post_dispatch/types"
 
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"

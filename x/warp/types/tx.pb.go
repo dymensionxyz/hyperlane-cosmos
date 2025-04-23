@@ -7,7 +7,7 @@ import (
 	context "context"
 	cosmossdk_io_math "cosmossdk.io/math"
 	fmt "fmt"
-	github_com_bcp_innovations_hyperlane_cosmos_util "github.com/bcp-innovations/hyperlane-cosmos/util"
+	github_com_bcp_innovations_hyperlane_cosmos_util "github.com/dymensionxyz/hyperlane-cosmos/util"
 	_ "github.com/cosmos/cosmos-proto"
 	types "github.com/cosmos/cosmos-sdk/types"
 	_ "github.com/cosmos/cosmos-sdk/types/msgservice"
@@ -38,7 +38,7 @@ const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 type MsgCreateCollateralToken struct {
 	// owner is the message sender.
 	Owner         string                                                      `protobuf:"bytes,1,opt,name=owner,proto3" json:"owner,omitempty"`
-	OriginMailbox github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,2,opt,name=origin_mailbox,json=originMailbox,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"origin_mailbox"`
+	OriginMailbox github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,2,opt,name=origin_mailbox,json=originMailbox,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"origin_mailbox"`
 	OriginDenom   string                                                      `protobuf:"bytes,3,opt,name=origin_denom,json=originDenom,proto3" json:"origin_denom,omitempty"`
 }
 
@@ -91,7 +91,7 @@ func (m *MsgCreateCollateralToken) GetOriginDenom() string {
 
 // MsgCreateCollateralTokenResponse ...
 type MsgCreateCollateralTokenResponse struct {
-	Id github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=id,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"id"`
+	Id github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=id,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"id"`
 }
 
 func (m *MsgCreateCollateralTokenResponse) Reset()         { *m = MsgCreateCollateralTokenResponse{} }
@@ -131,7 +131,7 @@ var xxx_messageInfo_MsgCreateCollateralTokenResponse proto.InternalMessageInfo
 type MsgCreateSyntheticToken struct {
 	// owner is the message sender.
 	Owner         string                                                      `protobuf:"bytes,1,opt,name=owner,proto3" json:"owner,omitempty"`
-	OriginMailbox github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,2,opt,name=origin_mailbox,json=originMailbox,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"origin_mailbox"`
+	OriginMailbox github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,2,opt,name=origin_mailbox,json=originMailbox,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"origin_mailbox"`
 }
 
 func (m *MsgCreateSyntheticToken) Reset()         { *m = MsgCreateSyntheticToken{} }
@@ -176,7 +176,7 @@ func (m *MsgCreateSyntheticToken) GetOwner() string {
 
 // MsgCreateSyntheticTokenResponse ...
 type MsgCreateSyntheticTokenResponse struct {
-	Id github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=id,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"id"`
+	Id github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=id,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"id"`
 }
 
 func (m *MsgCreateSyntheticTokenResponse) Reset()         { *m = MsgCreateSyntheticTokenResponse{} }
@@ -216,9 +216,9 @@ var xxx_messageInfo_MsgCreateSyntheticTokenResponse proto.InternalMessageInfo
 type MsgSetToken struct {
 	// owner is the message sender.
 	Owner             string                                                       `protobuf:"bytes,1,opt,name=owner,proto3" json:"owner,omitempty"`
-	TokenId           github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress  `protobuf:"bytes,2,opt,name=token_id,json=tokenId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"token_id"`
+	TokenId           github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress  `protobuf:"bytes,2,opt,name=token_id,json=tokenId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"token_id"`
 	NewOwner          string                                                       `protobuf:"bytes,3,opt,name=new_owner,json=newOwner,proto3" json:"new_owner,omitempty"`
-	IsmId             *github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,4,opt,name=ism_id,json=ismId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"ism_id,omitempty"`
+	IsmId             *github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,4,opt,name=ism_id,json=ismId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"ism_id,omitempty"`
 	RenounceOwnership bool                                                         `protobuf:"varint,7,opt,name=renounce_ownership,json=renounceOwnership,proto3" json:"renounce_ownership,omitempty"`
 }
 
@@ -317,7 +317,7 @@ var xxx_messageInfo_MsgSetTokenResponse proto.InternalMessageInfo
 type MsgEnrollRemoteRouter struct {
 	// owner is the message sender.
 	Owner        string                                                      `protobuf:"bytes,1,opt,name=owner,proto3" json:"owner,omitempty"`
-	TokenId      github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,2,opt,name=token_id,json=tokenId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"token_id"`
+	TokenId      github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,2,opt,name=token_id,json=tokenId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"token_id"`
 	RemoteRouter *RemoteRouter                                               `protobuf:"bytes,3,opt,name=remote_router,json=remoteRouter,proto3" json:"remote_router,omitempty"`
 }
 
@@ -409,7 +409,7 @@ var xxx_messageInfo_MsgEnrollRemoteRouterResponse proto.InternalMessageInfo
 type MsgUnrollRemoteRouter struct {
 	// owner is the message sender.
 	Owner          string                                                      `protobuf:"bytes,1,opt,name=owner,proto3" json:"owner,omitempty"`
-	TokenId        github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,2,opt,name=token_id,json=tokenId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"token_id"`
+	TokenId        github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,2,opt,name=token_id,json=tokenId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"token_id"`
 	ReceiverDomain uint32                                                      `protobuf:"varint,3,opt,name=receiver_domain,json=receiverDomain,proto3" json:"receiver_domain,omitempty"`
 }
 
@@ -500,12 +500,12 @@ var xxx_messageInfo_MsgUnrollRemoteRouterResponse proto.InternalMessageInfo
 // MsgRemoteTransfer ...
 type MsgRemoteTransfer struct {
 	Sender            string                                                      `protobuf:"bytes,1,opt,name=sender,proto3" json:"sender,omitempty"`
-	TokenId           github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,2,opt,name=token_id,json=tokenId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"token_id"`
+	TokenId           github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,2,opt,name=token_id,json=tokenId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"token_id"`
 	DestinationDomain uint32                                                      `protobuf:"varint,3,opt,name=destination_domain,json=destinationDomain,proto3" json:"destination_domain,omitempty"`
-	Recipient         github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,4,opt,name=recipient,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"recipient"`
+	Recipient         github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,4,opt,name=recipient,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"recipient"`
 	Amount            cosmossdk_io_math.Int                                       `protobuf:"bytes,5,opt,name=amount,proto3,customtype=cosmossdk.io/math.Int" json:"amount"`
 	// Post Dispatch
-	CustomHookId       *github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,6,opt,name=custom_hook_id,json=customHookId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"custom_hook_id,omitempty"`
+	CustomHookId       *github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,6,opt,name=custom_hook_id,json=customHookId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"custom_hook_id,omitempty"`
 	GasLimit           cosmossdk_io_math.Int                                        `protobuf:"bytes,7,opt,name=gas_limit,json=gasLimit,proto3,customtype=cosmossdk.io/math.Int" json:"gas_limit"`
 	MaxFee             types.Coin                                                   `protobuf:"bytes,8,opt,name=max_fee,json=maxFee,proto3" json:"max_fee"`
 	CustomHookMetadata string                                                       `protobuf:"bytes,9,opt,name=custom_hook_metadata,json=customHookMetadata,proto3" json:"custom_hook_metadata,omitempty"`
@@ -574,7 +574,7 @@ func (m *MsgRemoteTransfer) GetCustomHookMetadata() string {
 
 // MsgRemoteTransferResponse ...
 type MsgRemoteTransferResponse struct {
-	MessageId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=message_id,json=messageId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"message_id"`
+	MessageId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=message_id,json=messageId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"message_id"`
 }
 
 func (m *MsgRemoteTransferResponse) Reset()         { *m = MsgRemoteTransferResponse{} }

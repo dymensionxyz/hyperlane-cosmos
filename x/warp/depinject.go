@@ -6,12 +6,12 @@ import (
 	"cosmossdk.io/core/appmodule"
 	"cosmossdk.io/core/store"
 	"cosmossdk.io/depinject"
-	modulev1 "github.com/bcp-innovations/hyperlane-cosmos/api/warp/module/v1"
-	coreKeeper "github.com/bcp-innovations/hyperlane-cosmos/x/core/keeper"
-	"github.com/bcp-innovations/hyperlane-cosmos/x/warp/keeper"
-	"github.com/bcp-innovations/hyperlane-cosmos/x/warp/types"
 	"github.com/cosmos/cosmos-sdk/codec"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
+	modulev1 "github.com/dymensionxyz/hyperlane-cosmos/api/warp/module/v1"
+	coreKeeper "github.com/dymensionxyz/hyperlane-cosmos/x/core/keeper"
+	"github.com/dymensionxyz/hyperlane-cosmos/x/warp/keeper"
+	"github.com/dymensionxyz/hyperlane-cosmos/x/warp/types"
 )
 
 var _ appmodule.AppModule = AppModule{}

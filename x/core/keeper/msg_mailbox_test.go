@@ -4,18 +4,18 @@ import (
 	"encoding/hex"
 	"fmt"
 
-	pdTypes "github.com/bcp-innovations/hyperlane-cosmos/x/core/02_post_dispatch/types"
+	pdTypes "github.com/dymensionxyz/hyperlane-cosmos/x/core/02_post_dispatch/types"
 
-	ismtypes "github.com/bcp-innovations/hyperlane-cosmos/x/core/01_interchain_security/types"
+	ismtypes "github.com/dymensionxyz/hyperlane-cosmos/x/core/01_interchain_security/types"
 
 	"cosmossdk.io/math"
 
-	i "github.com/bcp-innovations/hyperlane-cosmos/tests/integration"
-	"github.com/bcp-innovations/hyperlane-cosmos/util"
-	"github.com/bcp-innovations/hyperlane-cosmos/x/core/keeper"
-	"github.com/bcp-innovations/hyperlane-cosmos/x/core/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/cosmos/gogoproto/proto"
+	i "github.com/dymensionxyz/hyperlane-cosmos/tests/integration"
+	"github.com/dymensionxyz/hyperlane-cosmos/util"
+	"github.com/dymensionxyz/hyperlane-cosmos/x/core/keeper"
+	"github.com/dymensionxyz/hyperlane-cosmos/x/core/types"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 )

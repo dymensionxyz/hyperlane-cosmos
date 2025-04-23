@@ -7,7 +7,7 @@ import (
 
 	"github.com/dymensionxyz/go-ethereum/crypto"
 
-	"github.com/bcp-innovations/hyperlane-cosmos/util"
+	"github.com/dymensionxyz/hyperlane-cosmos/util"
 )
 
 type MultisigISM interface {

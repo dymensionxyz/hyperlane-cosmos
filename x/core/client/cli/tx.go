@@ -3,12 +3,12 @@ package cli
 import (
 	"fmt"
 
-	"github.com/bcp-innovations/hyperlane-cosmos/x/core/types"
 	"github.com/cosmos/cosmos-sdk/client"
+	"github.com/dymensionxyz/hyperlane-cosmos/x/core/types"
 	"github.com/spf13/cobra"
 
-	ism "github.com/bcp-innovations/hyperlane-cosmos/x/core/01_interchain_security"
-	pdmodule "github.com/bcp-innovations/hyperlane-cosmos/x/core/02_post_dispatch"
+	ism "github.com/dymensionxyz/hyperlane-cosmos/x/core/01_interchain_security"
+	pdmodule "github.com/dymensionxyz/hyperlane-cosmos/x/core/02_post_dispatch"
 )
 
 var (

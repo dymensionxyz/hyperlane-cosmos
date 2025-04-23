@@ -5,7 +5,7 @@ package types
 
 import (
 	fmt "fmt"
-	github_com_bcp_innovations_hyperlane_cosmos_util "github.com/bcp-innovations/hyperlane-cosmos/util"
+	github_com_bcp_innovations_hyperlane_cosmos_util "github.com/dymensionxyz/hyperlane-cosmos/util"
 	_ "github.com/cosmos/cosmos-proto"
 	_ "github.com/cosmos/gogoproto/gogoproto"
 	proto "github.com/cosmos/gogoproto/proto"
@@ -27,7 +27,7 @@ const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 // Mailbox ...
 type Mailbox struct {
-	Id github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=id,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"id"`
+	Id github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=id,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"id"`
 	// owner ...
 	Owner string `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
 	// message_sent ...
@@ -35,11 +35,11 @@ type Mailbox struct {
 	// message_received ...
 	MessageReceived uint32 `protobuf:"varint,4,opt,name=message_received,json=messageReceived,proto3" json:"message_received,omitempty"`
 	// default_ism ...
-	DefaultIsm github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,5,opt,name=default_ism,json=defaultIsm,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"default_ism"`
+	DefaultIsm github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,5,opt,name=default_ism,json=defaultIsm,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"default_ism"`
 	// default_hook
-	DefaultHook *github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,6,opt,name=default_hook,json=defaultHook,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"default_hook,omitempty"`
+	DefaultHook *github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,6,opt,name=default_hook,json=defaultHook,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"default_hook,omitempty"`
 	// required_hook
-	RequiredHook *github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,7,opt,name=required_hook,json=requiredHook,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"required_hook,omitempty"`
+	RequiredHook *github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,7,opt,name=required_hook,json=requiredHook,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"required_hook,omitempty"`
 	// domain
 	LocalDomain uint32 `protobuf:"varint,8,opt,name=local_domain,json=localDomain,proto3" json:"local_domain,omitempty"`
 }

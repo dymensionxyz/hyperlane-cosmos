@@ -6,7 +6,7 @@ package types
 import (
 	cosmossdk_io_math "cosmossdk.io/math"
 	fmt "fmt"
-	github_com_bcp_innovations_hyperlane_cosmos_util "github.com/bcp-innovations/hyperlane-cosmos/util"
+	github_com_bcp_innovations_hyperlane_cosmos_util "github.com/dymensionxyz/hyperlane-cosmos/util"
 	_ "github.com/cosmos/gogoproto/gogoproto"
 	proto "github.com/cosmos/gogoproto/proto"
 	io "io"
@@ -27,9 +27,9 @@ const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 // EventCreateSyntheticToken ...
 type EventCreateSyntheticToken struct {
-	TokenId       github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=token_id,json=tokenId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"token_id"`
+	TokenId       github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=token_id,json=tokenId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"token_id"`
 	Owner         string                                                      `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
-	OriginMailbox github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,3,opt,name=origin_mailbox,json=originMailbox,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"origin_mailbox"`
+	OriginMailbox github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,3,opt,name=origin_mailbox,json=originMailbox,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"origin_mailbox"`
 	OriginDenom   string                                                      `protobuf:"bytes,4,opt,name=origin_denom,json=originDenom,proto3" json:"origin_denom,omitempty"`
 }
 
@@ -82,9 +82,9 @@ func (m *EventCreateSyntheticToken) GetOriginDenom() string {
 
 // EventCreateCollateralToken ...
 type EventCreateCollateralToken struct {
-	TokenId       github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=token_id,json=tokenId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"token_id"`
+	TokenId       github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=token_id,json=tokenId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"token_id"`
 	Owner         string                                                      `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
-	OriginMailbox github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,3,opt,name=origin_mailbox,json=originMailbox,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"origin_mailbox"`
+	OriginMailbox github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,3,opt,name=origin_mailbox,json=originMailbox,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"origin_mailbox"`
 	OriginDenom   string                                                      `protobuf:"bytes,4,opt,name=origin_denom,json=originDenom,proto3" json:"origin_denom,omitempty"`
 }
 
@@ -139,7 +139,7 @@ func (m *EventCreateCollateralToken) GetOriginDenom() string {
 type EventSetToken struct {
 	TokenId           string                                                       `protobuf:"bytes,1,opt,name=token_id,json=tokenId,proto3" json:"token_id,omitempty"`
 	Owner             string                                                       `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
-	IsmId             *github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,3,opt,name=ism_id,json=ismId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"ism_id,omitempty"`
+	IsmId             *github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,3,opt,name=ism_id,json=ismId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"ism_id,omitempty"`
 	NewOwner          string                                                       `protobuf:"bytes,4,opt,name=new_owner,json=newOwner,proto3" json:"new_owner,omitempty"`
 	RenounceOwnership bool                                                         `protobuf:"varint,5,opt,name=renounce_ownership,json=renounceOwnership,proto3" json:"renounce_ownership,omitempty"`
 }
@@ -338,10 +338,10 @@ func (m *EventUnrollRemoteRouter) GetReceiverDomain() uint32 {
 
 // EventSendRemoteTransfer ...
 type EventSendRemoteTransfer struct {
-	TokenId           github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=token_id,json=tokenId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"token_id"`
+	TokenId           github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=token_id,json=tokenId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"token_id"`
 	Sender            string                                                      `protobuf:"bytes,2,opt,name=sender,proto3" json:"sender,omitempty"`
 	DestinationDomain uint32                                                      `protobuf:"varint,3,opt,name=destination_domain,json=destinationDomain,proto3" json:"destination_domain,omitempty"`
-	Recipient         github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,4,opt,name=recipient,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"recipient"`
+	Recipient         github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,4,opt,name=recipient,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"recipient"`
 	Amount            string                                                      `protobuf:"bytes,5,opt,name=amount,proto3" json:"amount,omitempty"`
 }
 
@@ -401,8 +401,8 @@ func (m *EventSendRemoteTransfer) GetAmount() string {
 
 // EventReceiveRemoteTransfer ...
 type EventReceiveRemoteTransfer struct {
-	TokenId      github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=token_id,json=tokenId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"token_id"`
-	Sender       github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,2,opt,name=sender,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"sender"`
+	TokenId      github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=token_id,json=tokenId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"token_id"`
+	Sender       github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,2,opt,name=sender,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"sender"`
 	OriginDomain uint32                                                      `protobuf:"varint,3,opt,name=origin_domain,json=originDomain,proto3" json:"origin_domain,omitempty"`
 	Recipient    string                                                      `protobuf:"bytes,4,opt,name=recipient,proto3" json:"recipient,omitempty"`
 	Amount       string                                                      `protobuf:"bytes,5,opt,name=amount,proto3" json:"amount,omitempty"`

@@ -4,8 +4,8 @@ import (
 	"cosmossdk.io/collections"
 	storetypes "cosmossdk.io/core/store"
 
-	"github.com/bcp-innovations/hyperlane-cosmos/x/core/02_post_dispatch/types"
 	"github.com/cosmos/cosmos-sdk/codec"
+	"github.com/dymensionxyz/hyperlane-cosmos/x/core/02_post_dispatch/types"
 )
 
 type Keeper struct {

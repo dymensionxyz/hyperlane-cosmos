@@ -10,8 +10,8 @@ import (
 
 	"github.com/cosmos/gogoproto/proto"
 
-	"github.com/bcp-innovations/hyperlane-cosmos/util"
-	"github.com/bcp-innovations/hyperlane-cosmos/x/core/01_interchain_security/types"
+	"github.com/dymensionxyz/hyperlane-cosmos/util"
+	"github.com/dymensionxyz/hyperlane-cosmos/x/core/01_interchain_security/types"
 )
 
 var _ types.QueryServer = queryServer{}

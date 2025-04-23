@@ -5,7 +5,7 @@ package types
 
 import (
 	fmt "fmt"
-	github_com_bcp_innovations_hyperlane_cosmos_util "github.com/bcp-innovations/hyperlane-cosmos/util"
+	github_com_bcp_innovations_hyperlane_cosmos_util "github.com/dymensionxyz/hyperlane-cosmos/util"
 	_ "github.com/cosmos/cosmos-proto"
 	_ "github.com/cosmos/gogoproto/gogoproto"
 	proto "github.com/cosmos/gogoproto/proto"
@@ -28,7 +28,7 @@ const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 // EventCreateNoopIsm ...
 type EventCreateNoopIsm struct {
 	// ism_id ...
-	IsmId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=ism_id,json=ismId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"ism_id"`
+	IsmId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=ism_id,json=ismId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"ism_id"`
 	// owner ...
 	Owner string `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
 }
@@ -75,7 +75,7 @@ func (m *EventCreateNoopIsm) GetOwner() string {
 
 // EventCreateMerkleRootMultisigIsm ...
 type EventCreateMerkleRootMultisigIsm struct {
-	IsmId      github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=ism_id,json=ismId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"ism_id"`
+	IsmId      github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=ism_id,json=ismId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"ism_id"`
 	Owner      string                                                      `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
 	Validators []string                                                    `protobuf:"bytes,3,rep,name=validators,proto3" json:"validators,omitempty"`
 	Threshold  uint32                                                      `protobuf:"varint,4,opt,name=threshold,proto3" json:"threshold,omitempty"`
@@ -137,7 +137,7 @@ func (m *EventCreateMerkleRootMultisigIsm) GetThreshold() uint32 {
 
 // EventCreateMessageIdMultisigIsm ...
 type EventCreateMessageIdMultisigIsm struct {
-	IsmId      github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=ism_id,json=ismId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"ism_id"`
+	IsmId      github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=ism_id,json=ismId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"ism_id"`
 	Owner      string                                                      `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
 	Validators []string                                                    `protobuf:"bytes,3,rep,name=validators,proto3" json:"validators,omitempty"`
 	Threshold  uint32                                                      `protobuf:"varint,4,opt,name=threshold,proto3" json:"threshold,omitempty"`
@@ -199,7 +199,7 @@ func (m *EventCreateMessageIdMultisigIsm) GetThreshold() uint32 {
 
 // EventCreateMessageIdMultisigIsm ...
 type EventAnnounceStorageLocation struct {
-	MailboxId       github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=mailbox_id,json=mailboxId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"mailbox_id"`
+	MailboxId       github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=mailbox_id,json=mailboxId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"mailbox_id"`
 	Sender          string                                                      `protobuf:"bytes,2,opt,name=sender,proto3" json:"sender,omitempty"`
 	Validator       string                                                      `protobuf:"bytes,3,opt,name=validator,proto3" json:"validator,omitempty"`
 	StorageLocation string                                                      `protobuf:"bytes,4,opt,name=storage_location,json=storageLocation,proto3" json:"storage_location,omitempty"`
@@ -261,9 +261,9 @@ func (m *EventAnnounceStorageLocation) GetStorageLocation() string {
 
 // EventSetRoutingIsmDomain ...
 type EventSetRoutingIsmDomain struct {
-	IsmId       github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=ism_id,json=ismId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"ism_id"`
+	IsmId       github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=ism_id,json=ismId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"ism_id"`
 	Owner       string                                                      `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
-	RouteIsmId  github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,3,opt,name=route_ism_id,json=routeIsmId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"route_ism_id"`
+	RouteIsmId  github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,3,opt,name=route_ism_id,json=routeIsmId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"route_ism_id"`
 	RouteDomain uint32                                                      `protobuf:"varint,4,opt,name=route_domain,json=routeDomain,proto3" json:"route_domain,omitempty"`
 }
 
@@ -316,7 +316,7 @@ func (m *EventSetRoutingIsmDomain) GetRouteDomain() uint32 {
 
 // EventRemoveRoutingIsmDomain ...
 type EventRemoveRoutingIsmDomain struct {
-	IsmId       github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=ism_id,json=ismId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"ism_id"`
+	IsmId       github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=ism_id,json=ismId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"ism_id"`
 	Owner       string                                                      `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
 	RouteDomain uint32                                                      `protobuf:"varint,3,opt,name=route_domain,json=routeDomain,proto3" json:"route_domain,omitempty"`
 }
@@ -370,7 +370,7 @@ func (m *EventRemoveRoutingIsmDomain) GetRouteDomain() uint32 {
 
 // EventRemoveRoutingIsmDomain ...
 type EventSetRoutingIsm struct {
-	IsmId             github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=ism_id,json=ismId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"ism_id"`
+	IsmId             github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=ism_id,json=ismId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"ism_id"`
 	Owner             string                                                      `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
 	NewOwner          string                                                      `protobuf:"bytes,3,opt,name=new_owner,json=newOwner,proto3" json:"new_owner,omitempty"`
 	RenounceOwnership bool                                                        `protobuf:"varint,4,opt,name=renounce_ownership,json=renounceOwnership,proto3" json:"renounce_ownership,omitempty"`
@@ -432,7 +432,7 @@ func (m *EventSetRoutingIsm) GetRenounceOwnership() bool {
 
 // EventCreateMessageIdMultisigIsm ...
 type EventCreateRoutingIsm struct {
-	IsmId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=ism_id,json=ismId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"ism_id"`
+	IsmId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=ism_id,json=ismId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"ism_id"`
 	Owner string                                                      `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
 }
 

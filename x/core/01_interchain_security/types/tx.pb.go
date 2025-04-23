@@ -6,7 +6,7 @@ package types
 import (
 	context "context"
 	fmt "fmt"
-	github_com_bcp_innovations_hyperlane_cosmos_util "github.com/bcp-innovations/hyperlane-cosmos/util"
+	github_com_bcp_innovations_hyperlane_cosmos_util "github.com/dymensionxyz/hyperlane-cosmos/util"
 	_ "github.com/cosmos/cosmos-proto"
 	_ "github.com/cosmos/cosmos-sdk/types/msgservice"
 	_ "github.com/cosmos/cosmos-sdk/types/tx/amino"
@@ -99,7 +99,7 @@ func (m *MsgCreateMessageIdMultisigIsm) GetThreshold() uint32 {
 
 // MsgCreateMessageIdMultisigIsmResponse ...
 type MsgCreateMessageIdMultisigIsmResponse struct {
-	Id github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=id,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"id"`
+	Id github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=id,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"id"`
 }
 
 func (m *MsgCreateMessageIdMultisigIsmResponse) Reset()         { *m = MsgCreateMessageIdMultisigIsmResponse{} }
@@ -202,7 +202,7 @@ func (m *MsgCreateMerkleRootMultisigIsm) GetThreshold() uint32 {
 
 // MsgCreateMultisigIsmResponse ...
 type MsgCreateMerkleRootMultisigIsmResponse struct {
-	Id github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=id,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"id"`
+	Id github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=id,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"id"`
 }
 
 func (m *MsgCreateMerkleRootMultisigIsmResponse) Reset() {
@@ -288,7 +288,7 @@ func (m *MsgCreateNoopIsm) GetCreator() string {
 
 // MsgCreateNoopIsmResponse ...
 type MsgCreateNoopIsmResponse struct {
-	Id github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=id,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"id"`
+	Id github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=id,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"id"`
 }
 
 func (m *MsgCreateNoopIsmResponse) Reset()         { *m = MsgCreateNoopIsmResponse{} }
@@ -333,7 +333,7 @@ type MsgAnnounceValidator struct {
 	// signature ...
 	Signature string `protobuf:"bytes,3,opt,name=signature,proto3" json:"signature,omitempty"`
 	// mailbox_id ...
-	MailboxId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,4,opt,name=mailbox_id,json=mailboxId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"mailbox_id"`
+	MailboxId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,4,opt,name=mailbox_id,json=mailboxId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"mailbox_id"`
 	// creator ...
 	Creator string `protobuf:"bytes,5,opt,name=creator,proto3" json:"creator,omitempty"`
 }
@@ -493,7 +493,7 @@ func (m *MsgCreateRoutingIsm) GetRoutes() []Route {
 
 // MsgCreateRoutingIsmResponse ...
 type MsgCreateRoutingIsmResponse struct {
-	Id github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=id,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"id"`
+	Id github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=id,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"id"`
 }
 
 func (m *MsgCreateRoutingIsmResponse) Reset()         { *m = MsgCreateRoutingIsmResponse{} }
@@ -532,7 +532,7 @@ var xxx_messageInfo_MsgCreateRoutingIsmResponse proto.InternalMessageInfo
 // MsgSetRoutingIsmDomain ...
 type MsgSetRoutingIsmDomain struct {
 	// ism_id ...
-	IsmId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=ism_id,json=ismId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"ism_id"`
+	IsmId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=ism_id,json=ismId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"ism_id"`
 	// route ...
 	Route Route `protobuf:"bytes,2,opt,name=route,proto3" json:"route"`
 	// owner ...
@@ -626,7 +626,7 @@ var xxx_messageInfo_MsgSetRoutingIsmDomainResponse proto.InternalMessageInfo
 // MsgRemoveRoutingIsmDomain ...
 type MsgRemoveRoutingIsmDomain struct {
 	// ism_id ...
-	IsmId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=ism_id,json=ismId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"ism_id"`
+	IsmId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=ism_id,json=ismId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"ism_id"`
 	// domain ...
 	Domain uint32 `protobuf:"varint,2,opt,name=domain,proto3" json:"domain,omitempty"`
 	// owner ...
@@ -720,7 +720,7 @@ var xxx_messageInfo_MsgRemoveRoutingIsmDomainResponse proto.InternalMessageInfo
 // MsgUpdateRoutingIsmOwner ...
 type MsgUpdateRoutingIsmOwner struct {
 	// ism_id ...
-	IsmId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=ism_id,json=ismId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"ism_id"`
+	IsmId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=ism_id,json=ismId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"ism_id"`
 	// owner ...
 	Owner string `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
 	// new owner

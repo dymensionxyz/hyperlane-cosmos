@@ -3,10 +3,10 @@ package keeper
 import (
 	"context"
 
-	"github.com/bcp-innovations/hyperlane-cosmos/util"
+	"github.com/dymensionxyz/hyperlane-cosmos/util"
 
 	"cosmossdk.io/collections"
-	"github.com/bcp-innovations/hyperlane-cosmos/x/core/types"
+	"github.com/dymensionxyz/hyperlane-cosmos/x/core/types"
 )
 
 // InitGenesis initializes the module state from a genesis state.

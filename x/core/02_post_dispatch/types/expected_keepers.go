@@ -3,7 +3,7 @@ package types
 import (
 	"context"
 
-	"github.com/bcp-innovations/hyperlane-cosmos/util"
+	"github.com/dymensionxyz/hyperlane-cosmos/util"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )

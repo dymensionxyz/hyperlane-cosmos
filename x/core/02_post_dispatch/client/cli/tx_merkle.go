@@ -3,9 +3,9 @@ package cli
 import (
 	"fmt"
 
-	"github.com/bcp-innovations/hyperlane-cosmos/util"
+	"github.com/dymensionxyz/hyperlane-cosmos/util"
 
-	"github.com/bcp-innovations/hyperlane-cosmos/x/core/02_post_dispatch/types"
+	"github.com/dymensionxyz/hyperlane-cosmos/x/core/02_post_dispatch/types"
 
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"

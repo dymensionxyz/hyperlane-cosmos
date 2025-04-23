@@ -6,7 +6,7 @@ package types
 import (
 	cosmossdk_io_math "cosmossdk.io/math"
 	fmt "fmt"
-	github_com_bcp_innovations_hyperlane_cosmos_util "github.com/bcp-innovations/hyperlane-cosmos/util"
+	github_com_bcp_innovations_hyperlane_cosmos_util "github.com/dymensionxyz/hyperlane-cosmos/util"
 	_ "github.com/cosmos/gogoproto/gogoproto"
 	proto "github.com/cosmos/gogoproto/proto"
 	io "io"
@@ -28,9 +28,9 @@ const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 // EventCreateMerkleTreeHook ...
 type EventCreateMerkleTreeHook struct {
 	// id ...
-	MerkleTreeHookId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=merkle_tree_hook_id,json=merkleTreeHookId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"merkle_tree_hook_id"`
+	MerkleTreeHookId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=merkle_tree_hook_id,json=merkleTreeHookId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"merkle_tree_hook_id"`
 	// mailbox_id ...
-	MailboxId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,2,opt,name=mailbox_id,json=mailboxId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"mailbox_id"`
+	MailboxId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,2,opt,name=mailbox_id,json=mailboxId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"mailbox_id"`
 	Owner     string                                                      `protobuf:"bytes,3,opt,name=owner,proto3" json:"owner,omitempty"`
 }
 
@@ -77,11 +77,11 @@ func (m *EventCreateMerkleTreeHook) GetOwner() string {
 // EventInsertedIntoTree ...
 type EventInsertedIntoTree struct {
 	// message_id ...
-	MessageId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=message_id,json=messageId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"message_id"`
+	MessageId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=message_id,json=messageId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"message_id"`
 	// index ...
 	Index uint32 `protobuf:"varint,2,opt,name=index,proto3" json:"index,omitempty"`
 	// merkle_tree_hook_id ...
-	MerkleTreeHookId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,3,opt,name=merkle_tree_hook_id,json=merkleTreeHookId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"merkle_tree_hook_id"`
+	MerkleTreeHookId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,3,opt,name=merkle_tree_hook_id,json=merkleTreeHookId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"merkle_tree_hook_id"`
 }
 
 func (m *EventInsertedIntoTree) Reset()         { *m = EventInsertedIntoTree{} }
@@ -127,7 +127,7 @@ func (m *EventInsertedIntoTree) GetIndex() uint32 {
 // EventGasPayment ...
 type EventGasPayment struct {
 	// message_id ...
-	MessageId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=message_id,json=messageId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"message_id"`
+	MessageId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=message_id,json=messageId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"message_id"`
 	// destination ...
 	Destination uint32 `protobuf:"varint,2,opt,name=destination,proto3" json:"destination,omitempty"`
 	// gas_amount ...
@@ -135,7 +135,7 @@ type EventGasPayment struct {
 	// payment ...
 	Payment string `protobuf:"bytes,4,opt,name=payment,proto3" json:"payment,omitempty"`
 	// igp_id ...
-	IgpId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,5,opt,name=igp_id,json=igpId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"igp_id"`
+	IgpId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,5,opt,name=igp_id,json=igpId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"igp_id"`
 }
 
 func (m *EventGasPayment) Reset()         { *m = EventGasPayment{} }
@@ -195,7 +195,7 @@ func (m *EventGasPayment) GetPayment() string {
 // EventCreateNoopHook ...
 type EventCreateNoopHook struct {
 	// id ...
-	NoopHookId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=noop_hook_id,json=noopHookId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"noop_hook_id"`
+	NoopHookId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=noop_hook_id,json=noopHookId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"noop_hook_id"`
 	// owner ...
 	Owner string `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
 }
@@ -242,7 +242,7 @@ func (m *EventCreateNoopHook) GetOwner() string {
 
 // EventCreateIgp ...
 type EventCreateIgp struct {
-	IgpId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=igp_id,json=igpId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"igp_id"`
+	IgpId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=igp_id,json=igpId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"igp_id"`
 	Owner string                                                      `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
 	Denom string                                                      `protobuf:"bytes,3,opt,name=denom,proto3" json:"denom,omitempty"`
 }
@@ -296,7 +296,7 @@ func (m *EventCreateIgp) GetDenom() string {
 
 // EventSetIgp ...
 type EventSetIgp struct {
-	IgpId             github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=igp_id,json=igpId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"igp_id"`
+	IgpId             github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=igp_id,json=igpId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"igp_id"`
 	Owner             string                                                      `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
 	NewOwner          string                                                      `protobuf:"bytes,3,opt,name=new_owner,json=newOwner,proto3" json:"new_owner,omitempty"`
 	RenounceOwnership bool                                                        `protobuf:"varint,4,opt,name=renounce_ownership,json=renounceOwnership,proto3" json:"renounce_ownership,omitempty"`
@@ -358,7 +358,7 @@ func (m *EventSetIgp) GetRenounceOwnership() bool {
 
 // EventSetDestinationGasConfig ...
 type EventSetDestinationGasConfig struct {
-	IgpId             github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=igp_id,json=igpId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"igp_id"`
+	IgpId             github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=igp_id,json=igpId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"igp_id"`
 	Owner             string                                                      `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
 	RemoteDomain      uint32                                                      `protobuf:"varint,4,opt,name=remote_domain,json=remoteDomain,proto3" json:"remote_domain,omitempty"`
 	GasOverhead       cosmossdk_io_math.Int                                       `protobuf:"bytes,5,opt,name=gas_overhead,json=gasOverhead,proto3,customtype=cosmossdk.io/math.Int" json:"gas_overhead"`
@@ -415,7 +415,7 @@ func (m *EventSetDestinationGasConfig) GetRemoteDomain() uint32 {
 
 // EventClaimIgp ...
 type EventClaimIgp struct {
-	IgpId  github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=igp_id,json=igpId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"igp_id"`
+	IgpId  github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=igp_id,json=igpId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"igp_id"`
 	Owner  string                                                      `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
 	Amount string                                                      `protobuf:"bytes,3,opt,name=amount,proto3" json:"amount,omitempty"`
 }

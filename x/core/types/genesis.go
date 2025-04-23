@@ -3,9 +3,9 @@ package types
 import (
 	"fmt"
 
-	"github.com/bcp-innovations/hyperlane-cosmos/util"
-	ismTypes "github.com/bcp-innovations/hyperlane-cosmos/x/core/01_interchain_security/types"
-	pdTypes "github.com/bcp-innovations/hyperlane-cosmos/x/core/02_post_dispatch/types"
+	"github.com/dymensionxyz/hyperlane-cosmos/util"
+	ismTypes "github.com/dymensionxyz/hyperlane-cosmos/x/core/01_interchain_security/types"
+	pdTypes "github.com/dymensionxyz/hyperlane-cosmos/x/core/02_post_dispatch/types"
 )
 
 // NewGenesisState creates a new genesis state with default values.

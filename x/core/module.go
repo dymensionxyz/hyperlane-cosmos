@@ -5,17 +5,17 @@ import (
 	"encoding/json"
 	"fmt"
 
-	ismmodule "github.com/bcp-innovations/hyperlane-cosmos/x/core/01_interchain_security"
-	ismkeeper "github.com/bcp-innovations/hyperlane-cosmos/x/core/01_interchain_security/keeper"
-	ismtypes "github.com/bcp-innovations/hyperlane-cosmos/x/core/01_interchain_security/types"
+	ismmodule "github.com/dymensionxyz/hyperlane-cosmos/x/core/01_interchain_security"
+	ismkeeper "github.com/dymensionxyz/hyperlane-cosmos/x/core/01_interchain_security/keeper"
+	ismtypes "github.com/dymensionxyz/hyperlane-cosmos/x/core/01_interchain_security/types"
 
-	pdmodule "github.com/bcp-innovations/hyperlane-cosmos/x/core/02_post_dispatch"
-	pdkeeper "github.com/bcp-innovations/hyperlane-cosmos/x/core/02_post_dispatch/keeper"
-	pdtypes "github.com/bcp-innovations/hyperlane-cosmos/x/core/02_post_dispatch/types"
+	pdmodule "github.com/dymensionxyz/hyperlane-cosmos/x/core/02_post_dispatch"
+	pdkeeper "github.com/dymensionxyz/hyperlane-cosmos/x/core/02_post_dispatch/keeper"
+	pdtypes "github.com/dymensionxyz/hyperlane-cosmos/x/core/02_post_dispatch/types"
 
-	"github.com/bcp-innovations/hyperlane-cosmos/x/core/client/cli"
-	keeper2 "github.com/bcp-innovations/hyperlane-cosmos/x/core/keeper"
-	"github.com/bcp-innovations/hyperlane-cosmos/x/core/types"
+	"github.com/dymensionxyz/hyperlane-cosmos/x/core/client/cli"
+	keeper2 "github.com/dymensionxyz/hyperlane-cosmos/x/core/keeper"
+	"github.com/dymensionxyz/hyperlane-cosmos/x/core/types"
 	"github.com/spf13/cobra"
 
 	"cosmossdk.io/core/appmodule"

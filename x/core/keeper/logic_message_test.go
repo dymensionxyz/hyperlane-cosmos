@@ -8,9 +8,9 @@ import (
 
 	"cosmossdk.io/math"
 
-	i "github.com/bcp-innovations/hyperlane-cosmos/tests/integration"
-	"github.com/bcp-innovations/hyperlane-cosmos/util"
-	"github.com/bcp-innovations/hyperlane-cosmos/x/core/types"
+	i "github.com/dymensionxyz/hyperlane-cosmos/tests/integration"
+	"github.com/dymensionxyz/hyperlane-cosmos/util"
+	"github.com/dymensionxyz/hyperlane-cosmos/x/core/types"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 )

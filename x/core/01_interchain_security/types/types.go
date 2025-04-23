@@ -5,9 +5,9 @@ import (
 	"encoding/binary"
 	"slices"
 
-	"github.com/bcp-innovations/hyperlane-cosmos/util"
 	"github.com/cosmos/gogoproto/proto"
 	"github.com/dymensionxyz/go-ethereum/crypto"
+	"github.com/dymensionxyz/hyperlane-cosmos/util"
 )
 
 type HyperlaneInterchainSecurityModule interface {

@@ -3,7 +3,7 @@ package types
 import (
 	"fmt"
 
-	"github.com/bcp-innovations/hyperlane-cosmos/util"
+	"github.com/dymensionxyz/hyperlane-cosmos/util"
 )
 
 func TreeFromProto(tree *Tree) (*util.MerkleTree, error) {

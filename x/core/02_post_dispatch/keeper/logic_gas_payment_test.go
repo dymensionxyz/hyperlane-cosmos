@@ -5,13 +5,13 @@ import (
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 
-	"github.com/bcp-innovations/hyperlane-cosmos/x/core/02_post_dispatch/types"
+	"github.com/dymensionxyz/hyperlane-cosmos/x/core/02_post_dispatch/types"
 
 	"cosmossdk.io/math"
 
-	i "github.com/bcp-innovations/hyperlane-cosmos/tests/integration"
-	"github.com/bcp-innovations/hyperlane-cosmos/util"
 	"github.com/cosmos/gogoproto/proto"
+	i "github.com/dymensionxyz/hyperlane-cosmos/tests/integration"
+	"github.com/dymensionxyz/hyperlane-cosmos/util"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 )

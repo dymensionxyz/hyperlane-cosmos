@@ -7,13 +7,13 @@ import (
 	"cosmossdk.io/core/store"
 	"cosmossdk.io/depinject"
 
-	"github.com/bcp-innovations/hyperlane-cosmos/x/core/keeper"
-	"github.com/bcp-innovations/hyperlane-cosmos/x/core/types"
+	"github.com/dymensionxyz/hyperlane-cosmos/x/core/keeper"
+	"github.com/dymensionxyz/hyperlane-cosmos/x/core/types"
 
 	"github.com/cosmos/cosmos-sdk/codec"
 	authtypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 
-	modulev1 "github.com/bcp-innovations/hyperlane-cosmos/api/core/module/v1"
+	modulev1 "github.com/dymensionxyz/hyperlane-cosmos/api/core/module/v1"
 )
 
 var _ appmodule.AppModule = AppModule{}

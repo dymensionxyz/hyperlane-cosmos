@@ -5,7 +5,7 @@ import (
 	"fmt"
 
 	"cosmossdk.io/errors"
-	"github.com/bcp-innovations/hyperlane-cosmos/x/core/02_post_dispatch/types"
+	"github.com/dymensionxyz/hyperlane-cosmos/x/core/02_post_dispatch/types"
 
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )

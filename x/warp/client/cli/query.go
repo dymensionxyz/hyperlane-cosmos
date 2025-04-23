@@ -3,9 +3,9 @@ package cli
 import (
 	"fmt"
 
-	"github.com/bcp-innovations/hyperlane-cosmos/x/warp/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
+	"github.com/dymensionxyz/hyperlane-cosmos/x/warp/types"
 	"github.com/spf13/cobra"
 )
 

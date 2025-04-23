@@ -1,11 +1,11 @@
 package keeper_test
 
 import (
-	i "github.com/bcp-innovations/hyperlane-cosmos/tests/integration"
-	"github.com/bcp-innovations/hyperlane-cosmos/util"
-	"github.com/bcp-innovations/hyperlane-cosmos/x/core/02_post_dispatch/keeper"
-	"github.com/bcp-innovations/hyperlane-cosmos/x/core/02_post_dispatch/types"
 	"github.com/cosmos/gogoproto/proto"
+	i "github.com/dymensionxyz/hyperlane-cosmos/tests/integration"
+	"github.com/dymensionxyz/hyperlane-cosmos/util"
+	"github.com/dymensionxyz/hyperlane-cosmos/x/core/02_post_dispatch/keeper"
+	"github.com/dymensionxyz/hyperlane-cosmos/x/core/02_post_dispatch/types"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 )

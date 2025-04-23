@@ -8,10 +8,10 @@ import (
 	"cosmossdk.io/collections"
 
 	storetypes "cosmossdk.io/store/types"
-	"github.com/bcp-innovations/hyperlane-cosmos/util"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/dymensionxyz/hyperlane-cosmos/util"
 
-	"github.com/bcp-innovations/hyperlane-cosmos/x/core/types"
+	"github.com/dymensionxyz/hyperlane-cosmos/x/core/types"
 )
 
 var _ types.QueryServer = queryServer{}

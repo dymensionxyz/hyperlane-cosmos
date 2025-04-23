@@ -8,12 +8,12 @@ import (
 	"cosmossdk.io/core/address"
 	storetypes "cosmossdk.io/core/store"
 
-	"github.com/bcp-innovations/hyperlane-cosmos/util"
-	ismkeeper "github.com/bcp-innovations/hyperlane-cosmos/x/core/01_interchain_security/keeper"
-	postdispatchkeeper "github.com/bcp-innovations/hyperlane-cosmos/x/core/02_post_dispatch/keeper"
-	"github.com/bcp-innovations/hyperlane-cosmos/x/core/types"
 	"github.com/cosmos/cosmos-sdk/codec"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	"github.com/dymensionxyz/hyperlane-cosmos/util"
+	ismkeeper "github.com/dymensionxyz/hyperlane-cosmos/x/core/01_interchain_security/keeper"
+	postdispatchkeeper "github.com/dymensionxyz/hyperlane-cosmos/x/core/02_post_dispatch/keeper"
+	"github.com/dymensionxyz/hyperlane-cosmos/x/core/types"
 )
 
 type Keeper struct {
