@@ -96,12 +96,12 @@ func (k *DymensionHandler) Handle(ctx context.Context, mailboxId util.HexAddress
 	err = nil
 	if token.TokenType == types.HYP_TOKEN_TYPE_COLLATERAL_MEMO {
 		if !slices.Contains(k.enabledTokens, int32(types.HYP_TOKEN_TYPE_COLLATERAL_MEMO)) {
-			return fmt.Errorf("module disabled collateral tokens")
+			return fmt.Errorf("module disabled collateral memo tokens")
 		}
 		err = k.RemoteReceiveCollateral(ctx, token, payload)
 	} else if token.TokenType == types.HYP_TOKEN_TYPE_SYNTHETIC_MEMO {
 		if !slices.Contains(k.enabledTokens, int32(types.HYP_TOKEN_TYPE_SYNTHETIC_MEMO)) {
-			return fmt.Errorf("module disabled synthetic tokens")
+			return fmt.Errorf("module disabled synthetic memo tokens")
 		}
 		err = k.RemoteReceiveSynthetic(ctx, token, payload)
 	} else {
@@ -188,7 +188,7 @@ func (ms msgServer) DymCreateSyntheticToken(ctx context.Context, wrapped *types.
 	msg := wrapped.Inner
 	tType := types.HYP_TOKEN_TYPE_SYNTHETIC_MEMO
 	if !slices.Contains(ms.k.enabledTokens, int32(tType)) {
-		return nil, fmt.Errorf("module disabled synthetic tokens")
+		return nil, fmt.Errorf("module disabled synthetic memo tokens")
 	}
 
 	has, err := ms.k.coreKeeper.MailboxIdExists(ctx, msg.OriginMailbox)
@@ -226,7 +226,7 @@ func (ms msgServer) DymCreateCollateralToken(ctx context.Context, wrapped *types
 	tType := types.HYP_TOKEN_TYPE_COLLATERAL_MEMO
 
 	if !slices.Contains(ms.k.enabledTokens, int32(tType)) {
-		return nil, fmt.Errorf("module disabled collateral tokens")
+		return nil, fmt.Errorf("module disabled collateral memo tokens")
 	}
 
 	err := sdk.ValidateDenom(msg.OriginDenom)

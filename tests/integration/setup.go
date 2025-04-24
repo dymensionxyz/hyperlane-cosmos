@@ -53,7 +53,7 @@ var DefaultConsensusParams = &cmtProto.ConsensusParams{
 }
 
 func (suite *KeeperTestSuite) setupApp(startTime int64) {
-	suite.setupAppWithTokens(startTime, []int32{1, 2})
+	suite.setupAppWithTokens(startTime, []int32{1, 2, 254, 255})
 }
 
 func (suite *KeeperTestSuite) setupAppWithTokens(startTime int64, enabledTokens []int32) {

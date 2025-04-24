@@ -153,7 +153,7 @@ func NewMiniApp(
 	appOpts servertypes.AppOptions,
 	baseAppOptions ...func(*baseapp.BaseApp),
 ) (*App, error) {
-	return NewMiniAppWithCustomConfig(logger, db, traceStore, loadLatest, appOpts, DefaultHyperlaneModuleConfigs([]int32{1, 2}), baseAppOptions...)
+	return NewMiniAppWithCustomConfig(logger, db, traceStore, loadLatest, appOpts, DefaultHyperlaneModuleConfigs([]int32{1, 2, 254, 255}), baseAppOptions...)
 }
 
 // NewMiniAppWithCustomConfig returns a reference to an initialized App.
