@@ -3,7 +3,7 @@ package hyperlane.core.post_dispatch.v1;
 
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/bcp-innovations/hyperlane-cosmos/x/core/02_post_dispatch/types";
+option go_package = "github.com/dymensionxyz/hyperlane-cosmos/x/core/02_post_dispatch/types";
 
 // EventCreateMerkleTreeHook ...
 message EventCreateMerkleTreeHook {
@@ -11,14 +11,14 @@ message EventCreateMerkleTreeHook {
   // id ...
   string merkle_tree_hook_id = 1 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 
   // mailbox_id ...
   string mailbox_id = 2 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 
@@ -31,7 +31,7 @@ message EventInsertedIntoTree {
   // message_id ...
   string message_id = 1 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 
@@ -41,7 +41,7 @@ message EventInsertedIntoTree {
   // merkle_tree_hook_id ...
   string merkle_tree_hook_id = 3 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 }
@@ -52,7 +52,7 @@ message EventGasPayment {
   // message_id ...
   string message_id = 1 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 
@@ -68,7 +68,7 @@ message EventGasPayment {
   // igp_id ...
   string igp_id = 5 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 }
@@ -79,7 +79,7 @@ message EventCreateNoopHook {
   // id ...
   string noop_hook_id = 1 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 
@@ -91,7 +91,7 @@ message EventCreateNoopHook {
 message EventCreateIgp {
   string igp_id = 1 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
   string owner = 2;
@@ -102,7 +102,7 @@ message EventCreateIgp {
 message EventSetIgp {
   string igp_id = 1 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
   string owner = 2;
@@ -114,7 +114,7 @@ message EventSetIgp {
 message EventSetDestinationGasConfig {
   string igp_id = 1 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
   string owner = 2;
@@ -137,7 +137,7 @@ message EventSetDestinationGasConfig {
 message EventClaimIgp {
   string igp_id = 1 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
   string owner = 2;

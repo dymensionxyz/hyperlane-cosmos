@@ -1,7 +1,7 @@
 syntax = "proto3";
 package hyperlane.warp.v1;
 
-option go_package = "github.com/bcp-innovations/hyperlane-cosmos/x/warp/types";
+option go_package = "github.com/dymensionxyz/hyperlane-cosmos/x/warp/types";
 
 import "cosmos/msg/v1/msg.proto";
 import "gogoproto/gogo.proto";
@@ -58,7 +58,7 @@ message MsgCreateCollateralToken {
 
   string origin_mailbox = 2 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
   string origin_denom = 3;
@@ -68,7 +68,7 @@ message MsgCreateCollateralToken {
 message MsgCreateCollateralTokenResponse {
   string id = 1 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 }
@@ -83,7 +83,7 @@ message MsgCreateSyntheticToken {
 
   string origin_mailbox = 2 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 }
@@ -92,7 +92,7 @@ message MsgCreateSyntheticToken {
 message MsgCreateSyntheticTokenResponse {
   string id = 1 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 }
@@ -106,13 +106,13 @@ message MsgSetToken {
   string owner = 1 [ (cosmos_proto.scalar) = "cosmos.AddressString" ];
   string token_id = 2 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
   string new_owner = 3;
   string ism_id = 4 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = true
   ];
   bool renounce_ownership = 7;
@@ -130,7 +130,7 @@ message MsgEnrollRemoteRouter {
   string owner = 1 [ (cosmos_proto.scalar) = "cosmos.AddressString" ];
   string token_id = 2 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 
@@ -149,7 +149,7 @@ message MsgUnrollRemoteRouter {
   string owner = 1 [ (cosmos_proto.scalar) = "cosmos.AddressString" ];
   string token_id = 2 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
   uint32 receiver_domain = 3;
@@ -167,14 +167,14 @@ message MsgRemoteTransfer {
 
   string token_id = 2 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 
   uint32 destination_domain = 3;
   string recipient = 4 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
   string amount = 5 [
@@ -187,7 +187,7 @@ message MsgRemoteTransfer {
   // Post Dispatch
   string custom_hook_id = 6 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = true
   ];
   string gas_limit = 7 [
@@ -203,7 +203,7 @@ message MsgRemoteTransfer {
 message MsgRemoteTransferResponse {
   string message_id = 1 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 }

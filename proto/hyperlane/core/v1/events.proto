@@ -1,7 +1,7 @@
 syntax = "proto3";
 package hyperlane.core.v1;
 
-option go_package = "github.com/bcp-innovations/hyperlane-cosmos/x/core/types";
+option go_package = "github.com/dymensionxyz/hyperlane-cosmos/x/core/types";
 
 import "gogoproto/gogo.proto";
 
@@ -54,7 +54,7 @@ message EventCreateMailbox {
   // mailbox_id ...
   string mailbox_id = 1 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 
@@ -64,21 +64,21 @@ message EventCreateMailbox {
   // default_ism ...
   string default_ism = 3 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 
   // default_hook ...
   string default_hook = 4 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = true
   ];
 
   // required_hook ...
   string required_hook = 5 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = true
   ];
 
@@ -92,7 +92,7 @@ message EventSetMailbox {
   // mailbox_id ...
   string mailbox_id = 1 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 
@@ -102,14 +102,14 @@ message EventSetMailbox {
   // default_ism ...
   string default_ism = 3 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = true
   ];
 
   // default_hook ...
   string default_hook = 4 [
     (gogoproto.customtype) =
-        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = true
   ];
 

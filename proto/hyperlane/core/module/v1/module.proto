@@ -8,7 +8,7 @@ import "cosmos/app/v1alpha1/module.proto";
 // Learn more: https://docs.cosmos.network/main/building-modules/depinject
 message Module {
   option (cosmos.app.v1alpha1.module) = {
-    go_import : "github.com/bcp-innovations/hyperlane-cosmos/x/core"
+    go_import : "github.com/dymensionxyz/hyperlane-cosmos/x/core"
   };
 
   // authority defines the custom module authority.
