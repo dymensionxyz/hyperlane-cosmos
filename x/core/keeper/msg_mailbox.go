@@ -4,9 +4,9 @@ import (
 	"context"
 	"fmt"
 
+	"github.com/bcp-innovations/hyperlane-cosmos/util"
+	"github.com/bcp-innovations/hyperlane-cosmos/x/core/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/dymensionxyz/hyperlane-cosmos/util"
-	"github.com/dymensionxyz/hyperlane-cosmos/x/core/types"
 )
 
 func (k Keeper) CreateMailbox(ctx context.Context, req *types.MsgCreateMailbox) (util.HexAddress, error) {

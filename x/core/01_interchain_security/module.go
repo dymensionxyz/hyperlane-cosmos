@@ -1,9 +1,9 @@
 package interchain_security
 
 import (
+	"github.com/bcp-innovations/hyperlane-cosmos/x/core/01_interchain_security/client/cli"
+	"github.com/bcp-innovations/hyperlane-cosmos/x/core/01_interchain_security/types"
 	"github.com/cosmos/gogoproto/grpc"
-	"github.com/dymensionxyz/hyperlane-cosmos/x/core/01_interchain_security/client/cli"
-	"github.com/dymensionxyz/hyperlane-cosmos/x/core/01_interchain_security/types"
 	"github.com/spf13/cobra"
 )
 

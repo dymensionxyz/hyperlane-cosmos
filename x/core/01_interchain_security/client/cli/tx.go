@@ -6,11 +6,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/dymensionxyz/hyperlane-cosmos/util"
+	"github.com/bcp-innovations/hyperlane-cosmos/util"
 
+	"github.com/bcp-innovations/hyperlane-cosmos/x/core/01_interchain_security/types"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/cosmos/cosmos-sdk/client/tx"
-	"github.com/dymensionxyz/hyperlane-cosmos/x/core/01_interchain_security/types"
 
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/spf13/cobra"

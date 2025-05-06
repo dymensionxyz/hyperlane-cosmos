@@ -5,9 +5,9 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/dymensionxyz/hyperlane-cosmos/x/warp/client/cli"
-	keeper2 "github.com/dymensionxyz/hyperlane-cosmos/x/warp/keeper"
-	"github.com/dymensionxyz/hyperlane-cosmos/x/warp/types"
+	"github.com/bcp-innovations/hyperlane-cosmos/x/warp/client/cli"
+	keeper2 "github.com/bcp-innovations/hyperlane-cosmos/x/warp/keeper"
+	"github.com/bcp-innovations/hyperlane-cosmos/x/warp/types"
 	"github.com/spf13/cobra"
 
 	"cosmossdk.io/core/appmodule"

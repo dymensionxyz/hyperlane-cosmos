@@ -4,8 +4,8 @@ import (
 	"context"
 
 	"cosmossdk.io/errors"
-	"github.com/dymensionxyz/hyperlane-cosmos/util"
-	"github.com/dymensionxyz/hyperlane-cosmos/x/core/01_interchain_security/types"
+	"github.com/bcp-innovations/hyperlane-cosmos/util"
+	"github.com/bcp-innovations/hyperlane-cosmos/x/core/01_interchain_security/types"
 )
 
 // RoutingISMHandler

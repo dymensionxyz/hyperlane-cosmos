@@ -1,7 +1,7 @@
 syntax = "proto3";
 package hyperlane.core.v1;
 
-option go_package = "github.com/dymensionxyz/hyperlane-cosmos/x/core/types";
+option go_package = "github.com/bcp-innovations/hyperlane-cosmos/x/core/types";
 
 import "cosmos_proto/cosmos.proto";
 import "gogoproto/gogo.proto";
@@ -11,7 +11,7 @@ message Mailbox {
 
   string id = 1 [
     (gogoproto.customtype) =
-        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 
@@ -27,21 +27,21 @@ message Mailbox {
   // default_ism ...
   string default_ism = 5 [
     (gogoproto.customtype) =
-        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 
   // default_hook
   string default_hook = 6 [
     (gogoproto.customtype) =
-        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = true
   ];
 
   // required_hook
   string required_hook = 7 [
     (gogoproto.customtype) =
-        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = true
   ];
 

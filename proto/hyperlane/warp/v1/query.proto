@@ -1,7 +1,7 @@
 syntax = "proto3";
 package hyperlane.warp.v1;
 
-option go_package = "github.com/dymensionxyz/hyperlane-cosmos/x/warp/types";
+option go_package = "github.com/bcp-innovations/hyperlane-cosmos/x/warp/types";
 
 import "cosmos/base/query/v1beta1/pagination.proto";
 import "cosmos/base/v1beta1/coin.proto";
@@ -75,7 +75,7 @@ message WrappedHypToken {
 
   string ism_id = 7 [
     (gogoproto.customtype) =
-        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = true
   ];
 }

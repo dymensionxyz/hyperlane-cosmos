@@ -8,7 +8,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/dymensionxyz/hyperlane-cosmos/tests/simapp"
+	"github.com/bcp-innovations/hyperlane-cosmos/tests/simapp"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )

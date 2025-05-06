@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/dymensionxyz/hyperlane-cosmos/tests/simapp"
+	"github.com/bcp-innovations/hyperlane-cosmos/tests/simapp"
 
 	svrcmd "github.com/cosmos/cosmos-sdk/server/cmd"
 )

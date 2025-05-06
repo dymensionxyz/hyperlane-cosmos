@@ -3,19 +3,19 @@ package hyperlane.warp.v1;
 
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/dymensionxyz/hyperlane-cosmos/x/warp/types";
+option go_package = "github.com/bcp-innovations/hyperlane-cosmos/x/warp/types";
 
 // EventCreateSyntheticToken ...
 message EventCreateSyntheticToken {
   string token_id = 1 [
     (gogoproto.customtype) =
-        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
   string owner = 2;
   string origin_mailbox = 3 [
     (gogoproto.customtype) =
-        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
   string origin_denom = 4;
@@ -25,13 +25,13 @@ message EventCreateSyntheticToken {
 message EventCreateCollateralToken {
   string token_id = 1 [
     (gogoproto.customtype) =
-        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
   string owner = 2;
   string origin_mailbox = 3 [
     (gogoproto.customtype) =
-        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
   string origin_denom = 4;
@@ -44,7 +44,7 @@ message EventSetToken {
 
   string ism_id = 3 [
     (gogoproto.customtype) =
-        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = true
   ];
   string new_owner = 4;
@@ -76,7 +76,7 @@ message EventUnrollRemoteRouter {
 message EventSendRemoteTransfer {
   string token_id = 1 [
     (gogoproto.customtype) =
-        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 
@@ -85,7 +85,7 @@ message EventSendRemoteTransfer {
   uint32 destination_domain = 3;
   string recipient = 4 [
     (gogoproto.customtype) =
-        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 
@@ -96,12 +96,12 @@ message EventSendRemoteTransfer {
 message EventReceiveRemoteTransfer {
   string token_id = 1 [
     (gogoproto.customtype) =
-        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
   string sender = 2 [
     (gogoproto.customtype) =
-        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 

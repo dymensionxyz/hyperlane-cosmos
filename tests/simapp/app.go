@@ -12,8 +12,8 @@ import (
 
 	appv1alpha1 "cosmossdk.io/api/cosmos/app/v1alpha1"
 
-	coreTypes "github.com/dymensionxyz/hyperlane-cosmos/x/core/types"
-	warpTypes "github.com/dymensionxyz/hyperlane-cosmos/x/warp/types"
+	coreTypes "github.com/bcp-innovations/hyperlane-cosmos/x/core/types"
+	warpTypes "github.com/bcp-innovations/hyperlane-cosmos/x/warp/types"
 
 	"github.com/cosmos/cosmos-sdk/x/genutil"
 
@@ -24,6 +24,10 @@ import (
 	"cosmossdk.io/log"
 	storetypes "cosmossdk.io/store/types"
 
+	coremodulev1 "github.com/bcp-innovations/hyperlane-cosmos/api/core/module/v1"
+	warpmodulev1 "github.com/bcp-innovations/hyperlane-cosmos/api/warp/module/v1"
+	hyperlanekeeper "github.com/bcp-innovations/hyperlane-cosmos/x/core/keeper"
+	warpkeeper "github.com/bcp-innovations/hyperlane-cosmos/x/warp/keeper"
 	"github.com/cosmos/cosmos-sdk/baseapp"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/codec"
@@ -40,22 +44,18 @@ import (
 	distrkeeper "github.com/cosmos/cosmos-sdk/x/distribution/keeper"
 	genutilTypes "github.com/cosmos/cosmos-sdk/x/genutil/types"
 	stakingkeeper "github.com/cosmos/cosmos-sdk/x/staking/keeper"
-	coremodulev1 "github.com/dymensionxyz/hyperlane-cosmos/api/core/module/v1"
-	warpmodulev1 "github.com/dymensionxyz/hyperlane-cosmos/api/warp/module/v1"
-	hyperlanekeeper "github.com/dymensionxyz/hyperlane-cosmos/x/core/keeper"
-	warpkeeper "github.com/dymensionxyz/hyperlane-cosmos/x/warp/keeper"
 
-	_ "cosmossdk.io/api/cosmos/tx/config/v1"            // import for side-effects
-	_ "github.com/cosmos/cosmos-sdk/x/auth"             // import for side-effects
-	_ "github.com/cosmos/cosmos-sdk/x/auth/tx/config"   // import for side-effects
-	_ "github.com/cosmos/cosmos-sdk/x/bank"             // import for side-effects
-	_ "github.com/cosmos/cosmos-sdk/x/consensus"        // import for side-effects
-	_ "github.com/cosmos/cosmos-sdk/x/distribution"     // import for side-effects
-	_ "github.com/cosmos/cosmos-sdk/x/genutil"          // import for side-effects
-	_ "github.com/cosmos/cosmos-sdk/x/mint"             // import for side-effects
-	_ "github.com/cosmos/cosmos-sdk/x/staking"          // import for side-effects
-	_ "github.com/dymensionxyz/hyperlane-cosmos/x/core" // import for side-effects
-	_ "github.com/dymensionxyz/hyperlane-cosmos/x/warp" // import for side-effects
+	_ "cosmossdk.io/api/cosmos/tx/config/v1"               // import for side-effects
+	_ "github.com/bcp-innovations/hyperlane-cosmos/x/core" // import for side-effects
+	_ "github.com/bcp-innovations/hyperlane-cosmos/x/warp" // import for side-effects
+	_ "github.com/cosmos/cosmos-sdk/x/auth"                // import for side-effects
+	_ "github.com/cosmos/cosmos-sdk/x/auth/tx/config"      // import for side-effects
+	_ "github.com/cosmos/cosmos-sdk/x/bank"                // import for side-effects
+	_ "github.com/cosmos/cosmos-sdk/x/consensus"           // import for side-effects
+	_ "github.com/cosmos/cosmos-sdk/x/distribution"        // import for side-effects
+	_ "github.com/cosmos/cosmos-sdk/x/genutil"             // import for side-effects
+	_ "github.com/cosmos/cosmos-sdk/x/mint"                // import for side-effects
+	_ "github.com/cosmos/cosmos-sdk/x/staking"             // import for side-effects
 )
 
 // DefaultNodeHome default home directories for the application daemon

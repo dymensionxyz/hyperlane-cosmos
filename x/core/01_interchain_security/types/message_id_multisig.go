@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"slices"
 
-	"github.com/dymensionxyz/hyperlane-cosmos/util"
+	"github.com/bcp-innovations/hyperlane-cosmos/util"
 )
 
 var _ HyperlaneInterchainSecurityModule = &MessageIdMultisigISM{}

@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"github.com/dymensionxyz/hyperlane-cosmos/x/core/types"
+	"github.com/bcp-innovations/hyperlane-cosmos/x/core/types"
 )
 
 type msgServer struct {
