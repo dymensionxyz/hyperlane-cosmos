@@ -1,7 +1,7 @@
 syntax = "proto3";
 package hyperlane.core.interchain_security.v1;
 
-option go_package = "github.com/dymensionxyz/hyperlane-cosmos/x/core/01_interchain_security/types";
+option go_package = "github.com/bcp-innovations/hyperlane-cosmos/x/core/01_interchain_security/types";
 
 import "cosmos_proto/cosmos.proto";
 import "cosmos/msg/v1/msg.proto";
@@ -65,7 +65,7 @@ message MsgCreateMessageIdMultisigIsm {
 message MsgCreateMessageIdMultisigIsmResponse {
   string id = 1 [
     (gogoproto.customtype) =
-        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 }
@@ -90,7 +90,7 @@ message MsgCreateMerkleRootMultisigIsm {
 message MsgCreateMerkleRootMultisigIsmResponse {
   string id = 1 [
     (gogoproto.customtype) =
-        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 }
@@ -108,7 +108,7 @@ message MsgCreateNoopIsm {
 message MsgCreateNoopIsmResponse {
   string id = 1 [
     (gogoproto.customtype) =
-        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 }
@@ -130,7 +130,7 @@ message MsgAnnounceValidator {
   // mailbox_id ...
   string mailbox_id = 4 [
     (gogoproto.customtype) =
-        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 
@@ -157,7 +157,7 @@ message MsgCreateRoutingIsm {
 message MsgCreateRoutingIsmResponse {
   string id = 1 [
     (gogoproto.customtype) =
-        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 }
@@ -171,7 +171,7 @@ message MsgSetRoutingIsmDomain {
   // ism_id ...
   string ism_id = 1 [
     (gogoproto.customtype) =
-        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 
@@ -193,7 +193,7 @@ message MsgRemoveRoutingIsmDomain {
   // ism_id ...
   string ism_id = 1 [
     (gogoproto.customtype) =
-        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 
@@ -215,7 +215,7 @@ message MsgUpdateRoutingIsmOwner {
   // ism_id ...
   string ism_id = 1 [
     (gogoproto.customtype) =
-        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 

@@ -1,7 +1,7 @@
 syntax = "proto3";
 package hyperlane.core.v1;
 
-option go_package = "github.com/dymensionxyz/hyperlane-cosmos/x/core/types";
+option go_package = "github.com/bcp-innovations/hyperlane-cosmos/x/core/types";
 
 import "hyperlane/core/v1/types.proto";
 import "hyperlane/core/interchain_security/v1/genesis.proto";
@@ -31,7 +31,7 @@ message GenesisMailboxMessageWrapper {
   uint64 mailbox_id = 1;
   string message_id = 2 [
     (gogoproto.customtype) =
-        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 }

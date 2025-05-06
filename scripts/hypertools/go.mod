@@ -3,7 +3,7 @@ module hypertools
 go 1.22.11
 
 require (
-	github.com/dymensionxyz/hyperlane-cosmos v0.0.0-00010101000000-000000000000
+	github.com/bcp-innovations/hyperlane-cosmos v0.0.0-00010101000000-000000000000
 	github.com/cosmos/cosmos-sdk v0.50.12
 	github.com/ethereum/go-ethereum v1.14.12
 	github.com/spf13/cobra v1.8.1
@@ -99,4 +99,4 @@ require (
 	sigs.k8s.io/yaml v1.4.0 // indirect
 )
 
-replace github.com/dymensionxyz/hyperlane-cosmos => ../..
+replace github.com/bcp-innovations/hyperlane-cosmos => ../..

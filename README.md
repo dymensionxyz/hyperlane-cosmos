@@ -29,7 +29,7 @@ To run the test suite:
 make test
 ```
 
-More information can be found in the [Contributing](https://github.com/dymensionxyz/hyperlane-cosmos/blob/main/CONTRIBUTING.md).
+More information can be found in the [Contributing](https://github.com/bcp-innovations/hyperlane-cosmos/blob/main/CONTRIBUTING.md).
 
 To get quickly started with a test chain setup:
 ```shell
@@ -52,10 +52,10 @@ package app
 
 import (
 	// Import the core keeper and warp keeper
-    _ "github.com/dymensionxyz/hyperlane-cosmos/x/core"
-    hyperlaneKeeper "github.com/dymensionxyz/hyperlane-cosmos/x/core/keeper"
-    _ "github.com/dymensionxyz/hyperlane-cosmos/x/warp"
-    warpKeeper "github.com/dymensionxyz/hyperlane-cosmos/x/warp/keeper"
+    _ "github.com/bcp-innovations/hyperlane-cosmos/x/core"
+    hyperlaneKeeper "github.com/bcp-innovations/hyperlane-cosmos/x/core/keeper"
+    _ "github.com/bcp-innovations/hyperlane-cosmos/x/warp"
+    warpKeeper "github.com/bcp-innovations/hyperlane-cosmos/x/warp/keeper"
 )
 
 type App struct {

@@ -51,4 +51,4 @@ Cosmos-SDK principles and design architectures.
 
 You agree that your contribution is licenced under the given LICENSE and all
 ownership is handed over to the authors named in
-[LICENSE](https://github.com/dymensionxyz/hyperlane-cosmos/blob/main/LICENSE).
+[LICENSE](https://github.com/bcp-innovations/hyperlane-cosmos/blob/main/LICENSE).

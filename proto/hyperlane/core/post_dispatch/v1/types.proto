@@ -1,7 +1,7 @@
 syntax = "proto3";
 package hyperlane.core.post_dispatch.v1;
 
-option go_package = "github.com/dymensionxyz/hyperlane-cosmos/x/core/02_post_dispatch/types";
+option go_package = "github.com/bcp-innovations/hyperlane-cosmos/x/core/02_post_dispatch/types";
 
 import "amino/amino.proto";
 import "cosmos_proto/cosmos.proto";
@@ -13,7 +13,7 @@ message InterchainGasPaymaster {
   // id ...
   string id = 1 [
     (gogoproto.customtype) =
-        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 
@@ -65,13 +65,13 @@ message GasOracle {
 message MerkleTreeHook {
   string id = 1 [
     (gogoproto.customtype) =
-        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 
   string mailbox_id = 2 [
     (gogoproto.customtype) =
-        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 
@@ -97,7 +97,7 @@ message NoopHook {
   // id ...
   string id = 1 [
     (gogoproto.customtype) =
-        "github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress",
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
     (gogoproto.nullable) = false
   ];
 
