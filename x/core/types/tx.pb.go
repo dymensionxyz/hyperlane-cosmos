@@ -6,7 +6,7 @@ package types
 import (
 	context "context"
 	fmt "fmt"
-	github_com_bcp_innovations_hyperlane_cosmos_util "github.com/dymensionxyz/hyperlane-cosmos/util"
+	github_com_bcp_innovations_hyperlane_cosmos_util "github.com/bcp-innovations/hyperlane-cosmos/util"
 	_ "github.com/cosmos/cosmos-proto"
 	_ "github.com/cosmos/cosmos-sdk/types/msgservice"
 	_ "github.com/cosmos/cosmos-sdk/types/tx/amino"
@@ -38,11 +38,11 @@ type MsgCreateMailbox struct {
 	Owner string `protobuf:"bytes,1,opt,name=owner,proto3" json:"owner,omitempty"`
 	// local domain
 	LocalDomain uint32                                                      `protobuf:"varint,2,opt,name=local_domain,json=localDomain,proto3" json:"local_domain,omitempty"`
-	DefaultIsm  github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,3,opt,name=default_ism,json=defaultIsm,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"default_ism"`
+	DefaultIsm  github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,3,opt,name=default_ism,json=defaultIsm,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"default_ism"`
 	// default_hook ...
-	DefaultHook *github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,4,opt,name=default_hook,json=defaultHook,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"default_hook,omitempty"`
+	DefaultHook *github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,4,opt,name=default_hook,json=defaultHook,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"default_hook,omitempty"`
 	// required_hook ...
-	RequiredHook *github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,5,opt,name=required_hook,json=requiredHook,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"required_hook,omitempty"`
+	RequiredHook *github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,5,opt,name=required_hook,json=requiredHook,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"required_hook,omitempty"`
 }
 
 func (m *MsgCreateMailbox) Reset()         { *m = MsgCreateMailbox{} }
@@ -94,7 +94,7 @@ func (m *MsgCreateMailbox) GetLocalDomain() uint32 {
 
 // MsgCreateMailboxResponse ...
 type MsgCreateMailboxResponse struct {
-	Id github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=id,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"id"`
+	Id github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=id,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"id"`
 }
 
 func (m *MsgCreateMailboxResponse) Reset()         { *m = MsgCreateMailboxResponse{} }
@@ -135,13 +135,13 @@ type MsgSetMailbox struct {
 	// owner is the message sender.
 	Owner string `protobuf:"bytes,1,opt,name=owner,proto3" json:"owner,omitempty"`
 	// mailbox_id
-	MailboxId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,2,opt,name=mailbox_id,json=mailboxId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"mailbox_id"`
+	MailboxId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,2,opt,name=mailbox_id,json=mailboxId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"mailbox_id"`
 	// default_ism ...
-	DefaultIsm *github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,3,opt,name=default_ism,json=defaultIsm,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"default_ism,omitempty"`
+	DefaultIsm *github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,3,opt,name=default_ism,json=defaultIsm,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"default_ism,omitempty"`
 	// default_hook ...
-	DefaultHook *github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,4,opt,name=default_hook,json=defaultHook,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"default_hook,omitempty"`
+	DefaultHook *github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,4,opt,name=default_hook,json=defaultHook,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"default_hook,omitempty"`
 	// required_hook ...
-	RequiredHook *github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,5,opt,name=required_hook,json=requiredHook,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"required_hook,omitempty"`
+	RequiredHook *github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,5,opt,name=required_hook,json=requiredHook,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"required_hook,omitempty"`
 	// new_owner ...
 	NewOwner string `protobuf:"bytes,6,opt,name=new_owner,json=newOwner,proto3" json:"new_owner,omitempty"`
 	// renounce_ownership
@@ -242,7 +242,7 @@ var xxx_messageInfo_MsgSetMailboxResponse proto.InternalMessageInfo
 // MsgProcessMessage ...
 type MsgProcessMessage struct {
 	// mailbox_id ...
-	MailboxId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=mailbox_id,json=mailboxId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"mailbox_id"`
+	MailboxId github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,1,opt,name=mailbox_id,json=mailboxId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"mailbox_id"`
 	// relayer ...
 	Relayer string `protobuf:"bytes,2,opt,name=relayer,proto3" json:"relayer,omitempty"`
 	// metadata ...

@@ -7,6 +7,7 @@ import (
 	"cosmossdk.io/log"
 	"cosmossdk.io/math"
 
+	"github.com/bcp-innovations/hyperlane-cosmos/tests/simapp"
 	abci "github.com/cometbft/cometbft/abci/types"
 	"github.com/cometbft/cometbft/crypto/tmhash"
 	cmtProto "github.com/cometbft/cometbft/proto/tendermint/types"
@@ -22,7 +23,6 @@ import (
 	authTypes "github.com/cosmos/cosmos-sdk/x/auth/types"
 	bankTypes "github.com/cosmos/cosmos-sdk/x/bank/types"
 	stakingTypes "github.com/cosmos/cosmos-sdk/x/staking/types"
-	"github.com/dymensionxyz/hyperlane-cosmos/tests/simapp"
 )
 
 type KeeperTestSuite struct {

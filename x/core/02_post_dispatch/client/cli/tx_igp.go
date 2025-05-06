@@ -6,9 +6,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/dymensionxyz/hyperlane-cosmos/util"
+	"github.com/bcp-innovations/hyperlane-cosmos/util"
 
-	"github.com/dymensionxyz/hyperlane-cosmos/x/core/02_post_dispatch/types"
+	"github.com/bcp-innovations/hyperlane-cosmos/x/core/02_post_dispatch/types"
 
 	"cosmossdk.io/math"
 

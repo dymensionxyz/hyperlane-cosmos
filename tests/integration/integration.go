@@ -4,17 +4,17 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/dymensionxyz/hyperlane-cosmos/x/warp"
-	warpTypes "github.com/dymensionxyz/hyperlane-cosmos/x/warp/types"
+	"github.com/bcp-innovations/hyperlane-cosmos/x/warp"
+	warpTypes "github.com/bcp-innovations/hyperlane-cosmos/x/warp/types"
 
-	"github.com/dymensionxyz/hyperlane-cosmos/x/core"
-	coreTypes "github.com/dymensionxyz/hyperlane-cosmos/x/core/types"
+	"github.com/bcp-innovations/hyperlane-cosmos/x/core"
+	coreTypes "github.com/bcp-innovations/hyperlane-cosmos/x/core/types"
 
+	"github.com/bcp-innovations/hyperlane-cosmos/tests/simapp"
 	abci "github.com/cometbft/cometbft/abci/types"
 	"github.com/cosmos/cosmos-sdk/crypto/keys/ed25519"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	bankTypes "github.com/cosmos/cosmos-sdk/x/bank/types"
-	"github.com/dymensionxyz/hyperlane-cosmos/tests/simapp"
 
 	"cosmossdk.io/store"
 	storeTypes "cosmossdk.io/store/types"

@@ -5,16 +5,16 @@ import (
 	"fmt"
 
 	"cosmossdk.io/errors"
+	types2 "github.com/bcp-innovations/hyperlane-cosmos/x/core/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	types2 "github.com/dymensionxyz/hyperlane-cosmos/x/core/types"
 	"github.com/ethereum/go-ethereum/crypto"
 
+	i "github.com/bcp-innovations/hyperlane-cosmos/tests/integration"
+	"github.com/bcp-innovations/hyperlane-cosmos/util"
+	"github.com/bcp-innovations/hyperlane-cosmos/x/core/01_interchain_security/keeper"
+	"github.com/bcp-innovations/hyperlane-cosmos/x/core/01_interchain_security/types"
+	keeper2 "github.com/bcp-innovations/hyperlane-cosmos/x/core/keeper"
 	"github.com/cosmos/gogoproto/proto"
-	i "github.com/dymensionxyz/hyperlane-cosmos/tests/integration"
-	"github.com/dymensionxyz/hyperlane-cosmos/util"
-	"github.com/dymensionxyz/hyperlane-cosmos/x/core/01_interchain_security/keeper"
-	"github.com/dymensionxyz/hyperlane-cosmos/x/core/01_interchain_security/types"
-	keeper2 "github.com/dymensionxyz/hyperlane-cosmos/x/core/keeper"
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 )

@@ -3,7 +3,7 @@ package types
 import (
 	"context"
 
-	"github.com/dymensionxyz/hyperlane-cosmos/util"
+	"github.com/bcp-innovations/hyperlane-cosmos/util"
 )
 
 type CoreKeeper interface {

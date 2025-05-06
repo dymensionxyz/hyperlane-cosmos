@@ -6,7 +6,7 @@ package types
 import (
 	cosmossdk_io_math "cosmossdk.io/math"
 	fmt "fmt"
-	github_com_bcp_innovations_hyperlane_cosmos_util "github.com/dymensionxyz/hyperlane-cosmos/util"
+	github_com_bcp_innovations_hyperlane_cosmos_util "github.com/bcp-innovations/hyperlane-cosmos/util"
 	_ "github.com/cosmos/cosmos-proto"
 	_ "github.com/cosmos/cosmos-sdk/types/tx/amino"
 	_ "github.com/cosmos/gogoproto/gogoproto"
@@ -105,13 +105,13 @@ var xxx_messageInfo_Params proto.InternalMessageInfo
 
 // HypToken ...
 type HypToken struct {
-	Id                github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress  `protobuf:"bytes,1,opt,name=id,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"id"`
+	Id                github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress  `protobuf:"bytes,1,opt,name=id,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"id"`
 	Owner             string                                                       `protobuf:"bytes,2,opt,name=owner,proto3" json:"owner,omitempty"`
 	TokenType         HypTokenType                                                 `protobuf:"varint,3,opt,name=token_type,json=tokenType,proto3,enum=hyperlane.warp.v1.HypTokenType" json:"token_type,omitempty"`
-	OriginMailbox     github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress  `protobuf:"bytes,4,opt,name=origin_mailbox,json=originMailbox,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"origin_mailbox"`
+	OriginMailbox     github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress  `protobuf:"bytes,4,opt,name=origin_mailbox,json=originMailbox,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"origin_mailbox"`
 	OriginDenom       string                                                       `protobuf:"bytes,5,opt,name=origin_denom,json=originDenom,proto3" json:"origin_denom,omitempty"`
 	CollateralBalance cosmossdk_io_math.Int                                        `protobuf:"bytes,6,opt,name=collateral_balance,json=collateralBalance,proto3,customtype=cosmossdk.io/math.Int" json:"collateral_balance"`
-	IsmId             *github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,7,opt,name=ism_id,json=ismId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"ism_id,omitempty"`
+	IsmId             *github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,7,opt,name=ism_id,json=ismId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"ism_id,omitempty"`
 }
 
 func (m *HypToken) Reset()         { *m = HypToken{} }

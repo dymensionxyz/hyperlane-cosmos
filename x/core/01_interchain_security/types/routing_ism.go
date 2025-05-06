@@ -5,7 +5,7 @@ import (
 	"slices"
 
 	"cosmossdk.io/errors"
-	"github.com/dymensionxyz/hyperlane-cosmos/util"
+	"github.com/bcp-innovations/hyperlane-cosmos/util"
 )
 
 var _ HyperlaneInterchainSecurityModule = &RoutingISM{}

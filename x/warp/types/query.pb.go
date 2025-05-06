@@ -6,7 +6,7 @@ package types
 import (
 	context "context"
 	fmt "fmt"
-	github_com_bcp_innovations_hyperlane_cosmos_util "github.com/dymensionxyz/hyperlane-cosmos/util"
+	github_com_bcp_innovations_hyperlane_cosmos_util "github.com/bcp-innovations/hyperlane-cosmos/util"
 	_ "github.com/cosmos/cosmos-proto"
 	github_com_cosmos_cosmos_sdk_types "github.com/cosmos/cosmos-sdk/types"
 	types "github.com/cosmos/cosmos-sdk/types"
@@ -232,7 +232,7 @@ type WrappedHypToken struct {
 	TokenType     HypTokenType                                                 `protobuf:"varint,3,opt,name=token_type,json=tokenType,proto3,enum=hyperlane.warp.v1.HypTokenType" json:"token_type,omitempty"`
 	OriginMailbox string                                                       `protobuf:"bytes,4,opt,name=origin_mailbox,json=originMailbox,proto3" json:"origin_mailbox,omitempty"`
 	OriginDenom   string                                                       `protobuf:"bytes,5,opt,name=origin_denom,json=originDenom,proto3" json:"origin_denom,omitempty"`
-	IsmId         *github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,7,opt,name=ism_id,json=ismId,proto3,customtype=github.com/dymensionxyz/hyperlane-cosmos/util.HexAddress" json:"ism_id,omitempty"`
+	IsmId         *github_com_bcp_innovations_hyperlane_cosmos_util.HexAddress `protobuf:"bytes,7,opt,name=ism_id,json=ismId,proto3,customtype=github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress" json:"ism_id,omitempty"`
 }
 
 func (m *WrappedHypToken) Reset()         { *m = WrappedHypToken{} }

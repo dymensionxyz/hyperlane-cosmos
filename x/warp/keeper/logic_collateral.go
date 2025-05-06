@@ -7,9 +7,9 @@ import (
 	"cosmossdk.io/collections"
 	"cosmossdk.io/math"
 
+	"github.com/bcp-innovations/hyperlane-cosmos/util"
+	"github.com/bcp-innovations/hyperlane-cosmos/x/warp/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/dymensionxyz/hyperlane-cosmos/util"
-	"github.com/dymensionxyz/hyperlane-cosmos/x/warp/types"
 )
 
 // RemoteTransferCollateral handles the transfer of collateral token to a remote chain.

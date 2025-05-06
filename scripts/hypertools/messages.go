@@ -6,9 +6,9 @@ import (
 	"math/big"
 	"strings"
 
+	"github.com/bcp-innovations/hyperlane-cosmos/util"
+	warpTypes "github.com/bcp-innovations/hyperlane-cosmos/x/warp/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
-	"github.com/dymensionxyz/hyperlane-cosmos/util"
-	warpTypes "github.com/dymensionxyz/hyperlane-cosmos/x/warp/types"
 )
 
 func Decode(messageStr string) error {

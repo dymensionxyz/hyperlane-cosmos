@@ -5,7 +5,7 @@ import (
 	"math/big"
 	"testing"
 
-	"github.com/dymensionxyz/hyperlane-cosmos/util"
+	"github.com/bcp-innovations/hyperlane-cosmos/util"
 	"github.com/stretchr/testify/require"
 )
 
@@ -27,7 +27,7 @@ func TestNewWarpMemoPayload(t *testing.T) {
 		}
 		if !bytes.Equal(actual.WarpPayload.Recipient(), recipient) {
 			// NOTE: should probably fail here but this is an upstream bug
-			// https: //github.com/dymensionxyz/hyperlane-cosmos/issues/91
+			// https: //github.com/bcp-innovations/hyperlane-cosmos/issues/91
 
 		}
 		if actual.WarpPayload.Amount().Cmp(amount) != 0 {
