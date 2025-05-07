@@ -2,10 +2,13 @@ package types
 
 import (
 	"bytes"
+	fmt "fmt"
 	"math/big"
 	"testing"
 
 	"github.com/bcp-innovations/hyperlane-cosmos/util"
+	"github.com/cometbft/cometbft/crypto/secp256k1"
+	sdk "github.com/cosmos/cosmos-sdk/types"
 	"github.com/stretchr/testify/require"
 )
 
@@ -59,4 +62,24 @@ func checkBody(t *testing.T, s string) {
 	payload, err := ParseWarpMemoPayload(bz)
 	require.NoError(t, err)
 	t.Logf("%+v", payload)
+}
+
+func TestHextCosmosAddr(t *testing.T) {
+	privKey := secp256k1.GenPrivKey()
+	addr := sdk.AccAddress(privKey.PubKey().Address())
+	addrS := addr.String()
+	fmt.Printf("addr: %s\n", addrS)
+
+	ans, err := HexCosmosAddr(addrS)
+	require.NoError(t, err)
+	fmt.Printf("addr: %v\n", ans)
+
+	// mimic decodings
+	decoded, err := util.DecodeEthHex(ans)
+	require.NoError(t, err)
+	pl := WarpPayload{recipient: decoded}
+	addrSAfter := pl.GetCosmosAccount().String()
+
+	require.Equal(t, addrSAfter, addrS)
+	fmt.Printf("account: %s\n", addrSAfter)
 }

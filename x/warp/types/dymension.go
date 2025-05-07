@@ -2,8 +2,13 @@ package types
 
 import (
 	"errors"
+	fmt "fmt"
 	"math/big"
 	"slices"
+	"strings"
+
+	hyperutil "github.com/bcp-innovations/hyperlane-cosmos/util"
+	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 
 type DymWarpMemoPayload struct {
@@ -73,4 +78,20 @@ func NewMsgDymCreateSyntheticToken(inner *MsgCreateSyntheticToken) *MsgDymCreate
 		Signer: inner.Owner,
 		Inner:  inner,
 	}
+}
+
+// addr like dym166kyzqc2e0ewmwmv4vj68pzqp57tgts5lyawlc
+// returns a value which can be passed to ethereum as recipient, e.g 0x000000000000000000000000d6ac41030acbf2edbb6cab25a384400d3cb42e14
+func HexCosmosAddr(addr string) (string, error) {
+	bz, err := sdk.GetFromBech32(addr, sdk.GetConfig().GetBech32AccountAddrPrefix())
+	if err != nil {
+		return "", fmt.Errorf("addr address from bech32: %w", err)
+	}
+
+	ret := hyperutil.EncodeEthHex(bz)
+	ret = strings.TrimPrefix(ret, "0x")
+	prefix := "0x000000000000000000000000"
+	ret = prefix + ret
+
+	return ret, nil
 }
