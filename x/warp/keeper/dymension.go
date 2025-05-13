@@ -4,7 +4,6 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"math/big"
 	"slices"
 	"strings"
 
@@ -124,6 +123,17 @@ func (k *DymensionHandler) Handle(ctx context.Context, mailboxId util.HexAddress
 		Coins:     coins,
 	})
 
+	_ = sdk.UnwrapSDKContext(ctx).EventManager().EmitTypedEvent(&types.EventReceiveRemoteTransfer{
+		Sender:       message.Sender,
+		TokenId:      token.Id,
+		OriginDomain: message.Origin,
+		Recipient:    payload.GetCosmosAccount().String(),
+		Amount: sdk.NewCoins(sdk.NewCoin(
+			token.OriginDenom,
+			math.NewIntFromBigInt(payload.Amount()),
+		)).String(),
+	})
+
 	return err
 }
 
@@ -216,6 +226,13 @@ func (ms msgServer) DymCreateSyntheticToken(ctx context.Context, wrapped *types.
 		return nil, err
 	}
 
+	_ = sdk.UnwrapSDKContext(ctx).EventManager().EmitTypedEvent(&types.EventDymCreateSyntheticToken{
+		TokenId:       newToken.Id,
+		Owner:         newToken.Owner,
+		OriginMailbox: newToken.OriginMailbox,
+		OriginDenom:   newToken.OriginDenom,
+	})
+
 	return &types.MsgDymCreateSyntheticTokenResponse{Inner: &types.MsgCreateSyntheticTokenResponse{Id: tokenId}}, nil
 }
 
@@ -258,6 +275,13 @@ func (ms msgServer) DymCreateCollateralToken(ctx context.Context, wrapped *types
 	if err = ms.k.HypTokens.Set(ctx, tokenId.GetInternalId(), newToken); err != nil {
 		return nil, err
 	}
+	_ = sdk.UnwrapSDKContext(ctx).EventManager().EmitTypedEvent(&types.EventDymCreateCollateralToken{
+		TokenId:       newToken.Id,
+		Owner:         newToken.Owner,
+		OriginMailbox: newToken.OriginMailbox,
+		OriginDenom:   newToken.OriginDenom,
+	})
+
 	return &types.MsgDymCreateCollateralTokenResponse{Inner: &types.MsgCreateCollateralTokenResponse{Id: tokenId}}, nil
 }
 
@@ -298,43 +322,5 @@ func (ms msgServer) DymRemoteTransfer(ctx context.Context, wrapped *types.MsgDym
 		Inner: &types.MsgRemoteTransferResponse{
 			MessageId: messageResultId,
 		},
-	}, nil
-}
-
-// A message which can be sent to the mailbox in TX to trigger a transfer
-func CreateTestHyperlaneMessage(
-	version uint8, // e.g. 1
-	nonce uint32, // e.g. 1
-	srcDomain uint32, // e.g. 1 (Ethereum)
-	srcContract util.HexAddress, // e.g Ethereum token contract
-	dstDomain uint32, // e.g. 0 (Dymension)
-	tokenID util.HexAddress,
-	recipient sdk.AccAddress,
-	amt math.Int,
-	memo []byte,
-) (util.HyperlaneMessage, error) {
-	bech32, err := sdk.Bech32ifyAddressBytes("dym", recipient) // TODO: fix
-	if err != nil {
-		return util.HyperlaneMessage{}, err
-	}
-	recip, err := sdk.GetFromBech32(bech32, "dym") // TODO: fix
-	if err != nil {
-		return util.HyperlaneMessage{}, err
-	}
-
-	wmpl, err := types.NewWarpMemoPayload(recip, *big.NewInt(amt.Int64()), memo)
-	if err != nil {
-		return util.HyperlaneMessage{}, err
-	}
-
-	body := wmpl.Bytes()
-	return util.HyperlaneMessage{
-		Version:     version,
-		Nonce:       nonce,
-		Origin:      srcDomain,
-		Sender:      srcContract,
-		Destination: dstDomain,
-		Recipient:   tokenID,
-		Body:        body,
 	}, nil
 }

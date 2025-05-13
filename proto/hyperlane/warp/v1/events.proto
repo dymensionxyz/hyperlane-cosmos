@@ -37,6 +37,36 @@ message EventCreateCollateralToken {
   string origin_denom = 4;
 }
 
+message EventDymCreateSyntheticToken {
+  string token_id = 1 [
+    (gogoproto.customtype) =
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+    (gogoproto.nullable) = false
+  ];
+  string owner = 2;
+  string origin_mailbox = 3 [
+    (gogoproto.customtype) =
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+    (gogoproto.nullable) = false
+  ];
+  string origin_denom = 4;
+}
+
+message EventDymCreateCollateralToken {
+  string token_id = 1 [
+    (gogoproto.customtype) =
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+    (gogoproto.nullable) = false
+  ];
+  string owner = 2;
+  string origin_mailbox = 3 [
+    (gogoproto.customtype) =
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+    (gogoproto.nullable) = false
+  ];
+  string origin_denom = 4;
+}
+
 // EventSetToken ...
 message EventSetToken {
   string token_id = 1;

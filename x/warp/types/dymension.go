@@ -41,15 +41,6 @@ func ParseWarpMemoPayload(payload []byte) (DymWarpMemoPayload, error) {
 		return DymWarpMemoPayload{}, err
 	}
 
-	// ~~~ GPT ~~~
-	// Trim leading zeros from recipient bytes
-	// recipient := warp.Recipient()
-	// for len(recipient) > 0 && recipient[0] == 0 {
-	// 	recipient = recipient[1:]
-	// }
-
-	// warp.recipient = recipient
-	// ~~~~~~~~~~~
 	memo := payload[64:]
 
 	return DymWarpMemoPayload{
