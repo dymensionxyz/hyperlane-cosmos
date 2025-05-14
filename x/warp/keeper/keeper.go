@@ -108,6 +108,10 @@ func NewKeeper(
 	return k
 }
 
+func (k *Keeper) SetHook(hook OnMessageHook) {
+	k.hook = hook
+}
+
 func (k *Keeper) Exists(ctx context.Context, tokenId util.HexAddress) (bool, error) {
 	return k.HypTokens.Has(ctx, tokenId.GetInternalId())
 }
