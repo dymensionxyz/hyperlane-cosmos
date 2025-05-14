@@ -29,6 +29,8 @@ type Keeper struct {
 	// typically, this should be the x/gov module account.
 	authority string
 
+	hook OnMessageHook
+
 	enabledTokens []int32
 	Params        collections.Item[types.Params]
 	// state management
@@ -40,6 +42,30 @@ type Keeper struct {
 
 	bankKeeper types.BankKeeper
 	coreKeeper types.CoreKeeper
+}
+
+type OnHyperlaneMessageArgs struct {
+	MailboxId util.HexAddress
+
+	// original unmdified Message
+	Message util.HyperlaneMessage
+
+	// original unmodified metadata
+	Metadata []byte
+
+	// funds recipient
+	Account sdk.AccAddress
+
+	// how much was credited
+	Coins sdk.Coins
+}
+
+func (a OnHyperlaneMessageArgs) Coin() sdk.Coin {
+	return a.Coins[0]
+}
+
+type OnMessageHook interface {
+	OnHyperlaneMessage(ctx context.Context, args OnHyperlaneMessageArgs) error
 }
 
 // NewKeeper creates a new Keeper instance
@@ -153,6 +179,23 @@ func (k *Keeper) Handle(ctx context.Context, mailboxId util.HexAddress, message 
 			math.NewIntFromBigInt(payload.Amount()),
 		)).String(),
 	})
+
+	if err != nil {
+		return err
+	}
+
+	if k.hook != nil {
+		err = k.hook.OnHyperlaneMessage(ctx, OnHyperlaneMessageArgs{
+			MailboxId: mailboxId,
+			Message:   message,
+			Metadata:  payload.Metadata(),
+			Account:   payload.GetCosmosAccount(),
+			Coins: sdk.NewCoins(sdk.NewCoin(
+				token.OriginDenom,
+				math.NewIntFromBigInt(payload.Amount()),
+			)),
+		})
+	}
 
 	return err
 }
