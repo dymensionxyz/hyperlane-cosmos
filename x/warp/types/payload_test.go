@@ -2,6 +2,7 @@ package types
 
 import (
 	"fmt"
+	"math/big"
 	"testing"
 
 	"github.com/ethereum/go-ethereum/common"
@@ -25,6 +26,19 @@ func TestIsZeroPadded(t *testing.T) {
 			}
 		})
 	}
+}
+
+func TestWarpPayloadRoundrip(t *testing.T) {
+
+	recipient := []byte{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+	amt := big.NewInt(42)
+	meta := []byte("hello")
+	pl, err := NewWarpPayload(recipient, *amt, meta)
+	require.NoError(t, err)
+	bz := pl.Bytes()
+	pl2, err := ParseWarpPayload(bz)
+	require.NoError(t, err)
+	require.Equal(t, pl, pl2)
 }
 
 func TestParseWarpPayload_NoMetadata(t *testing.T) {
