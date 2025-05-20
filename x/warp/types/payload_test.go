@@ -29,7 +29,6 @@ func TestIsZeroPadded(t *testing.T) {
 }
 
 func TestWarpPayloadRoundrip(t *testing.T) {
-
 	recipient := []byte{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
 	amt := big.NewInt(42)
 	meta := []byte("helloo")
