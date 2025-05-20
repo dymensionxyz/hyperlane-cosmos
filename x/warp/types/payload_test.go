@@ -4,9 +4,24 @@ import (
 	"fmt"
 	"testing"
 
+	"math/big"
+
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/stretchr/testify/require"
 )
+
+func TestWarpPayloadRoundrip(t *testing.T) {
+
+	recipient := []byte{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+	amt := big.NewInt(42)
+	meta := []byte("hello")
+	pl, err := NewWarpPayload(recipient, *amt, meta)
+	require.NoError(t, err)
+	bz := pl.Bytes()
+	pl2, err := ParseWarpPayload(bz)
+	require.NoError(t, err)
+	require.Equal(t, pl, pl2)
+}
 
 func TestIsZeroPadded(t *testing.T) {
 	type pair struct {
