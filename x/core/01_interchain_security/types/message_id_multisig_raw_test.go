@@ -181,10 +181,7 @@ var _ = Describe("message_id_multisig.go", Ordered, func() {
 			Body:        nil,
 		}
 
-		metadata := types.MessageIdMultisigMetadata{
-			MerkleTreeHook: [32]byte{},
-			MerkleRoot:     [32]byte{},
-			MerkleIndex:    0,
+		metadata := types.MessageIdMultisigRawMetadata{
 			SignatureCount: 0,
 		}
 
@@ -223,11 +220,7 @@ var _ = Describe("message_id_multisig.go", Ordered, func() {
 			Body:        nil,
 		}
 
-		metadata := types.MessageIdMultisigMetadata{
-			MerkleTreeHook: [32]byte{},
-			MerkleRoot:     [32]byte{},
-			MerkleIndex:    uint32(0),
-		}
+		metadata := types.MessageIdMultisigRawMetadata{}
 
 		digest := metadata.Digest(&message)
 
@@ -263,11 +256,7 @@ var _ = Describe("message_id_multisig.go", Ordered, func() {
 			Body:        nil,
 		}
 
-		metadata := types.MessageIdMultisigMetadata{
-			MerkleTreeHook: [32]byte{},
-			MerkleRoot:     [32]byte{},
-			MerkleIndex:    uint32(0),
-		}
+		metadata := types.MessageIdMultisigRawMetadata{}
 
 		var signatures [][]byte
 		invalidSignature := make([]byte, 65)
@@ -301,11 +290,7 @@ var _ = Describe("message_id_multisig.go", Ordered, func() {
 			Body:        nil,
 		}
 
-		metadata := types.MessageIdMultisigMetadata{
-			MerkleTreeHook: [32]byte{},
-			MerkleRoot:     [32]byte{},
-			MerkleIndex:    uint32(0),
-		}
+		metadata := types.MessageIdMultisigRawMetadata{}
 
 		digest := metadata.Digest(&message)
 
@@ -346,11 +331,7 @@ var _ = Describe("message_id_multisig.go", Ordered, func() {
 			Body:        nil,
 		}
 
-		metadata := types.MessageIdMultisigMetadata{
-			MerkleTreeHook: [32]byte{},
-			MerkleRoot:     [32]byte{},
-			MerkleIndex:    uint32(0),
-		}
+		metadata := types.MessageIdMultisigRawMetadata{}
 
 		digest := metadata.Digest(&message)
 
@@ -393,11 +374,7 @@ var _ = Describe("message_id_multisig.go", Ordered, func() {
 			Body:        nil,
 		}
 
-		metadata := types.MessageIdMultisigMetadata{
-			MerkleTreeHook: [32]byte{},
-			MerkleRoot:     [32]byte{},
-			MerkleIndex:    uint32(0),
-		}
+		metadata := types.MessageIdMultisigRawMetadata{}
 
 		digest := metadata.Digest(&message)
 
