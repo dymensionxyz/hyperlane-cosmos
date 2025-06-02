@@ -34,6 +34,7 @@ func GetTxCmd() *cobra.Command {
 	txCmd.AddCommand(
 		CmdAnnounceValidator(),
 		CmdCreateMessageIdMultisigIsm(),
+		CmdCreateMessageIdMultisigIsmRaw(),
 		CmdCreateMerkleRootMultiSigIsm(),
 		CmdCreateNoopIsm(),
 		CmdCreateRoutingIsm(),
@@ -79,10 +80,10 @@ func CmdAnnounceValidator() *cobra.Command {
 	return cmd
 }
 
-func CmdCreateMessageIdMultisigIsm() *cobra.Command {
+func CmdCreateMessageIdMultisigIsmRaw() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "create-message-id-multisig [validators] [threshold]",
-		Short: "Create a Hyperlane MessageId Multisig ISM",
+		Use:   "create-message-id-multisig-raw [validators] [threshold]",
+		Short: "Create a Hyperlane MessageId Multisig ISM (DYMENSION)",
 		Args:  cobra.ExactArgs(2),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
 			validators := strings.Split(args[0], ",")
@@ -96,7 +97,7 @@ func CmdCreateMessageIdMultisigIsm() *cobra.Command {
 				return err
 			}
 
-			msg := types.MsgCreateMessageIdMultisigIsm{
+			msg := types.MsgCreateMessageIdMultisigIsmRaw{
 				Creator:    clientCtx.GetFromAddress().String(),
 				Validators: validators,
 				Threshold:  uint32(threshold),
