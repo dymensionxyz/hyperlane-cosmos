@@ -348,6 +348,46 @@ func (m msgServer) CreateMessageIdMultisigIsm(ctx context.Context, req *types.Ms
 	return &types.MsgCreateMessageIdMultisigIsmResponse{Id: ismId}, nil
 }
 
+func (k *Keeper) CreateMessageIdMultisigIsmRaw(ctx context.Context, req *types.MsgCreateMessageIdMultisigIsmRaw) (util.HexAddress, error) {
+	ismId, err := k.coreKeeper.IsmRouter().GetNextSequence(ctx, types.INTERCHAIN_SECURITY_MODULE_TYPE_MESSAGE_ID_MULTISIG_RAW)
+	if err != nil {
+		return util.HexAddress{}, errors.Wrap(types.ErrUnexpectedError, err.Error())
+	}
+
+	newIsm := types.MessageIdMultisigISMRaw{
+		Id:         ismId,
+		Owner:      req.Creator,
+		Validators: req.Validators,
+		Threshold:  req.Threshold,
+	}
+
+	if err = newIsm.Validate(); err != nil {
+		return util.HexAddress{}, errors.Wrap(types.ErrInvalidMultisigConfiguration, err.Error())
+	}
+
+	if err = k.isms.Set(ctx, ismId.GetInternalId(), &newIsm); err != nil {
+		return util.HexAddress{}, errors.Wrap(types.ErrUnexpectedError, err.Error())
+	}
+
+	_ = sdk.UnwrapSDKContext(ctx).EventManager().EmitTypedEvent(&types.EventCreateMessageIdMultisigIsmRaw{
+		IsmId:      newIsm.Id,
+		Owner:      newIsm.Owner,
+		Validators: newIsm.Validators,
+		Threshold:  newIsm.Threshold,
+	})
+
+	return ismId, nil
+}
+
+func (m msgServer) CreateMessageIdMultisigIsmRaw(ctx context.Context, req *types.MsgCreateMessageIdMultisigIsmRaw) (*types.MsgCreateMessageIdMultisigIsmRawResponse, error) {
+	ismId, err := m.k.CreateMessageIdMultisigIsmRaw(ctx, req)
+	if err != nil {
+		return nil, err
+	}
+
+	return &types.MsgCreateMessageIdMultisigIsmRawResponse{Id: ismId}, nil
+}
+
 func (k *Keeper) CreateMerkleRootMultisigIsm(ctx context.Context, req *types.MsgCreateMerkleRootMultisigIsm) (util.HexAddress, error) {
 	ismId, err := k.coreKeeper.IsmRouter().GetNextSequence(ctx, types.INTERCHAIN_SECURITY_MODULE_TYPE_MERKLE_ROOT_MULTISIG)
 	if err != nil {

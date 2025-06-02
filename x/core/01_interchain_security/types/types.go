@@ -44,6 +44,9 @@ const (
 	INTERCHAIN_SECURITY_MODULE_TYPE_OP_L2_TO_L1
 )
 
+// DYMENSION: this is illegal according to Hyperlane spec
+const INTERCHAIN_SECURITY_MODULE_TYPE_MESSAGE_ID_MULTISIG_RAW = 255
+
 func GetAnnouncementDigest(storageLocation string, domainId uint32, mailbox []byte) [32]byte {
 	var domainHashBytes []byte
 
