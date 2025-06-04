@@ -979,7 +979,8 @@ type QueryClient interface {
 	RegisteredHooks(ctx context.Context, in *QueryRegisteredHooks, opts ...grpc.CallOption) (*QueryRegisteredHooksResponse, error)
 	// RegisteredApps ...
 	RegisteredApps(ctx context.Context, in *QueryRegisteredApps, opts ...grpc.CallOption) (*QueryRegisteredAppsResponse, error)
-	// DYMENSION: returns the message ids. Useful to be certain to avoid client miscalculation in case of e.g. using an outdated type.
+	// DYMENSION: returns the message ids. Useful to be certain to avoid client
+	// miscalculation in case of e.g. using an outdated type.
 	MessageID(ctx context.Context, in *QueryMessageIDRequest, opts ...grpc.CallOption) (*QueryMessageIDResponse, error)
 }
 
@@ -1094,7 +1095,8 @@ type QueryServer interface {
 	RegisteredHooks(context.Context, *QueryRegisteredHooks) (*QueryRegisteredHooksResponse, error)
 	// RegisteredApps ...
 	RegisteredApps(context.Context, *QueryRegisteredApps) (*QueryRegisteredAppsResponse, error)
-	// DYMENSION: returns the message ids. Useful to be certain to avoid client miscalculation in case of e.g. using an outdated type.
+	// DYMENSION: returns the message ids. Useful to be certain to avoid client
+	// miscalculation in case of e.g. using an outdated type.
 	MessageID(context.Context, *QueryMessageIDRequest) (*QueryMessageIDResponse, error)
 }
 

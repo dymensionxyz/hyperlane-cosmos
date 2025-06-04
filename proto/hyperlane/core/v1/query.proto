@@ -61,11 +61,11 @@ service Query {
     option (google.api.http).get = "/hyperlane/v1/registered_apps";
   }
 
-  // DYMENSION: returns the message ids. Useful to be certain to avoid client miscalculation in case of e.g. using an outdated type.
-  rpc MessageID(QueryMessageIDRequest)
-      returns (QueryMessageIDResponse) {
+  // DYMENSION: returns the message ids. Useful to be certain to avoid client
+  // miscalculation in case of e.g. using an outdated type.
+  rpc MessageID(QueryMessageIDRequest) returns (QueryMessageIDResponse) {
     option (google.api.http).get = "/hyperlane/v1/dym_message_id";
-  } 
+  }
 }
 
 // QueryMailboxesRequest ...
@@ -147,4 +147,4 @@ message QueryMessageIDRequest {
 }
 
 // error returned instead if any message does not match the id
-message QueryMessageIDResponse { }
+message QueryMessageIDResponse {}

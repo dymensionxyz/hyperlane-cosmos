@@ -160,7 +160,9 @@ func (m *MessageIdMultisigISM) XXX_DiscardUnknown() {
 var xxx_messageInfo_MessageIdMultisigISM proto.InternalMessageInfo
 
 // DYMENSION
-// MessageIdMultisigISM has unnecessary code because of it's implicit merkle tree (https://github.com/dymensionxyz/hyperlane-monorepo/blob/00b8642100af822767ceb605bc2627de7ddde610/rust/main/hyperlane-core/src/types/checkpoint.rs#L32-L51)
+// MessageIdMultisigISM has unnecessary code because of it's implicit merkle
+// tree
+// (https://github.com/dymensionxyz/hyperlane-monorepo/blob/00b8642100af822767ceb605bc2627de7ddde610/rust/main/hyperlane-core/src/types/checkpoint.rs#L32-L51)
 // Otherwise it's a dupe of the non raw version.
 type MessageIdMultisigISMRaw struct {
 	// id ...

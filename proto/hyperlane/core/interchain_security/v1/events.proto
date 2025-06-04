@@ -50,7 +50,6 @@ message EventCreateMessageIdMultisigIsm {
   uint32 threshold = 4;
 }
 
-
 // DYMENSION: dupe of non raw
 message EventCreateMessageIdMultisigIsmRaw {
   string ism_id = 1 [
