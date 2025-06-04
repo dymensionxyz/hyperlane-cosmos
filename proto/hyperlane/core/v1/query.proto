@@ -135,6 +135,7 @@ message QueryRegisteredApps {}
 // QueryRegisteredAppsResponse ...
 message QueryRegisteredAppsResponse { repeated uint32 ids = 1; }
 
+// QueryMessageIDRequest ...
 message QueryMessageIDRequest {
   // <messages,ids> should correspond by index
 
