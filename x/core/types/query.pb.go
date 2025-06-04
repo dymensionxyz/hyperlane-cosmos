@@ -769,6 +769,7 @@ func (m *QueryRegisteredAppsResponse) GetIds() []uint32 {
 	return nil
 }
 
+// QueryMessageIDRequest ...
 type QueryMessageIDRequest struct {
 	// in raw format
 	Messages [][]byte `protobuf:"bytes,1,rep,name=messages,proto3" json:"messages,omitempty"`
