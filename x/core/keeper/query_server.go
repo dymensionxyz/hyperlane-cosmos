@@ -135,3 +135,20 @@ func (qs queryServer) RegisteredApps(_ context.Context, _ *types.QueryRegistered
 		Ids: qs.k.AppRouter().GetModuleIds(),
 	}, nil
 }
+
+func (qs queryServer) MessageID(ctx context.Context, req *types.QueryMessageIDRequest) (*types.QueryMessageIDResponse, error) {
+	if len(req.Messages) != len(req.Ids) {
+		return nil, fmt.Errorf("messages and ids must have the same length")
+	}
+
+	for i, bz := range req.Messages {
+		m, err := util.ParseHyperlaneMessage(bz)
+		if err != nil {
+			return nil, err
+		}
+		if m.Id().String() != req.Ids[i] {
+			return nil, fmt.Errorf("message id mismatch at index %d", i)
+		}
+	}
+	return &types.QueryMessageIDResponse{}, nil
+}

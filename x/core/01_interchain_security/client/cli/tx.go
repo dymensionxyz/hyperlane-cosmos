@@ -34,6 +34,7 @@ func GetTxCmd() *cobra.Command {
 	txCmd.AddCommand(
 		CmdAnnounceValidator(),
 		CmdCreateMessageIdMultisigIsm(),
+		CmdCreateMessageIdMultisigIsmRaw(),
 		CmdCreateMerkleRootMultiSigIsm(),
 		CmdCreateNoopIsm(),
 		CmdCreateRoutingIsm(),
@@ -97,6 +98,38 @@ func CmdCreateMessageIdMultisigIsm() *cobra.Command {
 			}
 
 			msg := types.MsgCreateMessageIdMultisigIsm{
+				Creator:    clientCtx.GetFromAddress().String(),
+				Validators: validators,
+				Threshold:  uint32(threshold),
+			}
+
+			return tx.GenerateOrBroadcastTxCLI(clientCtx, cmd.Flags(), &msg)
+		},
+	}
+
+	flags.AddTxFlagsToCmd(cmd)
+
+	return cmd
+}
+
+func CmdCreateMessageIdMultisigIsmRaw() *cobra.Command {
+	cmd := &cobra.Command{
+		Use:   "create-message-id-multisig-raw [validators] [threshold]",
+		Short: "Create a Hyperlane MessageId Multisig ISM (DYMENSION)",
+		Args:  cobra.ExactArgs(2),
+		RunE: func(cmd *cobra.Command, args []string) (err error) {
+			validators := strings.Split(args[0], ",")
+			threshold, err := strconv.ParseUint(args[1], 10, 32)
+			if err != nil {
+				return err
+			}
+
+			clientCtx, err := client.GetClientTxContext(cmd)
+			if err != nil {
+				return err
+			}
+
+			msg := types.MsgCreateMessageIdMultisigIsmRaw{
 				Creator:    clientCtx.GetFromAddress().String(),
 				Validators: validators,
 				Threshold:  uint32(threshold),

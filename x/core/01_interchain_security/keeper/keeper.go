@@ -78,3 +78,7 @@ func (k *Keeper) Verify(ctx context.Context, ismId util.HexAddress, metadata []b
 func (k *Keeper) Exists(ctx context.Context, ismId util.HexAddress) (bool, error) {
 	return k.isms.Has(ctx, ismId.GetInternalId())
 }
+
+func (k *Keeper) Get(ctx context.Context, ismId util.HexAddress) (types.HyperlaneInterchainSecurityModule, error) {
+	return k.isms.Get(ctx, ismId.GetInternalId())
+}

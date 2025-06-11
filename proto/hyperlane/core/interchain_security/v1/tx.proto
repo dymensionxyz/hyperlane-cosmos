@@ -17,6 +17,10 @@ service Msg {
   rpc CreateMessageIdMultisigIsm(MsgCreateMessageIdMultisigIsm)
       returns (MsgCreateMessageIdMultisigIsmResponse);
 
+  // DYMENSION
+  rpc CreateMessageIdMultisigIsmRaw(MsgCreateMessageIdMultisigIsmRaw)
+      returns (MsgCreateMessageIdMultisigIsmRawResponse);
+
   // CreateMerkleRootMultisigIsm ...
   rpc CreateMerkleRootMultisigIsm(MsgCreateMerkleRootMultisigIsm)
       returns (MsgCreateMerkleRootMultisigIsmResponse);
@@ -63,6 +67,31 @@ message MsgCreateMessageIdMultisigIsm {
 
 // MsgCreateMessageIdMultisigIsmResponse ...
 message MsgCreateMessageIdMultisigIsmResponse {
+  string id = 1 [
+    (gogoproto.customtype) =
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+    (gogoproto.nullable) = false
+  ];
+}
+
+// DYMENSION: dupe of non raw
+message MsgCreateMessageIdMultisigIsmRaw {
+  option (cosmos.msg.v1.signer) = "creator";
+  option (amino.name) = "hyperlane/v1/MsgCreateMessageIdMultisigIsmRaw";
+
+  // creator is the message sender.
+  string creator = 1;
+
+  // validators
+  // these are 20 byte long ethereum style addresses
+  repeated string validators = 2;
+
+  // threshold ...
+  uint32 threshold = 3;
+}
+
+// DYMENSION: dupe of non raw
+message MsgCreateMessageIdMultisigIsmRawResponse {
   string id = 1 [
     (gogoproto.customtype) =
         "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",

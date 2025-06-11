@@ -69,6 +69,34 @@ message MessageIdMultisigISM {
   uint32 threshold = 4;
 }
 
+// DYMENSION
+// MessageIdMultisigISM has unnecessary code because of it's implicit merkle
+// tree
+// (https://github.com/dymensionxyz/hyperlane-monorepo/blob/00b8642100af822767ceb605bc2627de7ddde610/rust/main/hyperlane-core/src/types/checkpoint.rs#L32-L51)
+// Otherwise it's a dupe of the non raw version.
+message MessageIdMultisigISMRaw {
+  option (gogoproto.goproto_getters) = false;
+  option (cosmos_proto.implements_interface) =
+      "hyperlane.core.interchain_security.v1.HyperlaneInterchainSecurityModule";
+
+  // id ...
+  string id = 1 [
+    (gogoproto.customtype) =
+        "github.com/bcp-innovations/hyperlane-cosmos/util.HexAddress",
+    (gogoproto.nullable) = false
+  ];
+
+  // owner ...
+  string owner = 2 [ (cosmos_proto.scalar) = "cosmos.AddressString" ];
+
+  // validators
+  // these are 20 byte long ethereum style addresses
+  repeated string validators = 3;
+
+  // threshold ...
+  uint32 threshold = 4;
+}
+
 // MerkleRootMultisigISM ...
 message MerkleRootMultisigISM {
   option (gogoproto.goproto_getters) = false;
