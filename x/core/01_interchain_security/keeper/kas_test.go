@@ -25,8 +25,8 @@ var _ = Describe("dymension msg_server.go", Ordered, func() {
 		// Arrange
 		mailboxId, _, _ := createValidMailbox(s, creator.Address, "noop")
 
-		validatorAddress := "0x9695e09597f3111b183700e06d6f1a7d50ea1aee"                       // looks ok
-		validatorPrivKey := "c18908a1bbe0ec588cd6522d2b02af3076a2f2c562a09bb8bf5a40f6e9a0ef1b" // looks busted
+		validatorAddress := "0x9695e09597f3111b183700e06d6f1a7d50ea1aee"
+		validatorPrivKey := "c18908a1bbe0ec588cd6522d2b02af3076a2f2c562a09bb8bf5a40f6e9a0ef1b"
 
 		storageLocation := "aws://key.pub"
 
