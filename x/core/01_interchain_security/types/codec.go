@@ -11,6 +11,7 @@ func RegisterInterfaces(registry types.InterfaceRegistry) {
 	registry.RegisterImplementations((*sdk.Msg)(nil),
 		&MsgCreateMessageIdMultisigIsm{},
 		&MsgCreateMerkleRootMultisigIsm{},
+		&MsgCreateMessageIdMultisigIsmRaw{},
 		&MsgCreateNoopIsm{},
 		&MsgAnnounceValidator{},
 		&MsgCreateRoutingIsm{},
@@ -23,6 +24,7 @@ func RegisterInterfaces(registry types.InterfaceRegistry) {
 		&NoopISM{},
 		&MessageIdMultisigISM{},
 		&MerkleRootMultisigISM{},
+		&MessageIdMultisigISMRaw{},
 		&RoutingISM{},
 	)
 }

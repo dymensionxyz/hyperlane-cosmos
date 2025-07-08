@@ -59,6 +59,7 @@ func (k *Keeper) SetCoreKeeper(coreKeeper types.CoreKeeper) {
 	router.RegisterModule(types.INTERCHAIN_SECURITY_MODULE_TYPE_UNUSED, k)
 	router.RegisterModule(types.INTERCHAIN_SECURITY_MODULE_TYPE_MERKLE_ROOT_MULTISIG, k)
 	router.RegisterModule(types.INTERCHAIN_SECURITY_MODULE_TYPE_MESSAGE_ID_MULTISIG, k)
+	router.RegisterModule(types.INTERCHAIN_SECURITY_MODULE_TYPE_MESSAGE_ID_MULTISIG_RAW, k)
 
 	// routing ism
 	router.RegisterModule(types.INTERCHAIN_SECURITY_MODULE_TYPE_ROUTING, &RoutingISMHandler{keeper: k})
