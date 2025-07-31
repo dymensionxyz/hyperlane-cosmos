@@ -29,7 +29,7 @@ type Keeper struct {
 	// typically, this should be the x/gov module account.
 	authority string
 
-	hook OnMessageHook
+	hook *OnMessageHook
 
 	enabledTokens []int32
 	Params        collections.Item[types.Params]
@@ -83,11 +83,15 @@ func NewKeeper(
 	}
 
 	sb := collections.NewSchemaBuilder(storeService)
+
+	// workaround to allow setting hook later
+	nilHook := OnMessageHook(nil)
 	k := Keeper{
 		cdc:             cdc,
 		addressCodec:    addressCodec,
 		authority:       authority,
 		enabledTokens:   enabledTokens,
+		hook:            &nilHook,
 		HypTokens:       collections.NewMap(sb, types.HypTokenKey, "hyptokens", collections.Uint64Key, codec.CollValue[types.HypToken](cdc)),
 		EnrolledRouters: collections.NewMap(sb, types.EnrolledRoutersKey, "enrolled_routers", collections.PairKeyCodec(collections.Uint64Key, collections.Uint32Key), codec.CollValue[types.RemoteRouter](cdc)),
 		Params:          collections.NewItem(sb, types.ParamsKey, "params", codec.CollValue[types.Params](cdc)),
@@ -109,7 +113,7 @@ func NewKeeper(
 }
 
 func (k *Keeper) SetHook(hook OnMessageHook) {
-	k.hook = hook
+	*k.hook = hook
 }
 
 func (k *Keeper) Exists(ctx context.Context, tokenId util.HexAddress) (bool, error) {
@@ -188,8 +192,8 @@ func (k *Keeper) Handle(ctx context.Context, mailboxId util.HexAddress, message 
 		return err
 	}
 
-	if k.hook != nil {
-		err = k.hook.OnHyperlaneMessage(ctx, OnHyperlaneMessageArgs{
+	if k.hook != nil && *k.hook != nil {
+		err = (*k.hook).OnHyperlaneMessage(ctx, OnHyperlaneMessageArgs{
 			MailboxId: mailboxId,
 			Message:   message,
 			Metadata:  payload.Metadata(),
