@@ -77,19 +77,21 @@ func NewKeeper(
 	bankKeeper types.BankKeeper,
 	coreKeeper types.CoreKeeper,
 	enabledTokens []int32,
-	hook *OnMessageHook,
 ) Keeper {
 	if _, err := addressCodec.StringToBytes(authority); err != nil {
 		panic(fmt.Errorf("invalid authority address: %w", err))
 	}
 
 	sb := collections.NewSchemaBuilder(storeService)
+
+	// workaround to allow setting hook later
+	nilHook := OnMessageHook(nil)
 	k := Keeper{
 		cdc:             cdc,
 		addressCodec:    addressCodec,
 		authority:       authority,
 		enabledTokens:   enabledTokens,
-		hook:            hook,
+		hook:            &nilHook,
 		HypTokens:       collections.NewMap(sb, types.HypTokenKey, "hyptokens", collections.Uint64Key, codec.CollValue[types.HypToken](cdc)),
 		EnrolledRouters: collections.NewMap(sb, types.EnrolledRoutersKey, "enrolled_routers", collections.PairKeyCodec(collections.Uint64Key, collections.Uint32Key), codec.CollValue[types.RemoteRouter](cdc)),
 		Params:          collections.NewItem(sb, types.ParamsKey, "params", codec.CollValue[types.Params](cdc)),
@@ -111,9 +113,7 @@ func NewKeeper(
 }
 
 func (k *Keeper) SetHook(hook OnMessageHook) {
-	if k.hook != nil {
-		*k.hook = hook
-	}
+	*k.hook = hook
 }
 
 func (k *Keeper) Exists(ctx context.Context, tokenId util.HexAddress) (bool, error) {
